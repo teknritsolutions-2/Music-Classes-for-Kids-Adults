@@ -1,0 +1,27 @@
+[dir='rtl'] .arrow {
+  transform: scaleX(-1);
+}
+[dir='rtl'] .hero-copy::before {
+  transform: scaleX(-1);
+}
+[dir='rtl'] .time {
+  unicode-bidi: isolate;
+  direction: ltr;
+  display: inline-block;
+}
+
+[dir='rtl'] :where(h1, h2, h3, p, dt, dd, figcaption, .hero-line span, [data-count]) {
+  unicode-bidi: plaintext;
+  text-align: right;
+}
+[dir='rtl'] :where(.link-button, .fee) {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+@media (min-width: 720px) {
+  [dir='rtl'] .hero-photo {
+    inset-inline-start: auto;
+    inline-size: 74%;
+    mask-image: linear-gradient(to right, #000 75%, transparent);
+  }
+}

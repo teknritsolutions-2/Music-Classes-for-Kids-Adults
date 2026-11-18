@@ -1,0 +1,10 @@
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --canvas: #171520;
+  --surface: #262331;
+  --soft: #302c39;
+  --ink: #f9f5f0;
+  --muted: #c1bbcb;
+  --line: #494452;
+  --accent-text: #ffa091;
+}

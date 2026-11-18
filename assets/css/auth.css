@@ -1,0 +1,73 @@
+[data-page='login'],
+[data-page='signup'] {
+  background: var(--soft);
+}
+[data-page='login'] main,
+[data-page='signup'] main {
+  min-block-size: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 4vw, 3rem);
+}
+.auth-card {
+  inline-size: min(100%, 31rem);
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.1rem, 4vw, 2.4rem);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.auth-card > :is(div:first-child, h1, p) {
+  text-align: center;
+}
+.auth-card h1 {
+  font-size: clamp(2rem, 5vw, 3.35rem);
+}
+.auth-card form {
+  margin-block-start: 0.35rem;
+}
+.password {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.45rem;
+  align-items: end;
+}
+.password .button {
+  min-block-size: 2.8rem;
+  min-inline-size: 4rem;
+  padding-inline: 0.6rem;
+}
+.remember {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem 0.65rem;
+}
+.remember label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-block-size: 2.5rem;
+}
+.remember input {
+  accent-color: var(--accent-text);
+}
+.link-button {
+  border: 0;
+  background: transparent;
+  padding: 0.38rem 0;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+.auth-providers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+.auth-status {
+  border-inline-start: 3px solid var(--coral);
+  padding: 0.6rem;
+  background: var(--soft);
+}
