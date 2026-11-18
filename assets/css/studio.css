@@ -84,26 +84,7 @@
   margin: 0;
 }
 
-/* Home 1 studio feature and the shared instrument selector */
-.front-stage {
-  --mosaic-edge: right bottom;
-  display: grid;
-  align-items: center;
-  gap: clamp(1.35rem, 3vw, 2.65rem);
-  padding: clamp(1rem, 3.75vw, 3.4rem);
-  border-radius: var(--editorial-radius);
-  background:
-    linear-gradient(#17151fc7, #17151fc7),
-    url('../images/pixel-rhythm.svg') var(--mosaic-edge) / cover;
-}
-.front-stage:dir(rtl) {
-  --mosaic-edge: left bottom;
-}
-.front-lead {
-  display: grid;
-  align-content: center;
-  gap: clamp(0.65rem, 1.7vw, 1rem);
-}
+/* Shared instrument selector */
 .studio-eyebrow {
   color: var(--accent-text);
   font-size: var(--size-meta);
@@ -111,90 +92,10 @@
   letter-spacing: 0.075em;
   text-transform: uppercase;
 }
-.front-lead h1 {
-  font-size: clamp(2.35rem, 3.7vw, 3.75rem);
-  line-height: 1.04;
-  text-wrap: initial;
-}
-.front-lead h1 em {
-  display: block;
-  color: var(--accent-text);
-  font-style: normal;
-}
-.front-lead > p:not(.studio-eyebrow) {
-  max-inline-size: 39ch;
-  color: var(--muted);
-  font-size: clamp(1rem, 1.5vw, 1.13rem);
-}
-.front-stage .button.accent {
-  color: #211632;
-  background: var(--lilac);
-  border-color: var(--lilac);
-}
-.front-stage .button.accent:hover {
-  background: #e2d2ff;
-  border-color: #e2d2ff;
-}
-.front-stage .button {
-  padding-inline: 0.75rem;
-}
-.front-media {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  isolation: isolate;
-}
-.front-photo {
-  grid-area: 1/1/2/-1;
-  border: 1px solid #bba2ff;
-  border-radius: var(--editorial-radius);
-  overflow: clip;
-}
-.front-photo img,
-.front-detail img {
-  inline-size: 100%;
-  block-size: auto;
-  aspect-ratio: 1.78;
-}
-.front-detail {
-  grid-area: 2/9/3/-1;
-  margin-block-start: -0.9rem;
-  margin-inline: 0 0.7rem;
-  border: 0.22rem solid #d6c3ff;
-  border-radius: var(--radius-control);
-  background: #211632;
-  overflow: clip;
-}
-.front-programmes {
-  display: grid;
-  gap: 0.5rem 1rem;
-  align-items: center;
-  padding-block: 0.75rem;
-  border-block-end: 1px solid var(--line);
-}
-.front-programmes h2 {
-  font-size: 1rem;
-}
-.front-programmes > div,
 .instrument-rail {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.4rem;
-}
-.front-programmes a {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.4rem;
-  min-block-size: 2.6rem;
-  padding: 0.32rem 0.65rem;
-  border-radius: var(--radius-control);
-  background: var(--soft);
-  font-weight: 680;
-  text-decoration: none;
-}
-.front-programmes a:hover {
-  color: var(--accent-text);
-  background: var(--surface-hover);
 }
 .instrument-tab {
   min-block-size: 3rem;
@@ -263,15 +164,6 @@
   flex-wrap: wrap;
   gap: 0.35rem;
 }
-.home-instrument [data-explorer] {
-  padding: clamp(0.55rem, 1.65vw, 1.1rem);
-  border-radius: var(--editorial-radius);
-  background: var(--soft);
-}
-.home-instrument .instrument-tab[aria-selected='true'] {
-  background: var(--primary);
-  color: white;
-}
 
 /* Shared learner and lesson sections */
 .learner-list {
@@ -334,43 +226,16 @@
 .front-page .learner-list li .actions {
   padding-block-start: 0.45rem;
 }
-.studio-gallery,
-.performance-gallery,
 .music-steps dl {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 0.7rem;
 }
-.studio-gallery img,
-.performance-gallery img,
 .finder-intro img,
 .contact-sidebar img {
   inline-size: 100%;
   block-size: auto;
   border-radius: var(--editorial-radius);
-}
-.studio-gallery img {
-  aspect-ratio: 1.55;
-}
-.studio-gallery figure:first-child img {
-  object-position: center 24%;
-}
-.studio-gallery figcaption,
-.performance-gallery figcaption {
-  padding-block: 0.38rem 0;
-  color: var(--muted);
-  font-size: var(--size-meta);
-}
-.performance-field {
-  padding: var(--panel-padding);
-  border-radius: var(--editorial-radius);
-}
-.performance-gallery img {
-  aspect-ratio: 1.62;
-}
-.performance-gallery figure:first-child img {
-  aspect-ratio: 1.5;
-  object-position: center 55%;
 }
 .music-steps dl {
   margin: 0;
@@ -416,20 +281,17 @@
 .teaching-intro img {
   object-position: center 43%;
 }
-/* Home 2 music lab */
-.lab-intro,
+/* Catalogue introduction and Lab preview */
 .catalogue-lead {
   display: grid;
   gap: 0.55rem 1.4rem;
   align-items: end;
   margin-block-end: 1rem;
 }
-.lab-intro h1,
 .catalogue-lead h1 {
   font-size: clamp(2.25rem, 4.35vw, 3.25rem);
   text-wrap: initial;
 }
-.lab-intro > p,
 .catalogue-lead > p,
 .instrument-previews p,
 .journey-stages p {
@@ -461,38 +323,8 @@
 .planner-workspace .selects {
   border-radius: var(--radius-control);
 }
-.instrument-previews {
-  display: grid;
-  border-block-start: 1px solid var(--line);
-}
-.instrument-previews article {
-  display: grid;
-  gap: 0.35rem 1rem;
-  align-items: baseline;
-  padding: 0.85rem 0.55rem;
-  border-block-end: 1px solid var(--line);
-}
-.instrument-previews article:nth-child(even) {
-  background: var(--surface);
-}
-.instrument-previews article:has(a[aria-current='true']) {
-  background: var(--soft);
-}
 .comparison-level {
   font-size: var(--size-meta);
-}
-.lab-journey {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: var(--inner-gap);
-  padding: var(--panel-padding);
-  border: 1px solid var(--line);
-  border-radius: var(--editorial-radius);
-  background: var(--surface);
-}
-.lab-journey .block-title {
-  align-content: start;
-  margin: 0;
 }
 .journey-stages {
   border-inline-start: 0.16rem solid var(--line);
@@ -821,19 +653,6 @@
 .teaching-credit .teacher-copy {
   padding: 0.7rem 0.18rem;
 }
-.studio-mentors .teaching-credit {
-  border: 0;
-  border-block-end: 2px solid var(--line);
-  border-radius: 0;
-  background: none;
-}
-.studio-mentors img {
-  border-radius: var(--editorial-radius);
-}
-.studio-mentors .mentor-specialty {
-  padding-inline-start: 0.45rem;
-  border-inline-start: 2px solid var(--accent-text);
-}
 .teacher-copy p,
 .teaching-topics {
   color: var(--muted);
@@ -1082,18 +901,6 @@
     display: flex;
     flex-wrap: wrap;
   }
-  .front-programmes > div {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-  .studio-gallery,
-  .performance-gallery {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .studio-gallery figure:first-child,
-  .performance-gallery figure:first-child,
-  .performance-gallery header {
-    grid-column: 1/-1;
-  }
   .instrument-rail {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -1126,52 +933,11 @@
 }
 
 @media (min-width: 720px) {
-  .front-programmes {
-    grid-template-columns: auto minmax(0, 1fr);
-  }
-  .studio-gallery {
-    grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
-  }
-  .studio-gallery figure:first-child {
-    grid-column: 1;
-    grid-row: span 2;
-    display: grid;
-    grid-template-rows: minmax(0, 1fr) auto;
-  }
-  .studio-gallery figure:first-child img {
-    block-size: 100%;
-    min-block-size: 0;
-    aspect-ratio: auto;
-  }
-  .studio-gallery img {
-    aspect-ratio: 2.12;
-  }
-  .performance-gallery {
-    grid-template-columns: minmax(0, 1.15fr) repeat(2, minmax(0, 1fr));
-    align-items: start;
-  }
-  .performance-gallery header {
-    grid-column: 1;
-    margin: 0;
-  }
-  .performance-gallery figure:first-child img {
-    aspect-ratio: 2.12;
-  }
-  .performance-gallery img {
-    aspect-ratio: 1.9;
-  }
   .front-page .learner-list {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-  .lab-intro,
   .catalogue-lead {
     grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.75fr);
-  }
-  .instrument-previews article {
-    grid-template-columns: minmax(5.2rem, 0.45fr) minmax(0, 1.35fr) minmax(0, 0.8fr) auto;
-  }
-  .lab-journey {
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
   }
   .music-steps dl {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1238,35 +1004,6 @@
   }
   .tempo-read {
     grid-column: auto;
-  }
-}
-
-@media (720px <= width < 950px) {
-  .front-lead {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
-  }
-  .front-lead .studio-eyebrow {
-    grid-column: 1/-1;
-  }
-  .front-lead h1 {
-    grid-row: span 2;
-    align-self: center;
-  }
-}
-
-@media (min-width: 950px) {
-  .front-stage {
-    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
-  }
-  .front-detail {
-    margin-block-start: -1.9rem;
-  }
-  .home-instrument [data-explorer] {
-    grid-template-columns: minmax(8.7rem, 0.25fr) minmax(0, 1fr);
-    align-items: start;
-  }
-  .home-instrument .instrument-rail {
-    grid-template-columns: minmax(0, 1fr);
   }
 }
 

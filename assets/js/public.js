@@ -82,7 +82,7 @@ document.querySelectorAll('[data-mentors]').forEach((host) => {
           ? `<p>${instrument.approach}</p><ul class="teaching-topics">${instrument.topics
               .map((topic) => `<li>${topic}</li>`)
               .join('')}</ul>`
-          : ''
+          : `<p>${instrument.approach}</p>`
       }
       <div class="actions">${textLink('Related courses', courses)}
         ${full ? textLink('View batches', page('fees-batches', { instrument: instrument.id })) : ''}
