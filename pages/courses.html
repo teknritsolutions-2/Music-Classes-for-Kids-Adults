@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../assets/css/fonts.css" />
     <link rel="stylesheet" href="../assets/css/style.css" />
     <link rel="stylesheet" href="../assets/css/dark-mode.css" />
+    <link rel="stylesheet" href="../assets/css/studio.css" />
     <link rel="stylesheet" href="../assets/css/rtl.css" />
     <script type="module" src="../assets/js/public.js"></script>
   </head>
@@ -30,7 +31,7 @@
       >
     </header>
     <main id="main" tabindex="-1">
-      <header class="container intro">
+      <header class="container intro catalogue-intro">
         <span class="kicker">Course catalogue</span>
         <h1>What do you want to play?</h1>
         <p>
@@ -38,7 +39,49 @@
           experience level.
         </p>
       </header>
-      <section class="container section condensed" aria-label="Course catalogue">
+      <nav class="container catalogue-tracks" aria-label="Instrument categories">
+        <a href="?instrument=guitar#course-finder"
+          ><img
+            src="../assets/images/guitar.jpg"
+            width="1000"
+            height="667"
+            alt=""
+            loading="lazy"
+            data-photo
+          /><span>Guitar<span class="arrow" aria-hidden="true">↗</span></span></a
+        >
+        <a href="?instrument=keyboard#course-finder"
+          ><img
+            src="../assets/images/keyboard.jpg"
+            width="1000"
+            height="667"
+            alt=""
+            loading="lazy"
+            data-photo
+          /><span>Keyboard<span class="arrow" aria-hidden="true">↗</span></span></a
+        >
+        <a href="?instrument=vocals#course-finder"
+          ><img
+            src="../assets/images/vocals.jpg"
+            width="1000"
+            height="667"
+            alt=""
+            loading="lazy"
+            data-photo
+          /><span>Vocals<span class="arrow" aria-hidden="true">↗</span></span></a
+        >
+        <a href="?instrument=drums#course-finder"
+          ><img
+            src="../assets/images/drums.jpg"
+            width="1000"
+            height="667"
+            alt=""
+            loading="lazy"
+            data-photo
+          /><span>Drums<span class="arrow" aria-hidden="true">↗</span></span></a
+        >
+      </nav>
+      <section class="container section condensed" id="course-finder" aria-label="Course catalogue">
         <div data-finder="courses"></div>
         <noscript
           ><p>

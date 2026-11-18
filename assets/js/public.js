@@ -3,10 +3,29 @@ import { batches, days } from './batch-data.js';
 import { batchCard, empty, mountFinder, selectField } from './batch-finder.js';
 import { mountExplorer } from './course-explorer.js';
 import { instruments } from './course-data.js';
-import { buttonLink, page, photo } from './site-config.js';
+import { page, photo, textLink } from './site-config.js';
 
 document.querySelectorAll('[data-finder]').forEach((host) => mountFinder(host, host.dataset.finder));
 document.querySelectorAll('[data-explorer]').forEach(mountExplorer);
+
+const catalogue = document.querySelector('[data-finder="courses"] select[name="instrument"]');
+if (catalogue) {
+  const tracks = document.querySelectorAll('.catalogue-tracks a');
+  const reflectInstrument = () => {
+    tracks.forEach((track) => {
+      if (new URL(track.href).searchParams.get('instrument') === catalogue.value) {
+        track.setAttribute('aria-current', 'true');
+      } else {
+        track.removeAttribute('aria-current');
+      }
+    });
+  };
+  catalogue.addEventListener('change', reflectInstrument);
+  document
+    .querySelector('[data-finder="courses"] [data-clear]')
+    .addEventListener('click', reflectInstrument);
+  reflectInstrument();
+}
 
 document.querySelectorAll('[data-batch-preview]').forEach((host) => {
   host.innerHTML = `<form class="preview-filter">${selectField('day', 'Filter by day', days, '', 'Featured sessions')}</form><div class="grid three results" aria-live="polite"></div>`;
@@ -28,10 +47,10 @@ document.querySelectorAll('[data-batch-preview]').forEach((host) => {
 document.querySelectorAll('[data-mentors]').forEach((host) => {
   const full = host.dataset.mentors === 'full';
   const mentor = (instrument) => `
-    <h3>${instrument.mentor}</h3><p><strong>${instrument.name}</strong></p><p>${instrument.approach}</p>
+    <span class="mentor-specialty">${instrument.name}</span><h3>${instrument.mentor}</h3><p>${instrument.approach}</p>
     ${full ? '<p>Kids · Teens · Adults</p>' : ''}
-    <div class="actions">${buttonLink('Related courses', page('courses', { instrument: instrument.id }))}
-      ${full ? buttonLink('View batches', page('fees-batches', { instrument: instrument.id })) : ''}</div>`;
+    <div class="actions">${textLink('Related courses', page('courses', { instrument: instrument.id }))}
+      ${full ? textLink('View batches', page('fees-batches', { instrument: instrument.id })) : ''}</div>`;
   const mentorPhoto = (instrument, cls) =>
     photo(
       instrument.mentorImage,
@@ -57,10 +76,14 @@ document.querySelectorAll('[data-mentors]').forEach((host) => {
 const tempo = document.querySelector('[data-tempo]');
 if (tempo) {
   const output = tempo.querySelector('output');
+  const beats = [...tempo.querySelectorAll('.tempo-meter i')];
+  let beat = 0;
   let taps = [];
   tempo.querySelector('[data-tap]').addEventListener('click', () => {
     const now = performance.now();
     if (taps.length && now - taps.at(-1) > 3000) taps = [];
+    beats.forEach((bar, index) => bar.classList.toggle('playing', index === beat));
+    beat = (beat + 1) % beats.length;
     taps.push(now);
     taps = taps.slice(-7);
     if (taps.length === 1) output.textContent = 'Tap again';
@@ -71,6 +94,8 @@ if (tempo) {
   });
   tempo.querySelector('[data-reset]').addEventListener('click', () => {
     taps = [];
+    beat = 0;
+    beats.forEach((bar) => bar.classList.remove('playing'));
     output.textContent = '— BPM';
   });
 }

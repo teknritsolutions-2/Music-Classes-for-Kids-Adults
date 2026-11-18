@@ -53,7 +53,7 @@ export function feeLabel(batch) {
 
 export function batchCard(batch, path = false) {
   const course = getCourse(batch.courseId);
-  return `<article class="card"><h3>${batch.title}</h3>${batchDetails(batch)}
+  return `<article class="card batch-card"><h3>${batch.title}</h3>${batchDetails(batch)}
     <p>${feeLabel(batch)}</p>
     <div class="actions">
       <button type="button" class="button accent" data-enroll="${batch.id}">Review enrollment</button>

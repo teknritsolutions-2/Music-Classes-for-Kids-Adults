@@ -1,0 +1,714 @@
+.dark-section .button.accent {
+  color: #17151f;
+  background: var(--lilac);
+  border-color: var(--lilac);
+}
+.dark-section .button.accent:hover {
+  background: #dacaff;
+  border-color: #dacaff;
+}
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+}
+.hero::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: '';
+  background: #17121f url('../images/pixel-rhythm.svg') center / cover no-repeat;
+}
+.hero:dir(rtl)::before {
+  transform: scaleX(-1);
+}
+.hero-stage {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 4.5rem);
+  padding-block: clamp(2rem, 5vw, 4.7rem);
+  align-items: center;
+}
+.hero-copy {
+  display: grid;
+  gap: 1.1rem;
+  justify-items: start;
+}
+.hero-copy .kicker {
+  color: var(--lilac);
+}
+.hero-copy h1 {
+  font-size: clamp(3.35rem, 10vw, 5.15rem);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+}
+.hero-copy h1 em {
+  display: block;
+  direction: ltr;
+  unicode-bidi: isolate;
+  font-style: normal;
+  color: var(--lilac);
+}
+@supports (-webkit-text-stroke: 1px #bba2ff) {
+  .hero-copy h1 em {
+    color: transparent;
+    -webkit-text-stroke: 1.6px var(--lilac);
+  }
+}
+.hero-copy p {
+  max-inline-size: 39ch;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+}
+.hero-copy strong {
+  color: var(--ink);
+}
+.hero-art {
+  position: relative;
+  padding: 0.55rem;
+  border: 1px solid #c7a6fe80;
+  background: #1a14266b;
+  min-inline-size: 0;
+}
+.hero-art img {
+  inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 1.4;
+  object-position: 50% 48%;
+  filter: grayscale(1) contrast(1.06);
+}
+.hero-art figcaption {
+  padding: 0.55rem 0.2rem 0;
+  color: #f7f6fb;
+  font:
+    600 0.75rem/1.3 ui-monospace,
+    monospace;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+}
+.track-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding-block: 0.45rem;
+}
+.track-links a {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.35rem;
+  padding: 0.65rem;
+  border-block-end: 1px solid var(--line);
+  font-weight: 700;
+  text-decoration: none;
+}
+.track-links a:hover,
+.track-links .arrow {
+  color: var(--accent-text);
+}
+.instrument-section .section-head {
+  max-inline-size: 58ch;
+}
+.instrument-section .tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+.instrument-section .tabs .button {
+  min-block-size: 3.2rem;
+  border: 0;
+  border-radius: 0;
+}
+.instrument-section .tabs [aria-selected='true'] {
+  color: #fff;
+  background: #5624bd;
+  border-color: #5624bd;
+}
+.instrument-section .explorer {
+  gap: 0;
+}
+.instrument-section .feature {
+  border-radius: 0;
+  border-block-start: 0;
+  background: var(--soft);
+}
+.instrument-section .feature-copy {
+  align-content: center;
+}
+.instrument-section .feature-copy .kicker {
+  color: var(--accent-text);
+}
+.instrument-section .feature img {
+  aspect-ratio: 1.52;
+  object-position: center;
+}
+@media (min-width: 560px) {
+  .instrument-section .tabs,
+  .track-links {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .track-links a {
+    padding-inline: 1rem;
+  }
+}
+@media (min-width: 760px) {
+  .hero-stage {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+  }
+  .hero-copy h1 {
+    font-size: clamp(3.75rem, 7.7vw, 7.2rem);
+  }
+  .hero-art img {
+    aspect-ratio: 1.19;
+  }
+}
+@media (max-width: 759px) {
+  .hero::before {
+    background-position: 56% center;
+  }
+  .hero-copy {
+    padding-block-end: 0.2rem;
+  }
+}
+
+/* Home 1 */
+.lesson-feature,
+.lesson-photos,
+.performance-layout,
+.performance-images,
+.pathway-grid {
+  display: grid;
+}
+.lesson-feature {
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(1.45rem, 4.5vw, 5rem);
+  align-items: center;
+}
+.lesson-photos {
+  grid-template-columns: minmax(0, 2.65fr) minmax(0, 1fr);
+  gap: clamp(0.45rem, 1.25vw, 1.15rem);
+  align-items: end;
+}
+.lesson-photos img {
+  inline-size: 100%;
+  block-size: auto;
+}
+.lesson-main img {
+  aspect-ratio: 1.5;
+}
+.lesson-detail {
+  padding: 0.3rem;
+  background: var(--lilac);
+}
+.lesson-detail img {
+  aspect-ratio: 0.78;
+  filter: grayscale(1);
+}
+.performance-layout,
+.performance-images {
+  grid-template-columns: minmax(0, 1fr);
+}
+.performance-layout {
+  gap: 1rem;
+}
+.performance .section-head {
+  margin-block-end: 0.5rem;
+}
+.performance .section-head h2 {
+  max-inline-size: 18ch;
+}
+.performance-images {
+  gap: 1rem;
+}
+.performance-images img {
+  inline-size: 100%;
+  block-size: auto;
+}
+.stage-main img {
+  aspect-ratio: 1.65;
+  filter: grayscale(1) contrast(1.04);
+}
+.stage-inset img {
+  aspect-ratio: 1.55;
+}
+.performance-images figcaption {
+  padding-block-start: 0.55rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+.pathway-grid {
+  gap: 0.75rem;
+}
+.pathway-grid article {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: var(--surface);
+  border-block-start: 0.22rem solid var(--accent-text);
+  padding: clamp(1.15rem, 2.3vw, 2rem);
+}
+.pathway-grid article:nth-child(2) {
+  background: var(--soft);
+}
+.pathway-grid h3 {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+}
+.pathway-grid p {
+  color: var(--muted);
+}
+.pathway-focus,
+.mentor-specialty {
+  color: var(--accent-text);
+  font-size: 0.875rem;
+  font-weight: 720;
+}
+.pathway-grid .actions {
+  margin-block-start: auto;
+}
+.schedule-section {
+  border-block: 1px solid var(--line);
+  padding-block: clamp(2.1rem, 4.5vw, 4.5rem);
+}
+.section + .schedule-section.condensed {
+  padding-block-start: clamp(2.1rem, 4.5vw, 4.5rem);
+}
+.schedule-section [data-batch-preview] > .grid {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+}
+.batch-card {
+  border-block-start: 0.2rem solid var(--primary);
+}
+.schedule-section .batch-card {
+  display: grid;
+  align-items: start;
+  border-radius: 0;
+  border: 0;
+  border-block-start: 1px solid var(--line);
+  padding: 1rem;
+}
+.schedule-section .batch-card:nth-child(even) {
+  background: var(--soft);
+}
+.schedule-section .batch-card :is(.meta, .actions, p) {
+  margin: 0;
+  padding: 0;
+}
+.schedule-section .batch-card .meta div {
+  border: 0;
+  padding: 0;
+}
+.schedule-section .batch-card .meta {
+  font-size: 0.93rem;
+}
+.mentor-list {
+  row-gap: 1.6rem;
+}
+.mentor-list .card {
+  border: 0;
+  border-block-end: 1px solid var(--line);
+  border-radius: 0;
+  padding: 0 0 1.05rem;
+  background: none;
+}
+.mentor-list .card-photo {
+  aspect-ratio: 1.5;
+  border-radius: 0;
+}
+.mentor-list .actions {
+  gap: 1rem;
+}
+.mentor-specialty {
+  margin-block-start: 0.35rem;
+}
+.tempo {
+  display: grid;
+  align-items: center;
+  padding: clamp(1.15rem, 4vw, 2.65rem);
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1.1rem;
+  background: var(--night);
+  color: var(--white);
+  border-radius: var(--radius);
+}
+.tempo h3 {
+  margin-block-end: 0.45rem;
+}
+.tempo p {
+  color: #d2c9df;
+}
+.tempo-read {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  grid-column: 1 / -1;
+}
+.tempo output {
+  min-inline-size: 6rem;
+  font: 700 2rem/1 var(--display);
+}
+.tempo-meter {
+  display: flex;
+  align-items: end;
+  gap: 0.2rem;
+  block-size: 2rem;
+}
+.tempo-meter i {
+  inline-size: 0.31rem;
+  background: #7253a2;
+  block-size: 40%;
+}
+.tempo-meter i:nth-child(2) {
+  block-size: 65%;
+}
+.tempo-meter i:nth-child(3) {
+  block-size: 82%;
+}
+.tempo-meter i:nth-child(4) {
+  block-size: 100%;
+}
+.tempo-meter .playing {
+  background: #decfff;
+}
+.closing-mosaic {
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
+  background: #211830 url('../images/pixel-rhythm.svg') center 60% / cover no-repeat;
+  color: var(--ink);
+}
+.closing-mosaic::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: '';
+  background: #15121f6e;
+}
+.closing-mosaic p {
+  color: #e5daef;
+}
+
+/* Home 2 */
+.journey-hero {
+  padding-block: clamp(2rem, 5vw, 4.5rem) 0.5rem;
+}
+.journey-plate {
+  display: grid;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2.75rem);
+  isolation: isolate;
+  position: relative;
+  padding: clamp(1.2rem, 4.3vw, 4.25rem);
+  background: var(--soft);
+  border-block-start: 0.25rem solid var(--accent-text);
+  grid-template-columns: minmax(0, 1fr);
+}
+.journey-plate::after,
+.mentor-intro::after {
+  position: absolute;
+  z-index: -1;
+  inset-block-start: 8%;
+  inset-inline-end: 4%;
+  inline-size: min(36%, 19rem);
+  block-size: 80%;
+  background: var(--accent-text);
+  opacity: 0.08;
+  content: '';
+  mask: url('../icons/pulse.svg') center / contain no-repeat;
+  pointer-events: none;
+}
+.journey-plate h1 {
+  font-size: clamp(2.25rem, 4.35vw, 4.2rem);
+  max-inline-size: 17ch;
+  text-wrap: balance;
+}
+.journey-plate img {
+  inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 1.8;
+}
+.path-finder-section .section-head {
+  padding-block-end: 0.9rem;
+  border-block-end: 1px solid var(--line);
+}
+.journey-steps {
+  list-style: none;
+  display: grid;
+  gap: 0.85rem;
+  margin: 0;
+  padding: 0;
+  counter-reset: steps;
+}
+.journey-steps li {
+  display: grid;
+  align-content: start;
+  gap: 0.45rem;
+  padding: 0.9rem 0.85rem 1rem;
+  border-block-start: 1px solid var(--line);
+  background: var(--surface);
+  counter-increment: steps;
+}
+.journey-steps li::before {
+  content: '0' counter(steps);
+  color: var(--accent-text);
+  font:
+    650 0.88rem/1.4 ui-monospace,
+    monospace;
+}
+.journey-steps li h3 {
+  font-size: clamp(1.25rem, 2.1vw, 1.75rem);
+}
+.journey-steps li p {
+  margin: 0;
+  color: var(--muted);
+}
+.spotlight-grid {
+  display: grid;
+  gap: 1.15rem;
+}
+.spotlight-grid .card {
+  padding: 0;
+  border: 0;
+  background: none;
+}
+.spotlight-grid .card-photo {
+  aspect-ratio: 1.85;
+  border-radius: 0;
+}
+.spotlight-grid .card h3,
+.spotlight-grid .card p {
+  padding-inline-start: 0.15rem;
+}
+.practice-feature .editorial {
+  align-items: stretch;
+  gap: 0;
+}
+.practice-feature .editorial-copy {
+  background: var(--surface);
+  padding: clamp(1.25rem, 4vw, 3.2rem);
+}
+.practice-feature .editorial-photo {
+  border-radius: 0;
+  aspect-ratio: 1.67;
+  block-size: 100%;
+}
+.guidance-feature .editorial {
+  align-items: center;
+  padding-block: 1.15rem;
+  border-block: 1px solid var(--line);
+}
+.guidance-feature .editorial-photo {
+  border-radius: 0;
+  aspect-ratio: 1.75;
+}
+
+/* Catalogue, directory and practical pages */
+.catalogue-intro,
+.mentor-intro,
+.schedule-intro,
+.contact-intro {
+  position: relative;
+  padding-block-end: clamp(1.8rem, 4vw, 3.5rem);
+}
+.catalogue-tracks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+  margin-block-end: clamp(1.2rem, 3vw, 2.25rem);
+}
+#course-finder {
+  padding-block-start: 0;
+}
+.catalogue-tracks a {
+  min-inline-size: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  text-decoration: none;
+}
+.catalogue-tracks a:is(:hover, [aria-current='true']) {
+  border-color: var(--accent-text);
+  color: var(--accent-text);
+}
+.catalogue-tracks img {
+  inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 2.15;
+  filter: grayscale(0.8);
+}
+.catalogue-tracks a > span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.55rem;
+  font-weight: 700;
+}
+.course-list {
+  display: grid;
+  gap: 0.95rem;
+}
+.course-module {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-inline-start: 0.2rem solid var(--primary);
+}
+.course-module img {
+  inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 1.65;
+}
+.course-module > div {
+  padding: clamp(1rem, 2.75vw, 2.2rem);
+}
+.course-module p {
+  margin-block: 0.5rem;
+  color: var(--muted);
+}
+.course-module ul {
+  margin-block: 0.4rem;
+  padding-inline-start: 1.2rem;
+}
+.course-module summary {
+  min-block-size: 2.3rem;
+  padding-block: 0.25rem;
+}
+.mentor-intro {
+  isolation: isolate;
+}
+.instructor-feature {
+  border: 0;
+  border-block-start: 0.2rem solid var(--primary);
+  background: var(--soft);
+  border-radius: 0;
+  margin-block-end: 1.75rem;
+}
+.instructor-feature img {
+  aspect-ratio: 1.6;
+  object-position: center 42%;
+}
+[data-finder='batches'] .batch-card h3 {
+  font-size: clamp(1.3rem, 2vw, 1.65rem);
+}
+.schedule-intro h1 {
+  color: var(--accent-text);
+}
+[data-finder='batches'] .selects {
+  border-block-start: 0.2rem solid var(--primary);
+}
+.contact-layout {
+  align-items: start;
+}
+.contact-layout .form-stack {
+  border-block-start: 0.22rem solid var(--primary);
+}
+.contact-layout > .editorial-copy {
+  border-block-start: 1px solid var(--line);
+  padding-block-start: 1rem;
+}
+
+@media (min-width: 560px) {
+  .journey-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .journey-steps > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+  .catalogue-tracks {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .catalogue-tracks a > span {
+    padding-inline: 0.9rem;
+  }
+  .pathway-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .performance-images {
+    grid-template-columns: minmax(0, 2.3fr) minmax(0, 1fr);
+    align-items: end;
+  }
+}
+@media (min-width: 720px) {
+  .lesson-feature {
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  }
+  .tempo {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+  .tempo-read {
+    grid-column: auto;
+  }
+  .journey-plate {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr);
+  }
+  .spotlight-grid {
+    grid-template-columns: minmax(0, 1.18fr) minmax(0, 1fr);
+    align-items: end;
+  }
+  .schedule-section .batch-card {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.35fr);
+    gap: 0.6rem 1.15rem;
+  }
+  .schedule-section .batch-card .meta {
+    grid-row: span 2;
+  }
+  .schedule-section .batch-card .actions {
+    grid-column: 2;
+    justify-self: start;
+  }
+  .course-module {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+  }
+  .course-module img {
+    block-size: 100%;
+    max-block-size: 24rem;
+  }
+  .contact-layout {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  }
+}
+@media (min-width: 900px) {
+  .journey-steps {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+  .journey-steps > :last-child:nth-child(odd) {
+    grid-column: auto;
+  }
+}
+@media (min-width: 1050px) {
+  .performance-layout .section-head {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.48fr);
+    align-items: end;
+  }
+  .performance-layout .kicker {
+    grid-column: 1 / -1;
+  }
+  .performance-images {
+    grid-template-columns: minmax(0, 3.2fr) minmax(0, 1fr);
+  }
+  .performance-images .stage-inset {
+    transform: translateY(-1.7rem);
+  }
+  .schedule-section .batch-card {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.4fr) minmax(0, 0.57fr) auto;
+    align-items: center;
+    gap: 0.75rem 1.35rem;
+  }
+  .schedule-section .batch-card .meta {
+    grid-row: auto;
+  }
+  .schedule-section .batch-card .actions {
+    grid-column: auto;
+  }
+  .schedule-intro,
+  .contact-intro {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.68fr);
+    align-items: end;
+    gap: 0.8rem 3.5rem;
+  }
+  :is(.schedule-intro, .contact-intro) .kicker {
+    grid-column: 1 / -1;
+  }
+}

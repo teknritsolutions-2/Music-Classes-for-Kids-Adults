@@ -19,7 +19,7 @@ export const escapeHTML = (value) =>
         "'": '&#39;',
       })[character],
   );
-export const mark = '<span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>';
+export const mark = '<span class="mark" aria-hidden="true"></span>';
 export const brand = () =>
   `<a class="brand" href="${page()}" aria-label="UPBEAT Music Academy home">${mark}<span>UPBEAT<small>MUSIC ACADEMY</small></span></a>`;
 export const icon = (name) => {
@@ -44,7 +44,7 @@ const photoSizes = {
   journey: [1250, 833],
   keyboard: [1000, 667],
   vocals: [1000, 667],
-  'voice-detail': [800, 1200],
+  'voice-lesson': [1200, 801],
 };
 export function photo(name, alt, className = '') {
   const [width, height] = photoSizes[name];

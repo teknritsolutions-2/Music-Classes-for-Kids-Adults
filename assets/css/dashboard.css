@@ -18,16 +18,18 @@
 }
 .dash-content {
   max-inline-size: 80rem;
-  padding: clamp(1.25rem, 4.3vw, 4rem) var(--gutter);
+  padding: clamp(1.5rem, 4vw, 3.35rem) var(--gutter) clamp(1.25rem, 4.3vw, 4rem);
   margin-inline: auto;
 }
 .dash-title {
   display: grid;
   gap: 0.65rem;
   margin-block-end: 1.45rem;
+  padding-block-end: 1.05rem;
+  border-block-end: 1px solid var(--line);
 }
 .dash-title h1 {
-  font-size: clamp(2.45rem, 5vw, 4.05rem);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
   letter-spacing: -0.04em;
 }
 .dash-title h1:focus {
@@ -46,7 +48,7 @@
   gap: 1rem;
 }
 .dash-greeting {
-  font: 730 1.4rem/1.2 var(--display);
+  font: 700 1.4rem/1.2 var(--display);
   overflow-wrap: anywhere;
 }
 .dash-metrics {
@@ -54,7 +56,9 @@
   gap: 0.65rem;
 }
 .dash-metrics strong {
-  font: 750 1.75rem/1.1 var(--display);
+  color: var(--accent-text);
+  font: 700 1.75rem/1.1 var(--display);
+  font-variant-numeric: tabular-nums;
 }
 .dash-metrics a {
   text-decoration: none;
@@ -67,6 +71,7 @@
   text-decoration: none;
   padding: 0.6rem 0.7rem;
   border-radius: 0.35rem;
+  border-inline-start: 2px solid transparent;
   font-weight: 650;
 }
 .dash-nav a:hover,
@@ -147,4 +152,21 @@
   .dash-toggle {
     display: none;
   }
+}
+.dash-top-label {
+  color: var(--accent-text);
+  font-size: 0.9rem;
+}
+.dash-metrics .card {
+  border-block-start: 0.2rem solid var(--primary);
+}
+.dash-nav a[aria-current] {
+  border-inline-start-color: var(--accent-text);
+}
+.dash-list .card .meta {
+  font-variant-numeric: tabular-nums;
+}
+.dash-stack .empty {
+  border: 1px solid var(--line);
+  border-inline-start: 0.2rem solid var(--primary);
 }

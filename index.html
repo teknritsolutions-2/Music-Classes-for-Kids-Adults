@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./assets/css/fonts.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/dark-mode.css" />
+    <link rel="stylesheet" href="./assets/css/studio.css" />
     <link rel="stylesheet" href="./assets/css/rtl.css" />
     <script type="module" src="./assets/js/public.js"></script>
   </head>
@@ -29,25 +30,14 @@
       >
     </header>
     <main id="main" tabindex="-1">
-      <section class="container hero" aria-labelledby="hero-title">
-        <div class="hero-panel">
-          <img
-            class="hero-photo"
-            src="./assets/images/hero.jpg"
-            srcset="./assets/images/hero-small.jpg 850w, ./assets/images/hero.jpg 1680w"
-            sizes="(min-width: 1500px) 1365px, 92vw"
-            width="1680"
-            height="1120"
-            fetchpriority="high"
-            alt="A band works through a song in a warm rehearsal studio"
-            data-photo
-          />
+      <section class="hero dark-section" aria-labelledby="hero-title">
+        <div class="container hero-stage">
           <div class="hero-copy">
             <span class="kicker">Music classes for kids, teens &amp; adults</span>
-            <h1 id="hero-title">Your sound <em>starts here.</em></h1>
+            <h1 id="hero-title">Find your <em>sound.</em></h1>
             <p>
-              From your first chord to your next performance, explore guitar, keyboard, vocals, and drums
-              in a space made for every kind of learner.
+              <strong>Make it yours.</strong> Learn guitar, keyboard, vocals, or drums and take the music
+              you love from your first lesson to the stage.
             </p>
             <div class="actions">
               <a class="button accent" href="./pages/courses.html"
@@ -58,13 +48,36 @@
               >
             </div>
           </div>
-        </div>
-        <div class="hero-line">
-          <span>Guitar &nbsp; / &nbsp; Keyboard &nbsp; / &nbsp; Vocals &nbsp; / &nbsp; Drums</span
-          ><span>Find your sound. Make it yours.</span>
+          <figure class="hero-art">
+            <img
+              src="./assets/images/studio-hero.jpg"
+              srcset="./assets/images/studio-hero-small.jpg 613w, ./assets/images/studio-hero.jpg 1500w"
+              sizes="(min-width: 1280px) 552px, (min-width: 760px) 40vw, 80vw"
+              width="1500"
+              height="2250"
+              fetchpriority="high"
+              data-photo
+              alt="An electric guitarist performing under diagonal stage lights"
+            />
+            <figcaption>Learn. Play. Create. Perform.</figcaption>
+          </figure>
         </div>
       </section>
-      <section class="container section" id="instruments">
+      <nav class="container track-links" aria-label="Browse music courses by instrument">
+        <a href="./pages/courses.html?instrument=guitar"
+          >Guitar <span class="arrow" aria-hidden="true">↗</span></a
+        >
+        <a href="./pages/courses.html?instrument=keyboard"
+          >Keyboard <span class="arrow" aria-hidden="true">↗</span></a
+        >
+        <a href="./pages/courses.html?instrument=vocals"
+          >Vocals <span class="arrow" aria-hidden="true">↗</span></a
+        >
+        <a href="./pages/courses.html?instrument=drums"
+          >Drums <span class="arrow" aria-hidden="true">↗</span></a
+        >
+      </nav>
+      <section class="container section instrument-section" id="instruments">
         <header class="section-head">
           <span class="kicker">The instruments</span>
           <h2>Find your instrument.</h2>
@@ -78,35 +91,47 @@
           >
         </div>
       </section>
-      <section class="container section condensed">
-        <div class="editorial">
-          <img
-            class="editorial-photo"
-            src="./assets/images/studio-lesson.jpg"
-            alt="A tutor guides a guitarist during an indoor practice session"
-            width="1050"
-            height="591"
-            loading="lazy"
-            decoding="async"
-            data-photo
-          />
-          <div class="editorial-copy">
-            <span class="kicker">The studio experience</span>
-            <h2>Good practice starts with good guidance.</h2>
-            <p>
-              Get feedback on the details in individual instruction. In small groups, try your part with
-              other players and learn to listen, count in, and recover when you miss a beat.
-            </p>
-            <div>
-              <a class="button" href="./pages/instructors.html"
-                >Meet the instructors <span class="arrow" aria-hidden="true">↗</span></a
-              >
-            </div>
+      <section class="container section condensed lesson-feature">
+        <div class="lesson-photos">
+          <figure class="lesson-main">
+            <img
+              src="./assets/images/studio-lesson.jpg"
+              alt="A tutor guides a guitarist in an indoor practice session"
+              width="1050"
+              height="591"
+              loading="lazy"
+              decoding="async"
+              data-photo
+            />
+          </figure>
+          <figure class="lesson-detail">
+            <img
+              src="./assets/images/picking-study.jpg"
+              alt="Close-up of a guitarist’s picking hand"
+              width="1500"
+              height="2249"
+              loading="lazy"
+              decoding="async"
+              data-photo
+            />
+          </figure>
+        </div>
+        <div class="editorial-copy">
+          <span class="kicker">The studio experience</span>
+          <h2>Practice with purpose.</h2>
+          <p>
+            Get feedback on the details in individual lessons. In groups, learn to listen, count in, and
+            find your way back after a missed beat.
+          </p>
+          <div>
+            <a class="button" href="./pages/instructors.html"
+              >Meet the instructors <span class="arrow" aria-hidden="true">↗</span></a
+            >
           </div>
         </div>
       </section>
-      <section class="dark-section section">
-        <div class="container">
+      <section class="dark-section section performance">
+        <div class="container performance-layout">
           <header class="section-head">
             <span class="kicker">Practice to performance</span>
             <h2>A stage for every learner.</h2>
@@ -115,12 +140,23 @@
               comfortable playing in front of others.
             </p>
           </header>
-          <div class="gallery">
-            <figure>
+          <div class="performance-images">
+            <figure class="stage-main">
               <img
-                class=""
+                src="./assets/images/studio-stage.jpg"
+                alt="A five-piece band plays guitars, keyboards and drums"
+                width="1500"
+                height="1001"
+                loading="lazy"
+                decoding="async"
+                data-photo
+              />
+              <figcaption>Playing a set together</figcaption>
+            </figure>
+            <figure class="stage-inset">
+              <img
                 src="./assets/images/group.jpg"
-                alt="Musicians practice together with guitar and keyboard"
+                alt="Musicians rehearse together with guitar and keyboard"
                 width="1200"
                 height="801"
                 loading="lazy"
@@ -128,19 +164,6 @@
                 data-photo
               />
               <figcaption>Ensemble rehearsal</figcaption>
-            </figure>
-            <figure>
-              <img
-                class=""
-                src="./assets/images/stage.jpg"
-                alt="A band performs live in front of a small audience"
-                width="1100"
-                height="734"
-                loading="lazy"
-                decoding="async"
-                data-photo
-              />
-              <figcaption>Playing a set together</figcaption>
             </figure>
           </div>
         </div>
@@ -150,8 +173,9 @@
           <span class="kicker">Learning pathways</span>
           <h2>Learn at your own pace.</h2>
         </header>
-        <div class="rows">
+        <div class="pathway-grid">
           <article>
+            <span class="pathway-focus">Coordination &amp; confidence</span>
             <h3>Kids</h3>
             <p>
               Short musical games and familiar songs help young learners build coordination and
@@ -167,6 +191,7 @@
             </div>
           </article>
           <article>
+            <span class="pathway-focus">Repertoire &amp; ensemble</span>
             <h3>Teens</h3>
             <p>Explore the music you listen to, build your repertoire, and try playing with others.</p>
             <div class="actions">
@@ -179,6 +204,7 @@
             </div>
           </article>
           <article>
+            <span class="pathway-focus">Technique &amp; routine</span>
             <h3>Adults</h3>
             <p>
               Pick up an instrument for the first time or get back to playing at a pace you can sustain.
@@ -194,7 +220,7 @@
           </article>
         </div>
       </section>
-      <section class="container section condensed">
+      <section class="container section condensed schedule-section">
         <header class="section-head">
           <span class="kicker">Class times</span>
           <h2>Upcoming batches.</h2>
@@ -217,6 +243,7 @@
       </section>
       <section class="container">
         <div class="tempo" data-tempo>
+          <div class="tempo-meter" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
           <div>
             <h3>Tap your tempo</h3>
             <p>Tap in time with a beat to estimate its speed.</p>
@@ -229,7 +256,7 @@
         </div>
       </section>
       <section class="container section">
-        <div class="closing">
+        <div class="closing closing-mosaic dark-section">
           <div>
             <h2>Your first note is closer than you think.</h2>
             <p>Find a class that fits your interests, experience, and week.</p>

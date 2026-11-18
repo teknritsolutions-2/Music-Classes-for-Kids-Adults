@@ -1,36 +1,46 @@
-# UPBEAT implementation and QA
+# UPBEAT 2.0 design and regression QA
 
-## Design and scope
+## Design changes
 
-UPBEAT uses a four-bar rhythm mark, Bricolage Grotesque display type, Public Sans for body text, midnight ink, coral, chalk and mist. Dark mode uses a neutral ink canvas and a lighter coral accent. Home 1 opens with an ensemble rehearsal photograph. Home 2 starts with an individual lesson and leads to the learning-path filters. The dashboard uses a compact workspace layout with a sidebar or modal navigation drawer.
+The New Wave Music Studio identity uses ultraviolet `#7038E8`, lilac `#BBA2FF`, a cool light canvas, and neutral ink in both themes. Space Grotesk is used for display text, with Public Sans for body copy and controls. The new angular pulse is a vector mark used in the wordmark and favicon. A composed violet mosaic appears in the Home 1 hero and closing panel.
 
-The nine primary routes are Home 1, Home 2, Courses, Instructors, Fees & Batches, Contact / Visit, Login, Sign Up, and Student Dashboard. The four instrument tracks share a catalogue of 36 age- and level-specific course options and corresponding indicative batches. Instructor records are illustrative and photography depicts stock subjects.
-
-## Browser coverage
-
-Brave Chromium was driven with Playwright against HTTP, including a repository subpath that mirrors GitHub Pages. Each route was checked in light and dark mode with both layout directions at 320, 360, 390, 425, 430, 768, 820, 960, 1024, 1099, 1100, 1159, 1160, 1180, 1280, 1440, and 1920 px. The 768 and 1024 px passes used heights of 1024 and 768 px respectively. All dashboard sections were opened, with additional panel checks at 320, 820, and 1440 px. Representative mobile, tablet, and desktop screenshots were visually reviewed for type, gutters, media framing, navigation, and card density.
-
-| Area | Browser checks |
+| Page | Visual change |
 | --- | --- |
-| Navigation and preferences | Home dropdown, keyboard dismissal, mobile drawer and scroll lock, return focus, dashboard drawer, theme and direction across page loads, back-to-top |
-| Discovery | Instrument tab keyboard navigation, changed photo and content, recovery from a forced image error, combined course and schedule filters, useful empty states, progressive batch loading |
-| Enrollment | Guitar, keyboard, vocals, and drums from course filters through matching batch, review, local save, My Courses, schedule and fee comparison, duplicate prevention, reload, and reset. Also exercised directly inside the dashboard. |
-| Academic and billing records | Empty attendance and progress panels, tentative weekly sessions and class details, no charge for local requests, and accurate percentage and invoice balance using browser test fixtures. The fixtures were injected only during verification. |
-| Profile | Save, reload, safe display of entered text, cancel reset, confirm reset, and exit |
-| Contact and authentication | Required fields, downloadable unsent enquiry draft, password visibility, mismatch validation, reset and provider availability feedback, no locally stored password |
-| Tempo | Timed half-second taps returned approximately 120 BPM and reset returned to the initial state |
+| Home 1 | Editorial “Find your sound.” hero with monochrome performance photography and two direct calls to action. The page follows with a connected instrument explorer, a two-photo lesson feature, an asymmetric performance showcase, age pathways, schedule rows, mentor photography, and a tap indicator. |
+| Home 2 | Piano close-up, a compact lesson-planning hero, numbered learning steps, an asymmetric instrument spotlight, and quieter practice and guidance sections. |
+| Courses | Photo-led category links reflect the selected instrument. Square-edged instrument modules keep course details, filters, and batch links in view. |
+| Instructors | Feature profile and open directory layout, with a licensed vocal coaching photograph and the original course and batch links. |
+| Fees & Batches | Schedule-first header, compact filter controls, stronger price hierarchy, and a neutral backdrop. |
+| Contact | Compact two-column layout for enquiry preparation and visit information, with a single-column phone layout. |
+| Login and Sign Up | Standalone forms with the new wordmark, violet accents, and visible form focus. |
+| Student Dashboard | Restrained neutral surfaces, a clearer active navigation state, quieter section headings, and stronger contrast for numeric and empty states. |
 
-## Recurring problems prevented from previous projects
+The sticky navbar retains its existing destinations and controls. Footer navigation keeps its groups and photography credits, with accent-colored hover and active states, visible keyboard focus, and no permanent underlines. The floating back-to-top remains available.
 
-The reference review used the local checkouts of Travel Agency, Yoga, Courier, and School Bus, plus the lessons document from the previous 15 projects.
+The hero guitarist, stage ensemble, piano study, guitar detail, and vocal coaching are licensed photographs. [Photography, artwork, and font credits](asset-credits.md)
 
-- Wide layouts no longer leave a large gap above the course filters. The shared page-intro spacing and display tracking were corrected after the first browser review. [Before](screenshots/courses-before.jpg) · [After](screenshots/courses-after.jpg)
-- The hero retains a readable photo overlay and the musician’s face and instrument on desktop, with a photo-first stack at mobile widths. Tracking and crop were adjusted after viewing the first samples. [Before](screenshots/hero-before.jpg) · [After](screenshots/hero-after.jpg)
-- English punctuation retains its reading order in RTL while the layout aligns to the right. The hero photo was reframed to keep the musician visible. [Before](screenshots/hero-rtl-before.jpg) · [After](screenshots/hero-rtl-after.jpg)
-- The shared navigation uses native dialogs for compact widths. Browser checks exercised scroll locking, Escape and restored focus. Theme and direction initialize before CSS renders.
-- One batch source supplies public fees, review details, and dashboard billing. Four full enrollment journeys compared prices and weekly session times. Browser fixtures also verified that unapproved payments and payments for another invoice cannot reduce a charge.
-- Photos and fonts are served locally. The instrument explorer recovered after an image request was deliberately failed. Source, photographer, license, and resizing are recorded in the [asset credits](asset-credits.md).
+## Visual evidence
+
+- [Home 1 desktop](screenshots/upbeat2-hero-desktop.jpg)
+- [Home 1 phone](screenshots/upbeat2-hero-phone.jpg)
+- [Home 1 tablet in dark RTL](screenshots/upbeat2-hero-tablet-rtl.jpg)
+- [Home 2 desktop](screenshots/upbeat2-home2.jpg)
+- [Dashboard attendance in dark RTL](screenshots/upbeat2-dashboard-dark-rtl.jpg)
+
+The first hero and explorer were inspected at 390, 820, and 1440 px before applying the design system elsewhere. The next pass covered the nine page layouts and all dashboard sections. It included representative full-page captures, both themes and directions, and 17 widths from 320 through 1920 px. Visual revisions reduced catalogue spacing, balanced the Home 2 title and piano image, and corrected outlined English punctuation in RTL.
+
+## Functional regression
+
+Tests were run in Brave Chromium via Playwright against the static project subpath. The original QA scenarios provided the baseline.
+
+- Checked sticky positioning while scrolling at 320, 390, 820, 1024, 1180, and 1440 px, plus desktop Home menu, compact drawers, focus restoration, Escape, theme and direction persistence, footer link styling, and back-to-top.
+- Exercised the four instrument tabs, keyboard navigation, image switching and forced image fallback, course category links and selected states, the 36 course options, combined filters, empty states, and progressive batch loading.
+- Ran Guitar, Keyboard, Vocals, and Drums through course selection, batch review, local enrollment, schedule and fee comparison, duplicate prevention, reload, and workspace reset. Also enrolled through the dashboard.
+- Opened every dashboard section and verified profile saving and reload, class details, empty progress notes, attendance calculations, and approved-payment behavior. Attendance and billing fixtures were injected only during tests.
+- Tested contact validation and draft download, login and signup validation, password visibility, provider and account recovery feedback, and timed tempo calculation and reset.
 
 ## Production handoff
 
-The frontend supports branch-root GitHub Pages hosting through physical HTML pages, relative asset paths, and `.nojekyll`. Production requires academy-approved schedules, fees, instructor profiles and visit details, plus server-side authentication, enrollment confirmation, student records, enquiry delivery, and billing. The browser workspace contains local requests and an optional limited profile.
+The project still runs as physical HTML pages with local CSS, JavaScript, photos, and fonts. Its GitHub Pages branch-root configuration and `.nojekyll` remain in place. Login, OAuth, account recovery, enquiry delivery, enrollment confirmation, instructor-managed records, and billing require production integrations.
+
+The original release screenshots remain in this folder for comparison. [Previous hero](screenshots/hero-after.jpg) · [Previous course page](screenshots/courses-after.jpg)
