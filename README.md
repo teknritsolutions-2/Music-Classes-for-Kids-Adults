@@ -1,6 +1,6 @@
 # UPBEAT Music Academy
 
-UPBEAT is a static, responsive music academy site with two homepages, a course catalogue, instructor profiles, a batch finder, contact, standalone login and signup, and a Student Dashboard. It uses HTML, CSS, and native JavaScript modules.
+UPBEAT is a static, responsive music academy site with two homepages, About, a course catalogue, instructor profiles, a batch finder, contact, standalone login and signup, and a Student Dashboard. It uses HTML, CSS, and native JavaScript modules.
 
 ## Run locally
 

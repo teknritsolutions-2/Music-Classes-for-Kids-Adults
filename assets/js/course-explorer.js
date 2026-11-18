@@ -3,17 +3,25 @@ import { buttonLink, page, photo } from './site-config.js';
 
 export function mountExplorer(host) {
   host.innerHTML = `
-    <div class="tabs" role="tablist" aria-label="Instruments">
+    <div class="instrument-rail" role="tablist" aria-label="Instruments">
       ${instruments
         .map(
-          (instrument) => `<button class="button" id="tab-${instrument.id}" role="tab" type="button"
+          (
+            instrument,
+          ) => `<button class="instrument-tab" id="tab-${instrument.id}" role="tab" type="button"
         aria-controls="instrument-panel" data-instrument="${instrument.id}">${instrumentLabel(instrument)}</button>`,
         )
         .join('')}
     </div>
-    <article class="feature" id="instrument-panel" role="tabpanel" tabindex="0"></article>`;
+    <article class="instrument-display" id="instrument-panel" role="tabpanel" tabindex="0"></article>`;
   const tabs = Array.from(host.querySelectorAll('[role="tab"]'));
   const panel = host.querySelector('[role="tabpanel"]');
+  const vertical = matchMedia('(min-width: 850px)');
+  const rail = host.querySelector('[role="tablist"]');
+  const updateOrientation = () =>
+    rail.setAttribute('aria-orientation', vertical.matches ? 'vertical' : 'horizontal');
+  vertical.addEventListener('change', updateOrientation);
+  updateOrientation();
   const select = (index, focus) => {
     const active = tabs[index];
     const instrument = getInstrument(active.dataset.instrument);
@@ -23,7 +31,7 @@ export function mountExplorer(host) {
     });
     panel.setAttribute('aria-labelledby', active.id);
     panel.innerHTML = `${photo(instrument.image, instrument.alt)}
-      <div class="feature-copy"><span class="kicker">${instrument.name}</span><h3>${instrument.headline}</h3>
+      <div class="instrument-notes"><span class="kicker">${instrument.name}</span><h3>${instrument.headline}</h3>
       <p>${instrument.description}</p><ul>${instrument.topics.map((topic) => `<li>${topic}</li>`).join('')}</ul>
       <p>${levels.join(' · ')}</p><div>${buttonLink('Explore ' + instrumentLabel(instrument), page('courses', { instrument: instrument.id }), 'accent')}</div></div>`;
     if (focus) active.focus();
@@ -35,6 +43,9 @@ export function mountExplorer(host) {
       const moves = {
         ArrowRight: (index + (rtl ? -1 : 1) + tabs.length) % tabs.length,
         ArrowLeft: (index + (rtl ? 1 : -1) + tabs.length) % tabs.length,
+        ...(vertical.matches
+          ? { ArrowDown: (index + 1) % tabs.length, ArrowUp: (index + tabs.length - 1) % tabs.length }
+          : {}),
         Home: 0,
         End: tabs.length - 1,
       };

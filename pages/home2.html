@@ -22,7 +22,7 @@
       <noscript
         ><nav class="container" aria-label="Main navigation">
           <a href="../index.html">Home 1</a> <a href="../pages/home2.html">Home 2</a>
-          <a href="../pages/courses.html">Courses</a>
+          <a href="../pages/about.html">About</a> <a href="../pages/courses.html">Courses</a>
           <a href="../pages/instructors.html">Instructors</a>
           <a href="../pages/fees-batches.html">Fees & Batches</a>
           <a href="../pages/contact.html">Contact</a> <a href="../pages/login.html">Login</a>
@@ -31,187 +31,214 @@
       >
     </header>
     <main id="main" tabindex="-1">
-      <section class="container journey-hero">
-        <div class="journey-plate">
-          <div class="editorial-copy">
-            <span class="kicker">Your musical journey</span>
-            <h1>Every musician starts somewhere.</h1>
+      <section class="lab-top" aria-labelledby="lab-title">
+        <div class="container">
+          <header class="lab-mast">
+            <span class="kicker">The sound lab</span>
+            <h1 id="lab-title">What do you want to play?</h1>
             <p>
-              Tell us what you want to play and when you can practice. We’ll show you the courses and
-              weekly sessions that fit.
+              Pick an instrument to see matching classes, then narrow the results by learner group,
+              level, or day.
             </p>
-            <div>
-              <a class="button accent" href="../pages/home2.html#path-finder"
-                >Find my learning path <span class="arrow" aria-hidden="true">↗</span></a
-              >
-            </div>
-          </div>
-          <img
-            class=""
-            src="../assets/images/keys-study.jpg"
-            alt="Hands playing piano in a monochrome close-up"
-            width="1400"
-            height="933"
-            fetchpriority="high"
-            decoding="async"
-            data-photo
-          />
+          </header>
+          <nav class="lab-tracks" aria-label="Pick an instrument">
+            <a data-lab-choice="guitar" href="?instrument=guitar#path-finder"
+              ><img
+                src="../assets/images/guitar.jpg"
+                alt=""
+                width="1050"
+                height="700"
+                loading="lazy"
+                decoding="async"
+                data-photo
+              /><span>Guitar <span class="arrow" aria-hidden="true">↗</span></span></a
+            ><a data-lab-choice="keyboard" href="?instrument=keyboard#path-finder"
+              ><img
+                src="../assets/images/keys-study.jpg"
+                alt=""
+                width="1400"
+                height="933"
+                loading="lazy"
+                decoding="async"
+                data-photo
+              /><span>Keyboard <span class="arrow" aria-hidden="true">↗</span></span></a
+            ><a data-lab-choice="vocals" href="?instrument=vocals#path-finder"
+              ><img
+                src="../assets/images/vocals.jpg"
+                alt=""
+                width="1000"
+                height="667"
+                loading="lazy"
+                decoding="async"
+                data-photo
+              /><span>Vocals <span class="arrow" aria-hidden="true">↗</span></span></a
+            ><a data-lab-choice="drums" href="?instrument=drums#path-finder"
+              ><img
+                src="../assets/images/drums.jpg"
+                alt=""
+                width="1000"
+                height="563"
+                loading="lazy"
+                decoding="async"
+                data-photo
+              /><span>Drums <span class="arrow" aria-hidden="true">↗</span></span></a
+            >
+          </nav>
+          <section class="lab-finder" id="path-finder" aria-labelledby="lab-finder-title">
+            <header class="lab-finder-heading">
+              <h2 id="lab-finder-title" tabindex="-1">Find a class that fits.</h2>
+              <p>Choose the group and schedule that work for you.</p>
+            </header>
+            <div data-finder="path"></div>
+            <noscript
+              ><p><a href="fees-batches.html">Browse fees and batches</a></p></noscript
+            >
+          </section>
         </div>
       </section>
-      <section class="container section path-finder-section" id="path-finder">
+      <section class="container section learning-sequence">
         <header class="section-head">
-          <span class="kicker">Learning path finder</span>
-          <h2>Find a class that fits.</h2>
-          <p>Choose a learner group, instrument, level, or day to narrow the schedule.</p>
+          <span class="kicker">The learning journey</span>
+          <h2>Build it one beat at a time.</h2>
         </header>
-        <div data-finder="path"></div>
-        <noscript
-          ><p><a href="fees-batches.html">Browse fees and batches</a></p></noscript
-        >
-      </section>
-      <section class="container section condensed">
-        <header class="section-head">
-          <span class="kicker">The next steps</span>
-          <h2>First lesson to first performance.</h2>
-        </header>
-        <ol class="journey-steps">
+        <ol>
           <li>
             <h3>Explore</h3>
-            <p>Pick an instrument and a piece you’d like to play.</p>
+            <p>Start with a sound or song you want to play.</p>
           </li>
           <li>
             <h3>Learn</h3>
-            <p>Build the technique you need one part at a time.</p>
+            <p>Break the technique into manageable parts.</p>
           </li>
           <li>
             <h3>Practice</h3>
-            <p>Slow down tricky passages and keep a steady beat.</p>
+            <p>Slow down tricky passages and find a steady beat.</p>
           </li>
           <li>
             <h3>Collaborate</h3>
-            <p>Try your part alongside other musicians.</p>
+            <p>Learn to listen and play your part alongside others.</p>
           </li>
           <li>
             <h3>Perform</h3>
-            <p>Prepare a piece to share when you feel ready.</p>
+            <p>Share a piece when you feel ready.</p>
           </li>
         </ol>
       </section>
-      <section class="container section condensed">
-        <header class="section-head">
-          <span class="kicker">Instrument spotlight</span>
-          <h2>Melody meets rhythm.</h2>
-        </header>
-        <div class="spotlight-grid">
-          <article class="card">
+      <section class="feature-duet dark-section section">
+        <div class="container duet-grid">
+          <header class="section-head">
+            <span class="kicker">Instrument spotlight</span>
+            <h2>Two ways into a groove.</h2>
+          </header>
+          <figure class="duet-lead">
             <img
-              class="card-photo"
               src="../assets/images/keys-detail.jpg"
-              alt="Hands playing an electronic keyboard"
+              alt="Hands play a melody on a keyboard"
               width="1000"
               height="667"
               loading="lazy"
               decoding="async"
               data-photo
             />
+          </figure>
+          <div class="duet-notes">
             <h3>Keyboard foundations</h3>
-            <p>Learn how a melody fits over a chord and give each hand a part to play.</p>
-            <div class="actions">
-              <a class="button" href="../pages/courses.html?instrument=keyboard"
-                >Explore keyboard <span class="arrow" aria-hidden="true">↗</span></a
-              >
-            </div>
-          </article>
-          <article class="card">
+            <p>Discover how melody fits over a chord and give each hand a part to play.</p>
+            <a class="text-link" href="../pages/courses.html?instrument=keyboard"
+              >Explore keyboard <span class="arrow" aria-hidden="true">↗</span></a
+            >
+          </div>
+          <figure class="duet-image">
             <img
-              class="card-photo"
               src="../assets/images/drums.jpg"
-              alt="A drummer plays a kit under warm stage lighting"
+              alt="A drummer plays a kit under stage lighting"
               width="1000"
               height="563"
               loading="lazy"
               decoding="async"
               data-photo
             />
+          </figure>
+          <div class="duet-notes duet-note-small">
             <h3>Drum grooves</h3>
-            <p>
-              Start with a beat you can count, then learn to move around the kit without losing time.
-            </p>
-            <div class="actions">
-              <a class="button" href="../pages/courses.html?instrument=drums"
-                >Explore drums <span class="arrow" aria-hidden="true">↗</span></a
-              >
-            </div>
-          </article>
-        </div>
-      </section>
-      <section class="dark-section section practice-feature">
-        <div class="container editorial">
-          <img
-            class="editorial-photo"
-            src="../assets/images/solo.jpg"
-            alt="A guitarist practices beside a music stand"
-            width="1000"
-            height="667"
-            loading="lazy"
-            decoding="async"
-            data-photo
-          />
-          <div class="editorial-copy">
-            <span class="kicker">Studio practice</span>
-            <h2>Make time for the tricky parts.</h2>
-            <p>
-              Mark the bars that slow you down and try them separately. Bring one question to your next
-              lesson so your instructor can help you work through it.
-            </p>
+            <p>Start with a beat you can count, then move around the kit without losing time.</p>
+            <a class="text-link" href="../pages/courses.html?instrument=drums"
+              >Explore drums <span class="arrow" aria-hidden="true">↗</span></a
+            >
           </div>
         </div>
       </section>
-      <section class="container section schedule-section">
-        <header class="section-head">
-          <span class="kicker">Weekly learning rhythm</span>
-          <h2>Plan a regular practice day.</h2>
-          <p>See a selection of indicative sessions and browse the full weekly schedule.</p>
-        </header>
-        <div data-batch-preview="journey"></div>
-        <div class="actions results">
-          <a class="button" href="../pages/fees-batches.html"
-            >Find a batch <span class="arrow" aria-hidden="true">↗</span></a
-          >
+      <section class="container section practice-journal">
+        <div class="journal-photo">
+          <figure class="">
+            <img
+              src="../assets/images/solo.jpg"
+              alt="A guitarist practices beside a music stand"
+              width="1000"
+              height="667"
+              loading="lazy"
+              decoding="async"
+              data-photo
+            />
+          </figure>
+        </div>
+        <div class="journal-note">
+          <span class="kicker">In the practice room</span>
+          <h2>Work through the tricky bars.</h2>
+          <p>Play a difficult part on its own before putting the whole piece back together.</p>
+          <ol>
+            <li>Mark the part that slows you down.</li>
+            <li>Play it slowly and keep the pulse steady.</li>
+            <li>Bring one question to your next lesson.</li>
+          </ol>
         </div>
       </section>
-      <section class="container section condensed guidance-feature">
-        <div class="editorial">
-          <div class="editorial-copy">
-            <span class="kicker">Instructor guidance</span>
-            <h2>Know what to practice next.</h2>
-            <p>
-              Work with an instructor to turn a musical goal into a manageable exercise, then bring what
-              you learned back to the music you want to play.
-            </p>
-            <div>
-              <a class="button" href="../pages/instructors.html"
-                >Explore teaching approaches <span class="arrow" aria-hidden="true">↗</span></a
-              >
-            </div>
+      <section class="container section timetable">
+        <div class="timetable-header">
+          <header class="section-head">
+            <span class="kicker">Weekly learning rhythm</span>
+            <h2>Make a regular practice day.</h2>
+            <p>Check indicative sessions or browse the full schedule.</p>
+          </header>
+          <div>
+            <a class="button" href="../pages/fees-batches.html"
+              >View all batches <span class="arrow" aria-hidden="true">↗</span></a
+            >
           </div>
+        </div>
+        <div class="schedule-section" data-batch-preview="journey"></div>
+      </section>
+      <section class="container section guidance-band">
+        <figure>
           <img
-            class="editorial-photo"
             src="../assets/images/keyboard.jpg"
-            alt="A piano teacher points to notes on a keyboard"
+            alt="An instructor guides a learner’s hands at a keyboard"
             width="1000"
             height="667"
             loading="lazy"
             decoding="async"
             data-photo
           />
+        </figure>
+        <header class="section-head">
+          <span class="kicker">Instructor guidance</span>
+          <h2>Know what to try next.</h2>
+          <p>
+            Work with a teacher to turn a musical goal into a small exercise, then bring it back to the
+            song you want to play.
+          </p>
+        </header>
+        <div>
+          <a class="text-link" href="../pages/instructors.html"
+            >Meet the instructors <span class="arrow" aria-hidden="true">↗</span></a
+          >
         </div>
       </section>
       <section class="container section">
         <div class="closing">
           <div>
             <h2>Ready to choose a class?</h2>
-            <p>Review the schedule and indicative fees before saving a local enrollment request.</p>
+            <p>Compare schedules and indicative fees before saving an enrollment request.</p>
           </div>
           <div class="actions">
             <a class="button accent" href="../pages/fees-batches.html"

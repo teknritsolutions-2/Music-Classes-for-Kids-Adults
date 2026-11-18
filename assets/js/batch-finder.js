@@ -81,7 +81,11 @@ function courseModule(instrument, matches) {
 export function mountFinder(host, type, params = new URLSearchParams(location.search)) {
   const isCourse = type === 'courses';
   const path = type === 'path';
-  const fields = isCourse ? courseFilters : path ? batchFilters.slice(0, 4) : batchFilters;
+  const fields = isCourse
+    ? courseFilters
+    : path
+      ? [batchFilters[1], batchFilters[0], ...batchFilters.slice(2, 4)]
+      : batchFilters;
   host.innerHTML = `<form class="selects ${isCourse ? '' : 'many'}" aria-label="${isCourse ? 'Course filters' : 'Batch filters'}">
     ${fields.map(([name, label, options]) => selectField(name, label, options, params.get(name))).join('')}
   </form>

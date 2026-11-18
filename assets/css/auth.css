@@ -1,6 +1,13 @@
 [data-page='login'],
 [data-page='signup'] {
-  background: var(--soft);
+  background-color: #1c162c;
+  background-image:
+    linear-gradient(145deg, #17151f32, #211d3568 50%, #20192a24), url('../images/pixel-rhythm.svg');
+  background-position: center;
+  background-size: cover;
+}
+:root[data-theme='dark'] :is([data-page='login'], [data-page='signup']) {
+  background-image: linear-gradient(145deg, #13121a8c, #13121a99), url('../images/pixel-rhythm.svg');
 }
 [data-page='login'] main,
 [data-page='signup'] main {
@@ -18,7 +25,7 @@
   border: 1px solid var(--line);
   border-radius: var(--radius);
   border-block-start: 0.25rem solid var(--primary);
-  box-shadow: 0 1.25rem 3rem #17151f13;
+  box-shadow: 0 1.25rem 4rem #13121a52;
 }
 .auth-card > :is(div:first-child, h1, p) {
   text-align: center;

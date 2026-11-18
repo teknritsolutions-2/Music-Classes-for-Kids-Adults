@@ -6,7 +6,11 @@ Each linked Pexels source lists the photo as free to use under the [Pexels Licen
 
 | Local asset | Photographer | Source |
 | --- | --- | --- |
-| `studio-hero, studio-hero-small` | Ethan Strunk | [Electric guitarist on stage](https://www.pexels.com/photo/man-playing-an-electric-guitar-on-stage-9566141/) |
+| `ensemble-room, ensemble-room-small` | cottonbro studio | [Band rehearsing in a studio](https://www.pexels.com/photo/a-band-rehearsing-inside-the-studio-7088373/) |
+| `close-rehearsal` | RDNE Stock project | [Small-group rehearsal](https://www.pexels.com/photo/a-band-practicing-together-8197337/) |
+| `studio-room` | Pavel Danilyuk | [Studio with drums and microphones](https://www.pexels.com/photo/black-and-white-music-studio-7802300/) |
+| `drum-lesson` | Boris Pavlikovsky | [Drum lesson with a coach](https://www.pexels.com/photo/a-woman-talking-to-a-young-boy-while-teaching-playing-the-drums-7714318/) |
+| `score-lesson` | Yan Krukau | [Working through sheet music](https://www.pexels.com/photo/music-teacher-and-a-boy-looking-at-music-sheets-8520464/) |
 | `guitar` | Boris Pavlikovsky | [Acoustic guitar lesson](https://www.pexels.com/photo/photo-of-a-man-teaching-a-girl-how-to-play-an-acoustic-guitar-7715537/) |
 | `keyboard` | Yan Krukau | [Keyboard instruction](https://www.pexels.com/photo/person-learning-how-to-play-piano-8520447/) |
 | `vocals` | Anna Pou | [Vocal practice](https://www.pexels.com/photo/man-singing-in-studio-8132772/) |
@@ -22,4 +26,4 @@ Each linked Pexels source lists the photo as free to use under the [Pexels Licen
 | `keys-study` | Valeria Yakovleva | [Monochrome piano practice](https://www.pexels.com/photo/grayscale-photo-of-person-playing-piano-8681987/) |
 | `picking-study` | Farhad Irani | [Electric-guitar picking hand](https://www.pexels.com/photo/close-up-of-guitarist-playing-electric-guitar-in-studio-34561393/) |
 
-Space Grotesk and Public Sans are locally hosted WOFF2 Latin subsets under the SIL Open Font License. License texts accompany the fonts in `assets/fonts/`. The angular pulse, favicon, and pixel mosaic are original UPBEAT vector artwork. The hero and performance photographs are rendered in grayscale on the site.
+Space Grotesk and Public Sans are locally hosted WOFF2 Latin subsets under the SIL Open Font License. License texts accompany the fonts in `assets/fonts/`. The angular pulse, favicon, and pixel mosaic are original UPBEAT vector artwork. Selected images are presented in grayscale or with reduced saturation.

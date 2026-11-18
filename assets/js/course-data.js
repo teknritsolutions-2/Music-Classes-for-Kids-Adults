@@ -54,7 +54,7 @@ export const instruments = [
     image: 'drums',
     alt: 'A drummer plays a full kit under warm lighting',
     mentor: 'Kabir Sen',
-    mentorImage: 'drum-detail',
+    mentorImage: 'drum-lesson',
     approach:
       'Break grooves into their component parts, then practice moving between patterns and fills without losing the beat.',
   },

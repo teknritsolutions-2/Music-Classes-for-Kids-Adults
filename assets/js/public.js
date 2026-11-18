@@ -8,22 +8,29 @@ import { page, photo, textLink } from './site-config.js';
 document.querySelectorAll('[data-finder]').forEach((host) => mountFinder(host, host.dataset.finder));
 document.querySelectorAll('[data-explorer]').forEach(mountExplorer);
 
-const catalogue = document.querySelector('[data-finder="courses"] select[name="instrument"]');
-if (catalogue) {
-  const tracks = document.querySelectorAll('.catalogue-tracks a');
+const trackLinks = [...document.querySelectorAll('.catalogue-tracks a, .lab-tracks a')];
+if (trackLinks.length) {
+  const finder = document.querySelector('[data-finder]');
+  const instrumentSelect = finder.querySelector('select[name="instrument"]');
   const reflectInstrument = () => {
-    tracks.forEach((track) => {
-      if (new URL(track.href).searchParams.get('instrument') === catalogue.value) {
-        track.setAttribute('aria-current', 'true');
-      } else {
-        track.removeAttribute('aria-current');
-      }
+    trackLinks.forEach((track) => {
+      const trackId = new URL(track.href).searchParams.get('instrument');
+      if (trackId === instrumentSelect.value) track.setAttribute('aria-current', 'true');
+      else track.removeAttribute('aria-current');
     });
   };
-  catalogue.addEventListener('change', reflectInstrument);
-  document
-    .querySelector('[data-finder="courses"] [data-clear]')
-    .addEventListener('click', reflectInstrument);
+  trackLinks.forEach((track) => {
+    if (!track.dataset.labChoice) return;
+    track.addEventListener('click', (event) => {
+      if (event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+      event.preventDefault();
+      instrumentSelect.value = track.dataset.labChoice;
+      instrumentSelect.dispatchEvent(new Event('change', { bubbles: true }));
+      document.getElementById('lab-finder-title').focus();
+    });
+  });
+  instrumentSelect.addEventListener('change', reflectInstrument);
+  finder.querySelector('[data-clear]').addEventListener('click', reflectInstrument);
   reflectInstrument();
 }
 
@@ -46,31 +53,22 @@ document.querySelectorAll('[data-batch-preview]').forEach((host) => {
 
 document.querySelectorAll('[data-mentors]').forEach((host) => {
   const full = host.dataset.mentors === 'full';
-  const mentor = (instrument) => `
-    <span class="mentor-specialty">${instrument.name}</span><h3>${instrument.mentor}</h3><p>${instrument.approach}</p>
-    ${full ? '<p>Kids · Teens · Adults</p>' : ''}
-    <div class="actions">${textLink('Related courses', page('courses', { instrument: instrument.id }))}
-      ${full ? textLink('View batches', page('fees-batches', { instrument: instrument.id })) : ''}</div>`;
-  const mentorPhoto = (instrument, cls) =>
-    photo(
-      instrument.mentorImage,
-      `Illustrative photograph of ${instrument.name.toLowerCase()} practice`,
-      cls,
-    );
-  const featured = instruments[0];
-  host.innerHTML = `${
-    full
-      ? `<article class="feature instructor-feature">${mentorPhoto(featured, '')}
-    <div class="feature-copy">${mentor(featured)}</div></article>`
-      : ''
-  }
-    <div class="grid ${full ? 'three results' : 'four'} mentor-list">${instruments
-      .slice(full ? 1 : 0)
-      .map(
-        (instrument) =>
-          `<article class="card">${mentorPhoto(instrument, 'card-photo')}${mentor(instrument)}</article>`,
-      )
-      .join('')}</div>`;
+  host.innerHTML = instruments
+    .map((instrument) => {
+      const courses = page('courses', { instrument: instrument.id });
+      const mentorID = `mentor-${instrument.id}`;
+      const name = full
+        ? instrument.mentor
+        : `<a href="${page('instructors')}#${mentorID}">${instrument.mentor}</a>`;
+      return `<article class="${full ? 'faculty-profile' : 'teaching-credit'}"${full ? ` id="${mentorID}"` : ''}>
+      ${photo(instrument.mentorImage, `Example of ${instrument.name.toLowerCase()} instruction`)}
+      <div class="teacher-copy"><span class="mentor-specialty">${instrument.name}</span>
+      <h3>${name}</h3><p>${instrument.approach}</p>
+      <div class="actions">${textLink('Related courses', courses)}
+        ${full ? textLink('View batches', page('fees-batches', { instrument: instrument.id })) : ''}
+      </div></div></article>`;
+    })
+    .join('');
 });
 
 const tempo = document.querySelector('[data-tempo]');

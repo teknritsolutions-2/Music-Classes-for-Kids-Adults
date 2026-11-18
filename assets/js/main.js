@@ -2,6 +2,7 @@ import { brand, credits, icon, imagePath, page } from './site-config.js';
 
 const current = document.body.dataset.page;
 const links = [
+  ['About', 'about'],
   ['Courses', 'courses'],
   ['Instructors', 'instructors'],
   ['Fees & Batches', 'fees-batches'],
@@ -39,7 +40,7 @@ const footer = document.querySelector('#site-footer');
 if (footer) {
   footer.innerHTML = `<div class="container footer-grid">
     <div>${brand()}<p>Find your sound. Make it yours.</p></div>
-    <div><h2>Explore</h2>${homeLinks}${link('Instructors', 'instructors')}</div>
+    <div><h2>Explore</h2>${homeLinks}${link('About', 'about')}${link('Instructors', 'instructors')}</div>
     <div><h2>Learn</h2>${link('Courses', 'courses')}${link('Fees & Batches', 'fees-batches')}${link('Contact / Visit', 'contact')}</div>
     <div><h2>Student resources</h2>${link('Dashboard', 'dashboard')}${link('Login', 'login')}${link('Sign Up', 'signup')}</div>
     <div class="footer-end"><span>UPBEAT Music Academy</span><a href="${credits}">Photography credits</a></div>
@@ -126,7 +127,7 @@ document.addEventListener(
   true,
 );
 
-const desktop = matchMedia('(min-width: 1160px)');
+const desktop = matchMedia('(min-width: 1240px)');
 desktop.addEventListener('change', (event) => {
   if (event.matches) document.querySelector('#site-navigation[open]')?.close();
 });

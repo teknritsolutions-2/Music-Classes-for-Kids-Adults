@@ -38,7 +38,7 @@ export const textLink = (label, url) => `<a class="text-link" href="${url}">${la
 export const buttonLink = (label, url, variant = '') =>
   `<a class="button ${variant}" href="${url}">${label} ${arrow}</a>`;
 const photoSizes = {
-  'drum-detail': [800, 1200],
+  'drum-lesson': [1200, 800],
   drums: [1000, 563],
   guitar: [1050, 700],
   journey: [1250, 833],
