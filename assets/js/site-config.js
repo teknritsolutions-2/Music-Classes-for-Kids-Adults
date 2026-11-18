@@ -43,6 +43,7 @@ const photoSizes = {
   guitar: [1050, 700],
   journey: [1250, 833],
   keyboard: [1000, 667],
+  'smiling-keys': [1150, 1725],
   vocals: [1000, 667],
   'voice-lesson': [1200, 801],
 };

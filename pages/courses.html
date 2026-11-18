@@ -31,57 +31,70 @@
       >
     </header>
     <main id="main" tabindex="-1">
-      <div class="container public-content">
-        <header class="page-intro">
-          <h1>Music courses</h1>
-          <p>
-            Compare what you’ll practice in guitar, keyboard, voice, or drums. Filter by age group and
-            experience to see course lengths and available batches.
-          </p>
+      <div class="container public-content catalogue-page">
+        <header class="catalogue-intro">
+          <div class="catalogue-lead">
+            <div>
+              <p class="studio-eyebrow">UPBEAT course catalogue</p>
+              <h1>Find the instrument that feels like you</h1>
+            </div>
+            <p>
+              Compare what you’ll learn on guitar, keyboard, vocals, or drums. Browse the gallery or
+              filter by age and experience.
+            </p>
+          </div>
+          <nav class="catalogue-tracks" aria-label="Instrument categories">
+            <a data-catalogue-choice="guitar" href="?instrument=guitar#course-finder"
+              ><img
+                src="../assets/images/guitar.jpg"
+                width="1050"
+                height="700"
+                alt=""
+                loading="lazy"
+                decoding="async"
+                data-photo
+              /><span class="gallery-caption"
+                ><strong>Guitar</strong><span class="arrow" aria-hidden="true">↗</span></span
+              ></a
+            ><a data-catalogue-choice="keyboard" href="?instrument=keyboard#course-finder"
+              ><img
+                src="../assets/images/keyboard.jpg"
+                width="1000"
+                height="667"
+                alt=""
+                loading="lazy"
+                decoding="async"
+                data-photo
+              /><span class="gallery-caption"
+                ><strong>Keyboard</strong><span class="arrow" aria-hidden="true">↗</span></span
+              ></a
+            ><a data-catalogue-choice="vocals" href="?instrument=vocals#course-finder"
+              ><img
+                src="../assets/images/vocals.jpg"
+                width="1000"
+                height="667"
+                alt=""
+                loading="lazy"
+                decoding="async"
+                data-photo
+              /><span class="gallery-caption"
+                ><strong>Vocals</strong><span class="arrow" aria-hidden="true">↗</span></span
+              ></a
+            ><a data-catalogue-choice="drums" href="?instrument=drums#course-finder"
+              ><img
+                src="../assets/images/drum-lesson.jpg"
+                width="1200"
+                height="800"
+                alt=""
+                loading="lazy"
+                decoding="async"
+                data-photo
+              /><span class="gallery-caption"
+                ><strong>Drums</strong><span class="arrow" aria-hidden="true">↗</span></span
+              ></a
+            >
+          </nav>
         </header>
-        <nav class="catalogue-tracks" aria-label="Instrument categories">
-          <a data-catalogue-choice="guitar" href="?instrument=guitar#course-finder"
-            ><img
-              src="../assets/images/guitar.jpg"
-              alt=""
-              width="1050"
-              height="700"
-              loading="lazy"
-              decoding="async"
-              data-photo
-            /><span>Guitar <span class="arrow" aria-hidden="true">↗</span></span></a
-          ><a data-catalogue-choice="keyboard" href="?instrument=keyboard#course-finder"
-            ><img
-              src="../assets/images/keyboard.jpg"
-              alt=""
-              width="1000"
-              height="667"
-              loading="lazy"
-              decoding="async"
-              data-photo
-            /><span>Keyboard <span class="arrow" aria-hidden="true">↗</span></span></a
-          ><a data-catalogue-choice="vocals" href="?instrument=vocals#course-finder"
-            ><img
-              src="../assets/images/vocals.jpg"
-              alt=""
-              width="1000"
-              height="667"
-              loading="lazy"
-              decoding="async"
-              data-photo
-            /><span>Vocals <span class="arrow" aria-hidden="true">↗</span></span></a
-          ><a data-catalogue-choice="drums" href="?instrument=drums#course-finder"
-            ><img
-              src="../assets/images/drum-lesson.jpg"
-              alt=""
-              width="1200"
-              height="800"
-              loading="lazy"
-              decoding="async"
-              data-photo
-            /><span>Drums <span class="arrow" aria-hidden="true">↗</span></span></a
-          >
-        </nav>
         <section class="public-block" id="course-finder" aria-label="Course catalogue">
           <header class="block-title"><h2>Compare courses</h2></header>
           <div data-finder="courses"></div>

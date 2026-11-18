@@ -12,7 +12,6 @@
   gap: 0.5rem;
 }
 .public-content :is(.block-title, .page-intro) > p,
-.front-actions > p,
 .practice-feature p,
 .teaching-method dd,
 .learner-list p,
@@ -30,8 +29,7 @@
   text-wrap: initial;
   font-size: clamp(2.15rem, 4.15vw, 3.25rem);
 }
-.page-intro p,
-.front-actions > p {
+.page-intro p {
   max-inline-size: 60ch;
   font-size: clamp(1rem, 1.5vw, 1.12rem);
 }
@@ -86,48 +84,85 @@
   margin: 0;
 }
 
-/* Home programme and instrument explorer */
-.front-lead,
-.front-media {
+/* Home 1 studio feature and the shared instrument selector */
+.front-stage {
+  --mosaic-edge: right bottom;
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1.35rem, 3vw, 2.65rem);
+  padding: clamp(1rem, 3.75vw, 3.4rem);
+  border-radius: var(--editorial-radius);
+  background:
+    linear-gradient(#17151fc7, #17151fc7),
+    url('../images/pixel-rhythm.svg') var(--mosaic-edge) / cover;
+}
+.front-stage:dir(rtl) {
+  --mosaic-edge: left bottom;
 }
 .front-lead {
-  gap: 0.8rem var(--inner-gap);
-  margin-block-end: clamp(1rem, 2.6vw, 2.35rem);
-  align-items: end;
+  display: grid;
+  align-content: center;
+  gap: clamp(0.65rem, 1.7vw, 1rem);
+}
+.studio-eyebrow {
+  color: var(--accent-text);
+  font-size: var(--size-meta);
+  font-weight: 760;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
 }
 .front-lead h1 {
-  max-inline-size: 20ch;
-  font-size: clamp(2.4rem, 5.25vw, 4.5rem);
-  line-height: 1.03;
+  font-size: clamp(2.35rem, 3.7vw, 3.75rem);
+  line-height: 1.04;
   text-wrap: initial;
 }
 .front-lead h1 em {
   display: block;
   color: var(--accent-text);
   font-style: normal;
-  text-wrap: balance;
 }
-.front-actions {
-  display: grid;
-  gap: 0.85rem;
+.front-lead > p:not(.studio-eyebrow) {
+  max-inline-size: 39ch;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.5vw, 1.13rem);
+}
+.front-stage .button.accent {
+  color: #211632;
+  background: var(--lilac);
+  border-color: var(--lilac);
+}
+.front-stage .button.accent:hover {
+  background: #e2d2ff;
+  border-color: #e2d2ff;
+}
+.front-stage .button {
+  padding-inline: 0.75rem;
 }
 .front-media {
-  overflow: clip;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  isolation: isolate;
+}
+.front-photo {
+  grid-area: 1/1/2/-1;
+  border: 1px solid #bba2ff;
   border-radius: var(--editorial-radius);
-  border-inline-end: clamp(0.65rem, 4vw, 3.75rem) solid transparent;
-  background: var(--night) url('../images/pixel-rhythm.svg') right center / auto 100% no-repeat
-    border-box;
+  overflow: clip;
 }
-.front-media:dir(rtl) {
-  background-position: left center;
-}
-.front-photo img {
+.front-photo img,
+.front-detail img {
   inline-size: 100%;
   block-size: auto;
-  aspect-ratio: 1.65;
-  object-position: center 12%;
+  aspect-ratio: 1.78;
+}
+.front-detail {
+  grid-area: 2/9/3/-1;
+  margin-block-start: -0.9rem;
+  margin-inline: 0 0.7rem;
+  border: 0.22rem solid #d6c3ff;
+  border-radius: var(--radius-control);
+  background: #211632;
+  overflow: clip;
 }
 .front-programmes {
   display: grid;
@@ -139,18 +174,19 @@
 .front-programmes h2 {
   font-size: 1rem;
 }
-.front-programmes > div {
+.front-programmes > div,
+.instrument-rail {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.25rem 0.55rem;
+  gap: 0.4rem;
 }
 .front-programmes a {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 0.4rem;
-  min-block-size: 2.55rem;
-  padding: 0.32rem 0.55rem;
+  min-block-size: 2.6rem;
+  padding: 0.32rem 0.65rem;
   border-radius: var(--radius-control);
   background: var(--soft);
   font-weight: 680;
@@ -160,20 +196,15 @@
   color: var(--accent-text);
   background: var(--surface-hover);
 }
-.instrument-rail {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.4rem;
-  padding-block-end: 0.5rem;
-}
 .instrument-tab {
-  min-block-size: 2.9rem;
-  padding: 0.4rem 0.6rem;
+  min-block-size: 3rem;
+  padding: 0.45rem 0.65rem;
   border: 1px solid var(--line);
   border-radius: var(--radius-control);
   background: var(--surface);
   color: var(--ink);
   font-weight: 730;
+  font-size: 1rem;
 }
 .instrument-tab:hover {
   background: var(--surface-hover);
@@ -183,14 +214,17 @@
   border-color: var(--accent-text);
   background: var(--soft);
 }
+[data-explorer] {
+  display: grid;
+  gap: 0.55rem;
+}
 .instrument-display {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: var(--inner-gap);
-  align-items: center;
-  padding: clamp(0.75rem, 2.1vw, 1.45rem);
+  gap: 0;
   border: 1px solid var(--line);
   border-radius: var(--editorial-radius);
+  overflow: clip;
   background: var(--surface);
 }
 .instrument-display > img,
@@ -198,6 +232,9 @@
 .about-photo img {
   inline-size: 100%;
   block-size: auto;
+}
+.practice-feature img,
+.about-photo img {
   border-radius: var(--editorial-radius);
 }
 .instrument-display > img {
@@ -205,8 +242,10 @@
 }
 .instrument-notes {
   display: grid;
+  align-content: center;
   justify-items: start;
-  gap: 0.6rem;
+  gap: 0.65rem;
+  padding: var(--panel-padding);
 }
 .instrument-notes h3 {
   font-size: clamp(1.45rem, 2.8vw, 2.2rem);
@@ -224,6 +263,17 @@
   flex-wrap: wrap;
   gap: 0.35rem;
 }
+.home-instrument [data-explorer] {
+  padding: clamp(0.55rem, 1.65vw, 1.1rem);
+  border-radius: var(--editorial-radius);
+  background: var(--soft);
+}
+.home-instrument .instrument-tab[aria-selected='true'] {
+  background: var(--primary);
+  color: white;
+}
+
+/* Shared learner and lesson sections */
 .learner-list {
   display: grid;
   list-style: none;
@@ -262,10 +312,30 @@
   aspect-ratio: 1.58;
   object-position: center 45%;
 }
-/* Photo essays and the lesson sequence */
+/* Photo essays and practice tools */
+.front-page .learner-list {
+  gap: 0.75rem;
+  border: 0;
+}
+.front-page .learner-list li {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto 1fr auto;
+  align-items: start;
+  gap: 0.6rem;
+  padding: var(--panel-padding);
+  border: 1px solid var(--line);
+  border-block-start: 0.22rem solid var(--accent-text);
+  border-radius: var(--editorial-radius);
+  background: var(--surface);
+}
+.front-page .learner-list li:nth-child(2) {
+  background: var(--soft);
+}
+.front-page .learner-list li .actions {
+  padding-block-start: 0.45rem;
+}
 .studio-gallery,
 .performance-gallery,
-.instrument-previews,
 .music-steps dl {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -274,7 +344,6 @@
 .studio-gallery img,
 .performance-gallery img,
 .finder-intro img,
-.instrument-previews img,
 .contact-sidebar img {
   inline-size: 100%;
   block-size: auto;
@@ -337,8 +406,7 @@
   font-size: clamp(2.15rem, 4.15vw, 3.25rem);
   text-wrap: initial;
 }
-.finder-intro p,
-.instrument-previews p {
+.finder-intro p {
   color: var(--muted);
 }
 .finder-intro img {
@@ -348,31 +416,112 @@
 .teaching-intro img {
   object-position: center 43%;
 }
+/* Home 2 music lab */
+.lab-intro,
+.catalogue-lead {
+  display: grid;
+  gap: 0.55rem 1.4rem;
+  align-items: end;
+  margin-block-end: 1rem;
+}
+.lab-intro h1,
+.catalogue-lead h1 {
+  font-size: clamp(2.25rem, 4.35vw, 3.25rem);
+  text-wrap: initial;
+}
+.lab-intro > p,
+.catalogue-lead > p,
+.instrument-previews p,
+.journey-stages p {
+  color: var(--muted);
+}
+.lab-instrument {
+  margin-block-end: var(--block-space);
+  padding: clamp(0.65rem, 1.8vw, 1.2rem);
+  border: 1px solid var(--line);
+  border-radius: var(--editorial-radius);
+  background: var(--soft);
+}
+.lab-instrument .instrument-tab[aria-selected='true'] {
+  background: var(--surface);
+  border-block-end: 0.25rem solid var(--accent-text);
+}
+.lab-instrument img.instrument-shot-keyboard {
+  object-position: center 19%;
+}
+.lab-instrument img.instrument-shot-guitar {
+  object-position: center 47%;
+}
+.lab-instrument .instrument-notes h3 {
+  font-size: clamp(1.55rem, 3.25vw, 2.5rem);
+}
+.lab-instrument .instrument-notes {
+  gap: 0.7rem;
+}
+.planner-workspace .selects {
+  border-radius: var(--radius-control);
+}
+.instrument-previews {
+  display: grid;
+  border-block-start: 1px solid var(--line);
+}
 .instrument-previews article {
   display: grid;
-  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1fr);
-  align-items: center;
-  gap: 0.7rem;
-  padding: 0.6rem;
+  gap: 0.35rem 1rem;
+  align-items: baseline;
+  padding: 0.85rem 0.55rem;
+  border-block-end: 1px solid var(--line);
+}
+.instrument-previews article:nth-child(even) {
+  background: var(--surface);
+}
+.instrument-previews article:has(a[aria-current='true']) {
+  background: var(--soft);
+}
+.comparison-level {
+  font-size: var(--size-meta);
+}
+.lab-journey {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--inner-gap);
+  padding: var(--panel-padding);
   border: 1px solid var(--line);
   border-radius: var(--editorial-radius);
   background: var(--surface);
 }
-.instrument-previews article > div {
-  display: grid;
-  gap: 0.3rem;
+.lab-journey .block-title {
+  align-content: start;
+  margin: 0;
 }
-.instrument-previews article:has(a[aria-current='true']) {
-  border-color: var(--accent-text);
+.journey-stages {
+  border-inline-start: 0.16rem solid var(--line);
+  padding-inline-start: 0.65rem;
 }
-.instrument-previews img {
-  aspect-ratio: 1.12;
+.journey-stages details {
+  padding: 0.55rem 0.7rem;
+  border-block-end: 1px solid var(--line);
 }
-.instrument-previews article:first-child img {
-  object-position: center 60%;
+.journey-stages details[open] {
+  background: var(--soft);
+  border-radius: var(--radius-control);
 }
-.instrument-previews p {
-  font-size: 0.94rem;
+.journey-stages summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.55rem;
+  font-weight: 720;
+}
+.journey-stages summary::after {
+  content: '+';
+  color: var(--accent-text);
+}
+.journey-stages [open] summary::after {
+  content: '−';
+}
+.journey-stages p {
+  margin-block-start: 0.45rem;
 }
 .preview-filter {
   display: grid;
@@ -388,8 +537,10 @@
   flex-wrap: wrap;
   gap: 1rem 1.6rem;
   margin-block-start: var(--block-space);
-  border-block-start: 1px solid var(--line);
-  padding-block-start: 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--editorial-radius);
+  padding: 0.75rem var(--panel-padding);
+  background: var(--soft);
 }
 .tempo {
   display: grid;
@@ -564,6 +715,25 @@
   color: var(--ink);
   font-size: 1.35rem;
 }
+.studio-week .preview-filter,
+.lab-week .preview-filter {
+  max-inline-size: none;
+  padding: 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: var(--editorial-radius);
+  background: var(--soft);
+}
+.studio-week .results,
+.lab-week .results {
+  padding-inline: 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: var(--editorial-radius);
+  background: var(--surface);
+}
+.studio-week article:last-child,
+.lab-week article:last-child {
+  border-block-end: 0;
+}
 .lesson-outline {
   display: grid;
   gap: 0.45rem;
@@ -649,7 +819,20 @@
   padding: var(--panel-padding);
 }
 .teaching-credit .teacher-copy {
-  padding: 0.75rem 0.85rem;
+  padding: 0.7rem 0.18rem;
+}
+.studio-mentors .teaching-credit {
+  border: 0;
+  border-block-end: 2px solid var(--line);
+  border-radius: 0;
+  background: none;
+}
+.studio-mentors img {
+  border-radius: var(--editorial-radius);
+}
+.studio-mentors .mentor-specialty {
+  padding-inline-start: 0.45rem;
+  border-inline-start: 2px solid var(--accent-text);
 }
 .teacher-copy p,
 .teaching-topics {
@@ -686,49 +869,90 @@
 /* Course catalogue */
 .catalogue-tracks {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.55rem;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.65rem;
 }
 .catalogue-tracks a {
   display: grid;
+  position: relative;
   grid-template-columns: minmax(0, 1fr);
+  isolation: isolate;
   overflow: clip;
   border: 1px solid var(--line);
   border-radius: var(--editorial-radius);
-  background: var(--surface);
+  background: var(--night);
+  color: var(--white);
   text-decoration: none;
+  aspect-ratio: 1.65;
 }
-.catalogue-tracks a:is(:hover, [aria-current='true']) {
-  color: var(--accent-text);
-  border-color: var(--accent-text);
+.catalogue-tracks a::after,
+.gallery-caption {
+  grid-area: 1/1;
+}
+.catalogue-tracks a::after {
+  content: '';
+  z-index: 0;
+  background: linear-gradient(transparent 49%, #17151feb 100%);
 }
 .catalogue-tracks img {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
   inline-size: 100%;
-  block-size: auto;
-  aspect-ratio: 1.85;
+  block-size: 100%;
+  object-position: center 52%;
 }
 .catalogue-tracks a:first-child img {
-  object-position: center 27%;
+  object-position: center 57%;
 }
-.catalogue-tracks a > span {
+.catalogue-tracks a:last-child img {
+  object-position: center 63%;
+}
+.gallery-caption {
+  z-index: 1;
+  align-self: end;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.45rem 0.65rem;
-  font-weight: 730;
+  gap: 0.45rem;
+  padding: 0.75rem clamp(0.8rem, 2vw, 1.4rem);
+  font: 700 clamp(1.25rem, 2.65vw, 1.9rem) / 1.15 var(--display);
+}
+.gallery-caption .arrow {
+  font: 700 1rem/1 var(--body);
+  padding: 0.5rem;
+  border-radius: var(--radius-control);
+  color: #211632;
+  background: #d6c3ff;
+}
+.catalogue-tracks a:is(:hover, [aria-current='true']) .gallery-caption .arrow {
+  background: white;
+}
+.catalogue-tracks a[aria-current='true'] {
+  outline: 3px solid var(--accent-text);
+  outline-offset: -3px;
+}
+.catalogue-page #course-finder {
+  margin-block-start: var(--inner-gap);
+  padding: var(--panel-padding);
+  border: 1px solid var(--line);
+  border-block-start: 0.23rem solid var(--accent-text);
+  border-radius: var(--editorial-radius);
+  background: var(--surface);
 }
 .course-list {
   display: grid;
-  border-block-start: 1px solid var(--line);
+  gap: 0.65rem;
 }
 .course-module {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 0.8rem var(--inner-gap);
-  align-items: start;
-  padding-block: 1.05rem;
-  border-block-end: 1px solid var(--line);
+  align-items: center;
+  padding: var(--panel-padding);
+  border: 1px solid var(--line);
+  border-radius: var(--editorial-radius);
+  background: var(--canvas);
 }
 .course-module > div {
   display: grid;
@@ -770,6 +994,22 @@
   margin-inline-start: 0.5rem;
 }
 
+.course-summary {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 0.55rem;
+  inline-size: calc(100% - 1rem);
+}
+.course-summary span:last-child {
+  color: var(--muted);
+  font-weight: 600;
+}
+.catalogue-page .music-steps {
+  padding: var(--panel-padding);
+  border-radius: var(--editorial-radius);
+  background: var(--soft);
+}
 /* Contact workspace */
 .contact-workspace,
 .field-pair {
@@ -846,12 +1086,12 @@
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
   .studio-gallery,
-  .performance-gallery,
-  .instrument-previews {
+  .performance-gallery {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .studio-gallery figure:first-child,
-  .performance-gallery figure:first-child {
+  .performance-gallery figure:first-child,
+  .performance-gallery header {
     grid-column: 1/-1;
   }
   .instrument-rail {
@@ -886,34 +1126,52 @@
 }
 
 @media (min-width: 720px) {
-  .front-actions {
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: center;
-  }
-  .front-photo img {
-    aspect-ratio: 2.32;
-  }
   .front-programmes {
     grid-template-columns: auto minmax(0, 1fr);
   }
   .studio-gallery {
-    grid-template-columns: minmax(0, 1.2fr) repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
   }
   .studio-gallery figure:first-child {
-    grid-column: auto;
-  }
-  .studio-gallery img {
-    aspect-ratio: 1.43;
-  }
-  .performance-gallery {
-    grid-template-columns: minmax(0, 1.95fr) minmax(0, 1fr);
-  }
-  .performance-gallery figure:first-child {
     grid-column: 1;
     grid-row: span 2;
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+  }
+  .studio-gallery figure:first-child img {
+    block-size: 100%;
+    min-block-size: 0;
+    aspect-ratio: auto;
+  }
+  .studio-gallery img {
+    aspect-ratio: 2.12;
+  }
+  .performance-gallery {
+    grid-template-columns: minmax(0, 1.15fr) repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+  .performance-gallery header {
+    grid-column: 1;
+    margin: 0;
+  }
+  .performance-gallery figure:first-child img {
+    aspect-ratio: 2.12;
   }
   .performance-gallery img {
-    aspect-ratio: 1.85;
+    aspect-ratio: 1.9;
+  }
+  .front-page .learner-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .lab-intro,
+  .catalogue-lead {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.75fr);
+  }
+  .instrument-previews article {
+    grid-template-columns: minmax(5.2rem, 0.45fr) minmax(0, 1.35fr) minmax(0, 0.8fr) auto;
+  }
+  .lab-journey {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
   }
   .music-steps dl {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -928,8 +1186,16 @@
   .practice-feature {
     grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
   }
+  .lab-instrument img {
+    grid-column: 2;
+    grid-row: 1;
+    aspect-ratio: 1.78;
+  }
+  .lab-instrument .instrument-notes {
+    grid-area: 1/1;
+  }
   .instrument-display > img {
-    aspect-ratio: 1.55;
+    block-size: 100%;
   }
   .practice-feature img {
     aspect-ratio: 1.75;
@@ -941,7 +1207,15 @@
     grid-template-columns: minmax(0, 0.68fr) minmax(0, 1.25fr);
   }
   .catalogue-tracks {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+  .catalogue-tracks a {
+    grid-column: span 5;
+    min-block-size: clamp(13rem, 24vw, 22.2rem);
+    aspect-ratio: auto;
+  }
+  .catalogue-tracks a:is(:first-child, :last-child) {
+    grid-column: span 7;
   }
   .course-module {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
@@ -967,11 +1241,31 @@
   }
 }
 
-@media (min-width: 960px) {
+@media (720px <= width < 950px) {
   .front-lead {
-    grid-template-columns: minmax(0, 1.58fr) minmax(0, 0.8fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
   }
-  .front-actions {
+  .front-lead .studio-eyebrow {
+    grid-column: 1/-1;
+  }
+  .front-lead h1 {
+    grid-row: span 2;
+    align-self: center;
+  }
+}
+
+@media (min-width: 950px) {
+  .front-stage {
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  }
+  .front-detail {
+    margin-block-start: -1.9rem;
+  }
+  .home-instrument [data-explorer] {
+    grid-template-columns: minmax(8.7rem, 0.25fr) minmax(0, 1fr);
+    align-items: start;
+  }
+  .home-instrument .instrument-rail {
     grid-template-columns: minmax(0, 1fr);
   }
 }

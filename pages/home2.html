@@ -32,26 +32,25 @@
     </header>
     <main id="main" tabindex="-1">
       <div class="container public-content planner">
-        <header class="finder-intro">
+        <header class="lab-intro">
           <div>
-            <h1>Find a music class</h1>
-            <p>Find a class that fits the learner, their experience, and the days they can attend.</p>
-            <a class="button accent" href="#path-finder"
-              >Compare matching classes <span class="arrow" aria-hidden="true">↗</span></a
-            >
+            <p class="studio-eyebrow">UPBEAT Music Lab</p>
+            <h1>What would you love to play?</h1>
           </div>
-          <figure>
-            <img
-              src="../assets/images/smiling-keys.jpg"
-              width="1150"
-              height="1725"
-              alt="A keyboard teacher and learner sit near their sheet music"
-              fetchpriority="high"
-              decoding="async"
-              data-photo
-            />
-          </figure>
+          <p>
+            Try out the instrument selector, then use the finder to see classes by learner group,
+            experience, and day.
+          </p>
         </header>
+        <div class="lab-instrument" data-explorer="lab">
+          <noscript
+            ><p>
+              <a class="text-link" href="courses.html"
+                >Browse available instruments <span class="arrow" aria-hidden="true">↗</span></a
+              >
+            </p></noscript
+          >
+        </div>
         <section class="planner-workspace" id="path-finder" aria-labelledby="lab-finder-title">
           <header class="block-title">
             <h2 id="lab-finder-title" tabindex="-1">Compare weekly classes</h2>
@@ -77,87 +76,61 @@
           >
         </section>
 
-        <section class="public-block">
+        <section class="public-block lab-comparison">
           <header class="block-title">
-            <h2>What you can learn</h2>
-            <p>Choose an instrument to see matching classes in the finder.</p>
+            <h2>Compare instruments</h2>
+            <p>
+              Every instrument has options for kids, teens, and adults at all three experience levels.
+            </p>
           </header>
           <div class="instrument-previews">
             <article>
-              <figure>
-                <img
-                  src="../assets/images/picking-study.jpg"
-                  width="1500"
-                  height="2249"
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                  data-photo
-                />
-              </figure>
-              <div>
-                <h3>Guitar</h3>
-                <p>Practice chord changes, strumming, and rhythm.</p>
+              <h3>Guitar</h3>
+              <p>Chords, strumming, and playing songs in time.</p>
+              <p class="comparison-level">Beginner, intermediate, advanced</p>
+              <div class="actions">
+                <a class="text-link" href="courses.html?instrument=guitar#course-finder"
+                  >Courses <span class="arrow" aria-hidden="true">↗</span></a
+                >
                 <a class="text-link" data-lab-choice="guitar" href="?instrument=guitar#path-finder"
                   >Find guitar classes <span class="arrow" aria-hidden="true">↗</span></a
                 >
               </div>
             </article>
             <article>
-              <figure>
-                <img
-                  src="../assets/images/keyboard.jpg"
-                  width="1000"
-                  height="667"
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                  data-photo
-                />
-              </figure>
-              <div>
-                <h3>Keyboard</h3>
-                <p>Play melodies, chords, and parts for both hands.</p>
+              <h3>Keyboard</h3>
+              <p>Melodies, chords, and coordination between both hands.</p>
+              <p class="comparison-level">Beginner, intermediate, advanced</p>
+              <div class="actions">
+                <a class="text-link" href="courses.html?instrument=keyboard#course-finder"
+                  >Courses <span class="arrow" aria-hidden="true">↗</span></a
+                >
                 <a class="text-link" data-lab-choice="keyboard" href="?instrument=keyboard#path-finder"
                   >Find keyboard classes <span class="arrow" aria-hidden="true">↗</span></a
                 >
               </div>
             </article>
             <article>
-              <figure>
-                <img
-                  src="../assets/images/vocals.jpg"
-                  width="1000"
-                  height="667"
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                  data-photo
-                />
-              </figure>
-              <div>
-                <h3>Vocals</h3>
-                <p>Work on breath, pitch, and phrasing.</p>
+              <h3>Vocals</h3>
+              <p>Breathing, pitch, phrasing, and song interpretation.</p>
+              <p class="comparison-level">Beginner, intermediate, advanced</p>
+              <div class="actions">
+                <a class="text-link" href="courses.html?instrument=vocals#course-finder"
+                  >Courses <span class="arrow" aria-hidden="true">↗</span></a
+                >
                 <a class="text-link" data-lab-choice="vocals" href="?instrument=vocals#path-finder"
                   >Find vocals classes <span class="arrow" aria-hidden="true">↗</span></a
                 >
               </div>
             </article>
             <article>
-              <figure>
-                <img
-                  src="../assets/images/drum-lesson.jpg"
-                  width="1200"
-                  height="800"
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                  data-photo
-                />
-              </figure>
-              <div>
-                <h3>Drums</h3>
-                <p>Build a steady beat, then add fills.</p>
+              <h3>Drums</h3>
+              <p>A steady beat, fills, and keeping time with a group.</p>
+              <p class="comparison-level">Beginner, intermediate, advanced</p>
+              <div class="actions">
+                <a class="text-link" href="courses.html?instrument=drums#course-finder"
+                  >Courses <span class="arrow" aria-hidden="true">↗</span></a
+                >
                 <a class="text-link" data-lab-choice="drums" href="?instrument=drums#path-finder"
                   >Find drums classes <span class="arrow" aria-hidden="true">↗</span></a
                 >
@@ -196,25 +169,45 @@
             >
           </div>
         </section>
-        <section class="public-block music-steps">
+
+        <section class="public-block lab-journey">
           <header class="block-title">
-            <h2>Practice, rehearse, perform</h2>
-            <p>Work toward playing a full piece at a pace that suits you.</p>
+            <h2>Your learning journey</h2>
+            <p>Explore what you can work on from your first lesson to playing with others.</p>
           </header>
-          <dl>
-            <div>
-              <dt>Practice a short passage</dt>
-              <dd>Slow it down and repeat the part that needs attention.</dd>
-            </div>
-            <div>
-              <dt>Bring it to rehearsal</dt>
-              <dd>Keep a steady count and listen for the other parts.</dd>
-            </div>
-            <div>
-              <dt>Share the piece</dt>
-              <dd>Play it with others when you feel ready.</dd>
-            </div>
-          </dl>
+          <div class="journey-stages">
+            <details name="learning-journey" open>
+              <summary>Start with the basics</summary>
+              <p>
+                Learn how to hold the instrument or warm up your voice. Play a few notes or tap a simple
+                beat.
+              </p>
+            </details>
+            <details name="learning-journey">
+              <summary>Learn with an instructor</summary>
+              <p>
+                Work through one chord change, rhythm, or short passage and try the feedback straight
+                away.
+              </p>
+            </details>
+            <details name="learning-journey">
+              <summary>Practice your skills</summary>
+              <p>
+                Slow down the part that needs work. Repeat it at a comfortable speed before moving on.
+              </p>
+            </details>
+            <details name="learning-journey">
+              <summary>Play with others</summary>
+              <p>Count in together and listen for the other parts so everyone can stay in time.</p>
+            </details>
+            <details name="learning-journey">
+              <summary>Build confidence</summary>
+              <p>
+                Share a piece when you feel ready. A run-through or recording can help you hear your
+                progress.
+              </p>
+            </details>
+          </div>
         </section>
         <section class="public-block">
           <div class="block-heading-row">
@@ -226,7 +219,7 @@
               >Compare all fees and batches <span class="arrow" aria-hidden="true">↗</span></a
             >
           </div>
-          <div class="schedule-section" data-batch-preview="journey"></div>
+          <div class="schedule-section lab-week" data-batch-preview="journey"></div>
         </section>
         <section class="public-block guidance-line">
           <header class="block-title">
@@ -239,6 +232,8 @@
           <div class="actions">
             <a class="button" href="instructors.html"
               >Meet the instructors <span class="arrow" aria-hidden="true">↗</span></a
+            ><a class="text-link" href="courses.html"
+              >Browse courses <span class="arrow" aria-hidden="true">↗</span></a
             ><a class="text-link" href="contact.html?topic=Batch%20enquiry#enquiry"
               >Ask about a class <span class="arrow" aria-hidden="true">↗</span></a
             >
@@ -250,8 +245,8 @@
             <p>Compare the schedule and fee before saving an enrollment request.</p>
           </div>
           <div class="actions">
-            <a class="button accent" href="fees-batches.html"
-              >Find a batch <span class="arrow" aria-hidden="true">↗</span></a
+            <a class="button accent" href="#path-finder"
+              >Back to the class finder <span class="arrow" aria-hidden="true">↗</span></a
             ><a class="button" href="courses.html"
               >Browse the course catalogue <span class="arrow" aria-hidden="true">↗</span></a
             >

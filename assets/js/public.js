@@ -6,29 +6,36 @@ import { instruments } from './course-data.js';
 import { page, photo, textLink } from './site-config.js';
 
 document.querySelectorAll('[data-finder]').forEach((host) => mountFinder(host, host.dataset.finder));
-document.querySelectorAll('[data-explorer]').forEach(mountExplorer);
+document.querySelectorAll('[data-explorer=""]').forEach((host) => mountExplorer(host));
 
 const trackLinks = [...document.querySelectorAll('[data-catalogue-choice], [data-lab-choice]')];
 if (trackLinks.length) {
   const finder = document.querySelector('[data-finder]');
   const instrumentSelect = finder.querySelector('select[name="instrument"]');
+  const choose = (instrument) => {
+    if (instrumentSelect.value === instrument) return;
+    instrumentSelect.value = instrument;
+    instrumentSelect.dispatchEvent(new Event('change', { bubbles: true }));
+  };
+  const lab = document.querySelector('[data-explorer="lab"]');
+  const selectPreview = lab ? mountExplorer(lab, choose) : null;
   const reflectInstrument = () => {
+    selectPreview?.(instrumentSelect.value);
     trackLinks.forEach((track) => {
       const trackId = track.dataset.catalogueChoice ?? track.dataset.labChoice;
       if (trackId === instrumentSelect.value) track.setAttribute('aria-current', 'true');
       else track.removeAttribute('aria-current');
     });
   };
-  trackLinks.forEach((track) => {
-    if (!track.dataset.labChoice) return;
-    track.addEventListener('click', (event) => {
-      if (event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+  if (lab) {
+    document.querySelector('main').addEventListener('click', (event) => {
+      const track = event.target.closest('[data-lab-choice]');
+      if (!track || event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
       event.preventDefault();
-      instrumentSelect.value = track.dataset.labChoice;
-      instrumentSelect.dispatchEvent(new Event('change', { bubbles: true }));
+      choose(track.dataset.labChoice);
       document.getElementById('lab-finder-title').focus();
     });
-  });
+  }
   instrumentSelect.addEventListener('change', reflectInstrument);
   finder.querySelector('[data-clear]').addEventListener('click', reflectInstrument);
   reflectInstrument();

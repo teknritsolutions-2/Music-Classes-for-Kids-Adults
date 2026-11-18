@@ -65,7 +65,7 @@ function courseModule(instrument, matches) {
   const options = matches
     .map(
       (course) => `<details class="course-option"${matches.length === 1 ? ' open' : ''}>
-      <summary>${course.group} · ${course.level} · ${course.weeks} weeks</summary>
+      <summary><span class="course-summary"><span>${course.group} · ${course.level}</span><span>${course.weeks} weeks</span></span></summary>
       <p>${course.focus}</p><p>${course.format} · ${instrument.mentor}</p>
       ${buttonLink('View available batches', page('fees-batches', { instrument: course.instrument, group: course.group, level: course.level }), 'accent')}
     </details>`,
