@@ -1,8 +1,28 @@
-# UPBEAT 4.0 design and regression QA
+# UPBEAT design and regression QA
+
+## Section design revision
+
+The original project brief flagged repeated image-and-text splits, empty columns, desktop compositions squeezed onto tablets, oversized headings, and cropped subjects. The section review also found that the previous release reduced the mosaic to a mostly hidden hero accent. This revision brings back the original artwork on the main homepage hero, the performance spread, the secondary homepage introduction, and selected supporting sections.
+
+| Page | What changed |
+| --- | --- |
+| Home 1 | A framed guitar lesson overlaps a compact headline panel. Instrument tabs form a rail on wide screens, lesson photos sit alongside a short studio introduction, and the two-photo performance spread appears earlier in the page. |
+| Home 2 | A compact, photo-led introduction leads into the finder. Instrument shortcuts form a directory, and the lesson sequence uses a photo and four practice stages. |
+| About | The rehearsal photo and introduction form a single composition. The teaching approach and learner age guide use short editorial panels with the course and batch links intact. |
+| Courses | Image links lead into the filtered catalogue from a mosaic masthead. A drum lesson replaces the dark stage silhouette in the shortcut. |
+| Instructors | The directory features one teaching profile and keeps the other three aligned with their related course and batch actions. The featured photo and copy were rebalanced after the render exposed a large internal gap. |
+| Fees & Batches | The schedule guidance is a compact note, and redundant headings were removed from the comparison and fee guidance. |
+| Contact | Topic links sit in a readable directory over the mosaic. The enquiry form, first-visit guidance, FAQs, and related links remain available. |
+
+The browser review covered 23 viewport widths, including the 720 px layout transition, the 1000 px profile grid transition, and the 1240 px navigation breakpoint. It covered both themes and text directions, plus the dashboard panels. The locally verified flows include keyboard instrument selection, the Home 2 finder, filters and enrollment, enquiry drafts, account form validation, and dashboard records.
+
+[Desktop overview](screenshots/upbeat-sections-desktop.jpg) · [Tablet in dark RTL](screenshots/upbeat-sections-tablet-rtl.jpg) · [Phone homepage](screenshots/upbeat-sections-phone.jpg)
+
+## UPBEAT 4.0 baseline
 
 The site uses UPBEAT’s angular mark, ultraviolet actions, cool lilac surfaces, and consistent spacing and controls. The mosaic sits behind the main guitar lesson photo and the standalone account pages. Lessons, studio spaces, and rehearsals illustrate what learners can explore, practice, and play together. [Photography and font credits](asset-credits.md)
 
-## Page layouts
+### Page layouts
 
 | Page | Rebuild |
 | --- | --- |
@@ -19,7 +39,7 @@ The site uses UPBEAT’s angular mark, ultraviolet actions, cool lilac surfaces,
 
 Display headlines wrap at a readable scale, with the main home headline around 65 px on desktop and 40 px on a phone. Section headings, body copy, inputs, and buttons use a shared hierarchy. Wider compositions stack into a single reading order on compact screens. The shared header and footer retain route selection, and layout direction and theme controls persist across navigation.
 
-## Rendered review
+### Rendered review
 
 | Capture | Coverage |
 | --- | --- |
@@ -31,7 +51,7 @@ Display headlines wrap at a readable scale, with the main home headline around 6
 
 Rendered review led to shorter desktop and phone headline wraps, revised teaching photo crops, full-width finder results, and a more compact instructor directory.
 
-## Browser regression
+### Browser regression
 
 Brave Chromium and Playwright exercised all ten routes at 17 viewport widths from 320 to 1920 px in both themes and both layout directions. Seven dashboard panels were also checked at three widths in all four mode combinations. All 764 layout checks passed. Thirty representative screenshots were checked for horizontal overflow and image loading.
 

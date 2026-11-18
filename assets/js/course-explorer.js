@@ -14,7 +14,13 @@ export function mountExplorer(host) {
         .join('')}
     </div>
     <article class="instrument-display" id="instrument-panel" role="tabpanel" tabindex="0"></article>`;
-  const tabs = Array.from(host.querySelectorAll('[role="tab"]'));
+  const rail = host.querySelector('[role="tablist"]');
+  const tabs = [...rail.querySelectorAll('[role="tab"]')];
+  const wide = matchMedia('(min-width: 720px)');
+  const setOrientation = () =>
+    rail.setAttribute('aria-orientation', wide.matches ? 'vertical' : 'horizontal');
+  wide.addEventListener('change', setOrientation);
+  setOrientation();
   const panel = host.querySelector('[role="tabpanel"]');
   const select = (index, focus) => {
     const active = tabs[index];

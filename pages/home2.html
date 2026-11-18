@@ -31,36 +31,37 @@
       >
     </header>
     <main id="main" tabindex="-1">
-      <header class="container page-hero learning-hero">
-        <div class="page-hero-copy">
-          <span class="kicker">Find your learning path</span>
-          <h1>A good place to begin.</h1>
-          <p>
-            Choose the learner group, instrument, level, and day that work for you. We’ll show matching
-            classes from the current schedule.
-          </p>
-          <div class="actions">
-            <a class="button accent" href="#path-finder"
-              >Find a class <span class="arrow" aria-hidden="true">↗</span></a
-            >
+      <div class="dark-section pixel-field">
+        <header class="container page-hero learning-hero">
+          <div class="page-hero-copy">
+            <span class="kicker">Find your learning path</span>
+            <h1>A good place to begin.</h1>
+            <p>
+              Find a weekly class for a first lesson, a fresh start, or the next step with your
+              instrument.
+            </p>
+            <div class="actions">
+              <a class="button accent" href="#path-finder"
+                >Find a class <span class="arrow" aria-hidden="true">↗</span></a
+              >
+            </div>
           </div>
-        </div>
-        <figure class="page-hero-image">
-          <img
-            src="../assets/images/smiling-keys.jpg"
-            alt="A learner and teacher sit beside a keyboard with sheet music"
-            width="1150"
-            height="1725"
-            fetchpriority="high"
-            decoding="async"
-            data-photo
-          />
-        </figure>
-      </header>
+          <figure class="page-hero-image">
+            <img
+              src="../assets/images/smiling-keys.jpg"
+              alt="A learner and teacher sit beside a keyboard with sheet music"
+              width="1150"
+              height="1725"
+              fetchpriority="high"
+              decoding="async"
+              data-photo
+            />
+          </figure>
+        </header>
+      </div>
       <section class="finder-band" id="path-finder">
         <div class="container section finder-shell">
           <header class="finder-heading">
-            <span class="kicker">Course finder</span>
             <h2 id="lab-finder-title" tabindex="-1">Find a class that fits.</h2>
             <p>Start with what you know. Leave any filter open to see more choices.</p>
           </header>
@@ -70,10 +71,9 @@
           >
         </div>
       </section>
-      <section class="container section">
+      <section class="container section lab-choices">
         <header class="section-head">
-          <span class="kicker">Explore learning styles</span>
-          <h2>Four different ways to make music.</h2>
+          <h2>Pick an instrument.</h2>
           <p>Choose an instrument to see its matching sessions in the finder.</p>
         </header>
         <nav class="lab-tracks" aria-label="Pick an instrument">
@@ -112,10 +112,10 @@
             <p>Breath, pitch, and ear training.</p></a
           ><a data-lab-choice="drums" href="?instrument=drums#path-finder"
             ><img
-              src="../assets/images/drums.jpg"
+              src="../assets/images/drum-lesson.jpg"
               alt=""
-              width="1000"
-              height="563"
+              width="1200"
+              height="800"
               loading="lazy"
               decoding="async"
               data-photo
@@ -125,6 +125,10 @@
         </nav>
       </section>
       <section class="container section lesson-sequence">
+        <header class="section-head">
+          <span class="kicker">A lesson at UPBEAT</span>
+          <h2>From warm-up to a song.</h2>
+        </header>
         <figure class="lesson-sequence-photo">
           <img
             src="../assets/images/music-reading.jpg"
@@ -136,30 +140,24 @@
             data-photo
           />
         </figure>
-        <div>
-          <header class="section-head">
-            <span class="kicker">A lesson at UPBEAT</span>
-            <h2>From warm-up to a song.</h2>
-          </header>
-          <ol class="studio-steps">
-            <li>
-              <h3>Warm up</h3>
-              <p>Get comfortable with your instrument and find a steady pulse.</p>
-            </li>
-            <li>
-              <h3>Learn a technique</h3>
-              <p>Try one change at a time with a teacher’s guidance.</p>
-            </li>
-            <li>
-              <h3>Practice and get feedback</h3>
-              <p>Repeat a short part, listen back, and make an adjustment.</p>
-            </li>
-            <li>
-              <h3>Play it in context</h3>
-              <p>Bring the part back into a piece of music.</p>
-            </li>
-          </ol>
-        </div>
+        <ol class="studio-steps">
+          <li>
+            <h3>Warm up</h3>
+            <p>Get comfortable with your instrument and find a steady pulse.</p>
+          </li>
+          <li>
+            <h3>Learn a technique</h3>
+            <p>Try one change at a time with a teacher’s guidance.</p>
+          </li>
+          <li>
+            <h3>Practice and get feedback</h3>
+            <p>Repeat a short part, listen back, and make an adjustment.</p>
+          </li>
+          <li>
+            <h3>Play it in context</h3>
+            <p>Bring the part back into a piece of music.</p>
+          </li>
+        </ol>
       </section>
       <section class="studio-band">
         <div class="container section progress-spread">
@@ -189,7 +187,6 @@
       <section class="container section studio-schedule">
         <div class="section-row">
           <header class="section-head">
-            <span class="kicker">Class times</span>
             <h2>Plan your week.</h2>
             <p>Compare indicative sessions and choose a day that leaves room to practice.</p>
           </header>
@@ -214,7 +211,6 @@
           />
         </figure>
         <header class="section-head">
-          <span class="kicker">Your instructors</span>
           <h2>Know what to practice next.</h2>
           <p>Get specific feedback you can take back to a song you want to play.</p>
         </header>

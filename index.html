@@ -31,8 +31,8 @@
       >
     </header>
     <main id="main" tabindex="-1">
-      <section class="container studio-welcome" aria-labelledby="studio-title">
-        <div class="welcome-board">
+      <section class="studio-welcome pixel-field dark-section" aria-labelledby="studio-title">
+        <div class="container welcome-board">
           <div class="welcome-copy">
             <span class="kicker">Music classes for kids, teens &amp; adults</span>
             <h1 id="studio-title">
@@ -82,21 +82,20 @@
             </figure>
           </div>
         </div>
-        <nav class="welcome-links" aria-label="Explore the academy">
+        <nav class="container welcome-links" aria-label="Explore the academy">
           <a class="text-link" href="./index.html#instruments"
-            >Choose an instrument <span class="arrow" aria-hidden="true">↗</span></a
+            >Instruments <span class="arrow" aria-hidden="true">↗</span></a
           >
           <a class="text-link" href="./pages/home2.html"
-            >Find your learning path <span class="arrow" aria-hidden="true">↗</span></a
+            >Learning path <span class="arrow" aria-hidden="true">↗</span></a
           >
           <a class="text-link" href="./pages/instructors.html"
-            >Meet the instructors <span class="arrow" aria-hidden="true">↗</span></a
+            >Instructors <span class="arrow" aria-hidden="true">↗</span></a
           >
         </nav>
       </section>
       <section class="container section" id="instruments">
         <header class="section-head">
-          <span class="kicker">Choose an instrument</span>
           <h2>What would you like to play?</h2>
           <p>Get to know the four instruments, from the first lesson to playing with others.</p>
         </header>
@@ -104,7 +103,7 @@
           <noscript><a href="./pages/courses.html">Explore instruments and courses</a></noscript>
         </div>
       </section>
-      <section class="studio-band">
+      <section class="studio-band lesson-band">
         <div class="container section lesson-spread">
           <div class="lesson-spread-title">
             <header class="section-head">
@@ -147,10 +146,42 @@
           </figure>
         </div>
       </section>
+      <section class="dark-section pixel-field stage-band">
+        <div class="container section stage-spread">
+          <header class="section-head">
+            <span class="kicker">From lessons to performance</span>
+            <h2>Bring it together.</h2>
+            <p>Rehearse a part, listen to the group, and share a song when you’re ready.</p>
+          </header>
+          <figure class="stage-main">
+            <img
+              src="./assets/images/studio-stage.jpg"
+              alt="An ensemble plays guitars, keyboard, and drums together"
+              width="1500"
+              height="1001"
+              loading="lazy"
+              decoding="async"
+              data-photo
+            />
+            <figcaption>An ensemble performance</figcaption>
+          </figure>
+          <figure class="stage-secondary">
+            <img
+              src="./assets/images/close-rehearsal.jpg"
+              alt="Musicians play together in a recording studio"
+              width="1400"
+              height="933"
+              loading="lazy"
+              decoding="async"
+              data-photo
+            />
+            <figcaption>Rehearsal before a set</figcaption>
+          </figure>
+        </div>
+      </section>
       <section class="container section age-spread">
         <div class="age-intro">
           <header class="section-head">
-            <span class="kicker">Learning for every age</span>
             <h2>Start where you are.</h2>
             <p>There’s room to begin, come back to music, or take the next step.</p>
           </header>
@@ -214,43 +245,9 @@
           </article>
         </div>
       </section>
-      <section class="dark-section stage-band">
-        <div class="container section stage-spread">
-          <header class="section-head">
-            <span class="kicker">From lessons to performance</span>
-            <h2>Bring it together.</h2>
-            <p>Rehearse a part, listen to the group, and share a song when you’re ready.</p>
-          </header>
-          <figure class="stage-main">
-            <img
-              src="./assets/images/studio-stage.jpg"
-              alt="An ensemble plays guitars, keyboard, and drums together"
-              width="1500"
-              height="1001"
-              loading="lazy"
-              decoding="async"
-              data-photo
-            />
-            <figcaption>An ensemble performance</figcaption>
-          </figure>
-          <figure class="stage-secondary">
-            <img
-              src="./assets/images/close-rehearsal.jpg"
-              alt="Musicians play together in a recording studio"
-              width="1400"
-              height="933"
-              loading="lazy"
-              decoding="async"
-              data-photo
-            />
-            <figcaption>Rehearsal before a set</figcaption>
-          </figure>
-        </div>
-      </section>
       <section class="container section studio-schedule">
         <div class="section-row">
           <header class="section-head">
-            <span class="kicker">Class times</span>
             <h2>Find your class time.</h2>
             <p>Compare weekly schedules and indicative fees. All times are in IST.</p>
           </header>
@@ -265,7 +262,6 @@
       <section class="container section mentor-preview">
         <div class="section-row">
           <header class="section-head">
-            <span class="kicker">Learn from musicians</span>
             <h2>Meet the teaching team.</h2>
             <p>Explore approaches to guitar, keyboard, vocals, and drums.</p>
           </header>
@@ -281,7 +277,7 @@
         <div class="tempo" data-tempo>
           <div class="tempo-meter" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
           <div>
-            <h3>Tap your tempo</h3>
+            <h2>Tap your tempo</h2>
             <p>Tap in time with a beat to estimate its speed.</p>
           </div>
           <div class="tempo-read">
