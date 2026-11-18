@@ -41,7 +41,7 @@ export const instruments = [
     image: 'vocals',
     alt: 'A vocalist practices at a studio microphone',
     mentor: 'Maya Fernandes',
-    mentorImage: 'voice-lesson',
+    mentorImage: 'vocals',
     approach: 'Start with comfortable warm-ups and use songs that suit your range to work on phrasing.',
   },
   {

@@ -1,36 +1,44 @@
-# UPBEAT 3.0 design and regression QA
+# UPBEAT 4.0 design and regression QA
 
-## Layout changes
+The site uses UPBEAT’s angular mark, ultraviolet actions, cool lilac surfaces, and consistent spacing and controls. The mosaic sits behind the main guitar lesson photo and the standalone account pages. Lessons, studio spaces, and rehearsals illustrate what learners can explore, practice, and play together. [Photography and font credits](asset-credits.md)
 
-| Page | Change |
+## Page layouts
+
+| Page | Rebuild |
 | --- | --- |
-| Home 1 | Two display lines bracket a wide studio photograph to make a single poster composition. Course and batch actions stay in the support line. A vertical instrument rail, lesson collage, stage-and-rehearsal spread, age-group list, timetable, and mentor index each use different layouts. |
-| Home 2 | The Sound Lab opens with four instrument photo links connected to the class finder. A rhythm-led learning sequence, instrument spread, practice journal, weekly timetable, and guidance rail support the discovery path. |
-| Instructors | A compact magazine masthead leads into four lesson profiles over three compositions. Actual teaching photographs illustrate guitar, keyboard, vocals, and drums. Every profile retains its related course and batch actions. |
-| About | New physical route explaining the learning philosophy, studio environment, age groups, and progression toward playing with others. Course, schedule, instructor, and contact links connect the page to the rest of the site. |
-| Login and Sign Up | The approved mosaic surrounds both standalone forms. The solid form surfaces provide contrast in both themes. |
-| Shared navigation | About is included in desktop and compact menus, the static navigation fallback, and footer Explore. The desktop navbar starts at 1240 px to leave room for the new item. |
+| Home 1 | A guitar lesson and a small keyboard inset introduce the studio. Instrument tabs, lesson formats, learner groups, sample schedules, rehearsals, instructors, and a tempo tool show how to get started. |
+| Home 2 | A keyboard lesson opens a guided path with learner-group choices, instrument links, and a class finder. A weekly timetable and practice guidance follow the results. |
+| About | An editorial introduction and wide ensemble image lead into the studio approach, age groups, and progression from first lessons to playing with others. |
+| Courses | An instrument photo index leads to a filterable course catalog, clearer course comparisons, and links to batch options. |
+| Instructors | A featured teaching profile and image-led instrument profiles connect individual and group lesson guidance to related courses and batches. |
+| Fees & Batches | The introduction explains how to read the listings. Compact filters and weekly rows support comparison by schedule, course, level, group, and fee. |
+| Contact | Six sections cover the introduction, topic shortcuts, enquiry form, first visit, FAQs, and useful links. Topic links select the corresponding form option and move keyboard focus to it. The form validates, previews, and downloads a local draft. |
+| Login | A focused account form uses a solid panel over the approved mosaic, with password visibility and clear feedback for sign-in, recovery, Google, and Apple. |
+| Sign Up | The standalone form shares the account layout and provides password requirements and matching confirmation feedback. |
+| Student Dashboard | A compact sidebar and top bar frame the overview, schedule timeline, and record panels. Attendance progress reflects stored sessions, and billing displays approved payments. |
 
-The ultraviolet palette, pixel mosaic, and angular mark carry over from the previous release. The new hero, rehearsal, studio, drum lesson, and sheet-music photographs are licensed and illustrative. [Photography and font credits](asset-credits.md)
+Display headlines wrap at a readable scale, with the main home headline around 65 px on desktop and 40 px on a phone. Section headings, body copy, inputs, and buttons use a shared hierarchy. Wider compositions stack into a single reading order on compact screens. The shared header and footer retain route selection, and layout direction and theme controls persist across navigation.
 
-## Rendered comparison
+## Rendered review
 
-| Page | Previous live release | UPBEAT 3.0 |
-| --- | --- | --- |
-| Home 1 | [Prior layout](screenshots/upbeat3-home-before.jpg) | [Poster layout](screenshots/upbeat3-home-after.jpg) |
-| Home 2 | [Prior layout](screenshots/upbeat3-lab-before.jpg) | [Sound Lab layout](screenshots/upbeat3-lab-after.jpg) |
-| Instructors | [Prior layout](screenshots/upbeat3-faculty-before.jpg) | [Editorial directory](screenshots/upbeat3-faculty-after.jpg) |
+| Capture | Coverage |
+| --- | --- |
+| [Desktop](screenshots/upbeat4-desktop.jpg) | All ten routes at 1440 px in light LTR |
+| [Tablet](screenshots/upbeat4-tablet-dark-rtl.jpg) | All ten routes at 820 px in dark RTL |
+| [Phone](screenshots/upbeat4-phone.jpg) | All ten routes at 390 px in light LTR |
+| [Full Contact page](screenshots/upbeat4-contact.jpg) | The complete six-section layout |
+| [Dashboard attendance](screenshots/upbeat4-attendance.jpg) | Populated state rendered with isolated browser test records |
 
-Representative captures included [the dark RTL poster at tablet width](screenshots/upbeat3-poster-tablet-rtl.jpg), [the Sound Lab on a phone](screenshots/upbeat3-lab-phone.jpg), [About on a phone](screenshots/upbeat3-about-phone.jpg), [desktop Login](screenshots/upbeat3-login-desktop.jpg), and [dark RTL Sign Up](screenshots/upbeat3-signup-tablet-rtl.jpg). Full-page comparison led to a tighter instructor masthead, a shorter mobile poster, and a compact mentor index.
+Rendered review led to shorter desktop and phone headline wraps, revised teaching photo crops, full-width finder results, and a more compact instructor directory.
 
 ## Browser regression
 
-Playwright with Brave Chromium was used against the GitHub Pages-style project subpath. The responsive matrix covered 10 pages at 17 widths from 320 to 1920 px, including both sides of the new navbar breakpoint, light and dark modes, and both layout directions. Seven dashboard panels were also checked at three widths in all four mode combinations. All 764 checks passed.
+Brave Chromium and Playwright exercised all ten routes at 17 viewport widths from 320 to 1920 px in both themes and both layout directions. Seven dashboard panels were also checked at three widths in all four mode combinations. All 764 layout checks passed. Thirty representative screenshots were checked for horizontal overflow and image loading.
 
-- Exercised desktop and compact About navigation, selected states, About’s batch CTA, Home menu, sticky positioning, drawer dismissal, footer hover and focus, theme and direction persistence, and back-to-top.
-- Exercised the instrument rail with a keyboard and a forced image fallback. The Sound Lab’s photo links select an instrument in the connected finder, update matching results, and focus the finder heading. Course and batch filters, empty states, and progressive batch loading were checked.
-- Verified the related instructor course link and all 36 course options. Ran all four instruments through local enrollment, fee and schedule comparison, duplicate prevention, reload persistence, and reset.
-- Exercised the dashboard’s course, schedule, attendance, progress, fees, and settings flows. Used browser-only fixtures for attendance calculations and approved-payment handling.
-- Verified tempo calculation and reset, enquiry draft validation and download, standalone Login and Sign Up, password visibility, mismatch validation, and Google, Apple, and recovery feedback.
+- Verified shared desktop and mobile menus, sticky navigation, route selection, drawer dismissal, keyboard focus, footer links, theme and direction persistence, and back-to-top.
+- Exercised Home 1 instrument tabs and image fallback, Home 2 learner-group controls and instrument shortcuts, all 36 course options, and fee and batch filters with their empty and expanded states.
+- Exercised local enrollment for all four instruments, comparison filters, duplicate prevention, and dashboard persistence and reset.
+- Used isolated browser fixtures for attendance calculations, progress notes, schedule, course records, and approved payments.
+- Exercised tempo calculation, contact topic shortcuts and URL preselection, enquiry validation and draft download, password visibility and matching, and recovery and social sign-in feedback.
 
-The dashboard and enrollment records remain local to the browser. Production authentication, OAuth, account recovery, enquiry delivery, confirmed enrollment, instructor-managed records, and payment processing require integrations.
+The site remains static. Authentication, OAuth, password recovery, enquiry delivery, confirmed enrollment, synchronized student records, and payment processing require production integrations.

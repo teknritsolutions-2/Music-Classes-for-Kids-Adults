@@ -31,57 +31,69 @@
       >
     </header>
     <main id="main" tabindex="-1">
-      <header class="container intro catalogue-intro">
-        <span class="kicker">Course catalogue</span>
-        <h1>What do you want to play?</h1>
-        <p>
-          Explore guitar, keyboard / piano, vocals, and drums. Find a course for your age group and
-          experience level.
-        </p>
+      <header class="studio-band catalogue-top">
+        <div class="container section">
+          <div class="catalogue-heading">
+            <div>
+              <span class="kicker">Course catalogue</span>
+              <h1>Find your instrument.</h1>
+            </div>
+            <p>
+              Compare guitar, keyboard, vocals, and drums by learner group and experience level. Each
+              course includes what you’ll practice and a link to its available batches.
+            </p>
+          </div>
+          <nav class="catalogue-tracks" aria-label="Instrument categories">
+            <a data-catalogue-choice="guitar" href="?instrument=guitar#course-finder"
+              ><img
+                src="../assets/images/picking-study.jpg"
+                alt=""
+                width="1500"
+                height="2249"
+                loading="lazy"
+                decoding="async"
+                data-photo
+              /><span><strong>Guitar</strong><span class="arrow" aria-hidden="true">↗</span></span></a
+            ><a data-catalogue-choice="keyboard" href="?instrument=keyboard#course-finder"
+              ><img
+                src="../assets/images/keys-detail.jpg"
+                alt=""
+                width="1000"
+                height="667"
+                loading="lazy"
+                decoding="async"
+                data-photo
+              /><span><strong>Keyboard</strong><span class="arrow" aria-hidden="true">↗</span></span></a
+            ><a data-catalogue-choice="vocals" href="?instrument=vocals#course-finder"
+              ><img
+                src="../assets/images/vocals.jpg"
+                alt=""
+                width="1000"
+                height="667"
+                loading="lazy"
+                decoding="async"
+                data-photo
+              /><span><strong>Vocals</strong><span class="arrow" aria-hidden="true">↗</span></span></a
+            ><a data-catalogue-choice="drums" href="?instrument=drums#course-finder"
+              ><img
+                src="../assets/images/drums.jpg"
+                alt=""
+                width="1000"
+                height="563"
+                loading="lazy"
+                decoding="async"
+                data-photo
+              /><span><strong>Drums</strong><span class="arrow" aria-hidden="true">↗</span></span></a
+            >
+          </nav>
+        </div>
       </header>
-      <nav class="container catalogue-tracks" aria-label="Instrument categories">
-        <a href="?instrument=guitar#course-finder"
-          ><img
-            src="../assets/images/guitar.jpg"
-            width="1000"
-            height="667"
-            alt=""
-            loading="lazy"
-            data-photo
-          /><span>Guitar<span class="arrow" aria-hidden="true">↗</span></span></a
-        >
-        <a href="?instrument=keyboard#course-finder"
-          ><img
-            src="../assets/images/keyboard.jpg"
-            width="1000"
-            height="667"
-            alt=""
-            loading="lazy"
-            data-photo
-          /><span>Keyboard<span class="arrow" aria-hidden="true">↗</span></span></a
-        >
-        <a href="?instrument=vocals#course-finder"
-          ><img
-            src="../assets/images/vocals.jpg"
-            width="1000"
-            height="667"
-            alt=""
-            loading="lazy"
-            data-photo
-          /><span>Vocals<span class="arrow" aria-hidden="true">↗</span></span></a
-        >
-        <a href="?instrument=drums#course-finder"
-          ><img
-            src="../assets/images/drums.jpg"
-            width="1000"
-            height="667"
-            alt=""
-            loading="lazy"
-            data-photo
-          /><span>Drums<span class="arrow" aria-hidden="true">↗</span></span></a
-        >
-      </nav>
-      <section class="container section condensed" id="course-finder" aria-label="Course catalogue">
+      <section class="container section catalogue-body" id="course-finder" aria-label="Course catalogue">
+        <header class="section-head">
+          <span class="kicker">Course options</span>
+          <h2>Choose a starting point.</h2>
+          <p>Use the filters to see the courses that match your interests.</p>
+        </header>
         <div data-finder="courses"></div>
         <noscript
           ><p>
@@ -90,6 +102,19 @@
           </p>
           <p><a href="fees-batches.html">Browse fees and batches</a></p></noscript
         >
+      </section>
+      <section class="container section studio-end">
+        <div class="closing">
+          <div>
+            <h2>Have an instrument in mind?</h2>
+            <p>Check the days, class lengths, and indicative fees for its weekly sessions.</p>
+          </div>
+          <div class="actions">
+            <a class="button" href="../pages/fees-batches.html"
+              >View Fees &amp; Batches <span class="arrow" aria-hidden="true">↗</span></a
+            >
+          </div>
+        </div>
       </section>
     </main>
     <footer id="site-footer"></footer>

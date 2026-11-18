@@ -31,17 +31,47 @@
       >
     </header>
     <main id="main" tabindex="-1">
-      <header class="container intro schedule-intro">
-        <span class="kicker">Schedules and pricing</span>
-        <h1>Fees &amp; batches.</h1>
-        <p>
-          Compare weekly class times, session length, and indicative fees. Choose a batch to review it
-          before saving a local enrollment request.
-        </p>
+      <header class="studio-band">
+        <div class="container fees-hero">
+          <div>
+            <span class="kicker">Schedules and pricing</span>
+            <h1>Fees &amp; batches.</h1>
+            <p>
+              Compare weekly class times, session length, and indicative fees. Choose a batch to review
+              it before saving an enrollment request.
+            </p>
+          </div>
+          <aside class="fees-guide" aria-label="How to use the schedule">
+            <strong>What to look for</strong>
+            <p>Check the weekly time in IST and the billing period shown beside each fee.</p>
+            <a class="text-link" href="#batch-finder"
+              >Jump to batch filters <span class="arrow" aria-hidden="true">↗</span></a
+            >
+          </aside>
+        </div>
       </header>
-      <section class="container section condensed" aria-label="Batch finder">
+      <section class="container section fees-results" id="batch-finder" aria-label="Batch finder">
+        <header class="section-head">
+          <span class="kicker">Weekly schedule</span>
+          <h2>Compare batches.</h2>
+        </header>
         <div data-finder="batches"></div>
         <noscript><p>Batch filters and enrollment review require JavaScript.</p></noscript>
+      </section>
+      <section class="container section billing-help">
+        <header class="section-head">
+          <span class="kicker">Before you enroll</span>
+          <h2>Know what the fee covers.</h2>
+          <p>
+            Compare the fee period on each batch. An enrollment request can be saved on this device. The
+            academy confirms your place and any charges.
+          </p>
+        </header>
+        <div>
+          <a class="button" href="../pages/contact.html?topic=Fees%20and%20enrollment#enquiry"
+            >Ask about fees <span class="arrow" aria-hidden="true">↗</span></a
+          >
+        </div>
       </section>
     </main>
     <footer id="site-footer"></footer>

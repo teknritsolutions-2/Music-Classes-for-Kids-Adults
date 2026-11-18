@@ -31,148 +31,147 @@
       >
     </header>
     <main id="main" tabindex="-1">
-      <section class="music-poster dark-section" aria-labelledby="poster-title">
-        <div class="container">
-          <div class="poster-mast">
-            <span class="kicker">Music classes for kids, teens &amp; adults</span
-            ><span class="mark" aria-hidden="true"></span>
-          </div>
-          <div class="poster-stage">
-            <h1 id="poster-title" class="poster-title">
-              <span dir="ltr">Play it.</span> <span dir="ltr">Your way.</span>
+      <section class="container studio-welcome" aria-labelledby="studio-title">
+        <div class="welcome-board">
+          <div class="welcome-copy">
+            <span class="kicker">Music classes for kids, teens &amp; adults</span>
+            <h1 id="studio-title">
+              Find your sound.<br />
+              <em>Start playing.</em>
             </h1>
-            <figure class="poster-image">
-              <img
-                src="./assets/images/ensemble-room.jpg"
-                srcset="
-                  ./assets/images/ensemble-room-small.jpg  900w,
-                  ./assets/images/ensemble-room.jpg       1800w
-                "
-                sizes="(min-width: 1100px) 78vw, 94vw"
-                alt="Three musicians with a keyboard, microphone and acoustic guitar in a practice room"
-                width="1800"
-                height="1200"
-                fetchpriority="high"
-                decoding="async"
-                data-photo
-              />
-            </figure>
-          </div>
-          <div class="poster-deck">
             <p>
-              Start with a song you love. Learn guitar, keyboard, vocals, or drums and find the
-              confidence to play with others.
+              Guitar, keyboard, vocals, and drums for curious beginners and growing musicians of every
+              age.
             </p>
             <div class="actions">
               <a class="button accent" href="./pages/courses.html"
                 >Explore Courses <span class="arrow" aria-hidden="true">↗</span></a
               >
-              <a class="button inverse" href="./pages/fees-batches.html"
+              <a class="button" href="./pages/fees-batches.html"
                 >Find a Batch <span class="arrow" aria-hidden="true">↗</span></a
               >
             </div>
           </div>
+          <div class="welcome-photos">
+            <figure class="welcome-main">
+              <img
+                src="./assets/images/bright-lesson.jpg"
+                srcset="
+                  ./assets/images/bright-lesson-small.jpg  880w,
+                  ./assets/images/bright-lesson.jpg       1600w
+                "
+                sizes="(min-width: 1000px) 51vw, 91vw"
+                alt="A guitar teacher helps a teen adjust her fingers on the fretboard"
+                width="1600"
+                height="900"
+                fetchpriority="high"
+                decoding="async"
+                data-photo
+              />
+            </figure>
+            <figure class="welcome-detail">
+              <img
+                src="./assets/images/keys-detail.jpg"
+                alt="Close-up of a musician’s hand on piano keys"
+                width="1000"
+                height="667"
+                loading="lazy"
+                decoding="async"
+                data-photo
+              />
+            </figure>
+          </div>
         </div>
+        <nav class="welcome-links" aria-label="Explore the academy">
+          <a class="text-link" href="./index.html#instruments"
+            >Choose an instrument <span class="arrow" aria-hidden="true">↗</span></a
+          >
+          <a class="text-link" href="./pages/home2.html"
+            >Find your learning path <span class="arrow" aria-hidden="true">↗</span></a
+          >
+          <a class="text-link" href="./pages/instructors.html"
+            >Meet the instructors <span class="arrow" aria-hidden="true">↗</span></a
+          >
+        </nav>
       </section>
-      <section class="container section instrument-section" id="instruments">
+      <section class="container section" id="instruments">
         <header class="section-head">
-          <span class="kicker">Instrument discovery</span>
-          <h2>What feels like you?</h2>
-          <p>Choose a track to see what you’ll learn.</p>
+          <span class="kicker">Choose an instrument</span>
+          <h2>What would you like to play?</h2>
+          <p>Get to know the four instruments, from the first lesson to playing with others.</p>
         </header>
         <div data-explorer>
           <noscript><a href="./pages/courses.html">Explore instruments and courses</a></noscript>
         </div>
       </section>
-      <section class="container section condensed lesson-board">
-        <header class="section-head">
-          <span class="kicker">Inside a lesson</span>
-          <h2>Small adjustments. Big breakthroughs.</h2>
-        </header>
-        <figure class="lesson-photo">
-          <img
-            src="./assets/images/studio-lesson.jpg"
-            alt="A tutor guides a player through an acoustic guitar part"
-            width="1050"
-            height="591"
-            loading="lazy"
-            decoding="async"
-            data-photo
-          />
-          <figcaption>One-to-one guidance</figcaption>
-        </figure>
-        <div class="lesson-notes">
-          <p>
-            Slow down a tricky passage, get specific feedback, then try the part in a real song. When
-            you’re ready, bring it into a group and hear how it fits.
-          </p>
-          <a class="text-link" href="./pages/about.html#approach"
-            >How we teach <span class="arrow" aria-hidden="true">↗</span></a
-          >
+      <section class="studio-band">
+        <div class="container section lesson-spread">
+          <div class="lesson-spread-title">
+            <header class="section-head">
+              <span class="kicker">Inside the music studio</span>
+              <h2>Small steps make real music.</h2>
+              <p>
+                Try a new technique with a teacher, put it to work in a song, and listen to what happens
+                when you play it with others.
+              </p>
+            </header>
+            <div>
+              <a class="text-link" href="./pages/about.html#approach"
+                >See how we teach <span class="arrow" aria-hidden="true">↗</span></a
+              >
+            </div>
+          </div>
+          <figure class="spread-lead">
+            <img
+              src="./assets/images/score-lesson.jpg"
+              alt="A teacher helps a learner work through sheet music"
+              width="1160"
+              height="773"
+              loading="lazy"
+              decoding="async"
+              data-photo
+            />
+            <figcaption>Individual guidance</figcaption>
+          </figure>
+          <figure class="spread-secondary">
+            <img
+              src="./assets/images/group.jpg"
+              alt="Players practice together in a rehearsal room"
+              width="1200"
+              height="801"
+              loading="lazy"
+              decoding="async"
+              data-photo
+            />
+            <figcaption>Small-group practice</figcaption>
+          </figure>
         </div>
-        <figure class="lesson-detail">
-          <img
-            src="./assets/images/picking-study.jpg"
-            alt="Close-up of a hand picking an electric guitar string"
-            width="1500"
-            height="2249"
-            loading="lazy"
-            decoding="async"
-            data-photo
-          />
-          <figcaption>Working on technique</figcaption>
-        </figure>
       </section>
-      <section class="performance-spread dark-section section">
-        <div class="container performance-grid">
+      <section class="container section age-spread">
+        <div class="age-intro">
           <header class="section-head">
-            <span class="kicker">Playing together</span>
-            <h2>From the practice room to the stage.</h2>
-            <p>
-              Listen for the count-in, learn to cue an ending, and get comfortable playing for other
-              people.
-            </p>
+            <span class="kicker">Learning for every age</span>
+            <h2>Start where you are.</h2>
+            <p>There’s room to begin, come back to music, or take the next step.</p>
           </header>
-          <figure class="performance-main">
+          <figure class="age-image">
             <img
-              src="./assets/images/studio-stage.jpg"
-              alt="A five-piece band performs with guitars, keyboards and a drum kit"
-              width="1500"
-              height="1001"
+              src="./assets/images/drum-lesson.jpg"
+              alt="A drum teacher demonstrates how to hold a stick"
+              width="1200"
+              height="800"
               loading="lazy"
               decoding="async"
               data-photo
             />
-            <figcaption>Playing a set together</figcaption>
-          </figure>
-          <figure class="performance-side">
-            <img
-              src="./assets/images/drum-detail.jpg"
-              alt="A drummer rehearses on an acoustic kit"
-              width="800"
-              height="1200"
-              loading="lazy"
-              decoding="async"
-              data-photo
-            />
-            <figcaption>Working out the rhythm in rehearsal</figcaption>
           </figure>
         </div>
-      </section>
-      <section class="container section age-section">
-        <header class="section-head">
-          <span class="kicker">Learning pathways</span>
-          <h2>Find your place in music.</h2>
-        </header>
         <div class="age-lines">
           <article>
             <h3>Kids</h3>
             <div>
-              <strong>Start with play</strong>
-              <p>
-                Short musical games and familiar songs help younger learners build coordination and
-                confidence.
-              </p>
+              <strong>Build confidence through play</strong>
+              <p>Learn rhythms and familiar songs in short, active exercises.</p>
             </div>
             <div class="actions">
               <a class="text-link" href="./pages/courses.html?group=Kids"
@@ -186,8 +185,8 @@
           <article>
             <h3>Teens</h3>
             <div>
-              <strong>Build a repertoire</strong>
-              <p>Work on music you listen to and build the skills to play it with other people.</p>
+              <strong>Make the music your own</strong>
+              <p>Work on music you listen to and build the skills to play it with others.</p>
             </div>
             <div class="actions">
               <a class="text-link" href="./pages/courses.html?group=Teens"
@@ -201,11 +200,8 @@
           <article>
             <h3>Adults</h3>
             <div>
-              <strong>Make time for music</strong>
-              <p>
-                Pick up a new instrument or return to one you used to play, with a practice routine that
-                fits your week.
-              </p>
+              <strong>Make space for music</strong>
+              <p>Start fresh or return to an instrument with practice that fits into your week.</p>
             </div>
             <div class="actions">
               <a class="text-link" href="./pages/courses.html?group=Adults"
@@ -218,12 +214,45 @@
           </article>
         </div>
       </section>
-      <section class="container section timetable">
-        <div class="timetable-header">
+      <section class="dark-section stage-band">
+        <div class="container section stage-spread">
+          <header class="section-head">
+            <span class="kicker">From lessons to performance</span>
+            <h2>Bring it together.</h2>
+            <p>Rehearse a part, listen to the group, and share a song when you’re ready.</p>
+          </header>
+          <figure class="stage-main">
+            <img
+              src="./assets/images/studio-stage.jpg"
+              alt="An ensemble plays guitars, keyboard, and drums together"
+              width="1500"
+              height="1001"
+              loading="lazy"
+              decoding="async"
+              data-photo
+            />
+            <figcaption>An ensemble performance</figcaption>
+          </figure>
+          <figure class="stage-secondary">
+            <img
+              src="./assets/images/close-rehearsal.jpg"
+              alt="Musicians play together in a recording studio"
+              width="1400"
+              height="933"
+              loading="lazy"
+              decoding="async"
+              data-photo
+            />
+            <figcaption>Rehearsal before a set</figcaption>
+          </figure>
+        </div>
+      </section>
+      <section class="container section studio-schedule">
+        <div class="section-row">
           <header class="section-head">
             <span class="kicker">Class times</span>
-            <h2>Upcoming batches.</h2>
-            <p>Compare indicative weekly sessions. All times are in IST.</p>
+            <h2>Find your class time.</h2>
+            <p>Compare weekly schedules and indicative fees. All times are in IST.</p>
           </header>
           <div>
             <a class="button" href="./pages/fees-batches.html"
@@ -233,20 +262,22 @@
         </div>
         <div class="schedule-section" data-batch-preview></div>
       </section>
-      <section class="container section teaching-preview">
-        <header class="section-head">
-          <span class="kicker">Teaching approaches</span>
-          <h2>Good ears make good teachers.</h2>
-          <p>See what each instrument’s lessons can focus on.</p>
+      <section class="container section mentor-preview">
+        <div class="section-row">
+          <header class="section-head">
+            <span class="kicker">Learn from musicians</span>
+            <h2>Meet the teaching team.</h2>
+            <p>Explore approaches to guitar, keyboard, vocals, and drums.</p>
+          </header>
           <div>
             <a class="button" href="./pages/instructors.html"
               >Meet the instructors <span class="arrow" aria-hidden="true">↗</span></a
             >
           </div>
-        </header>
+        </div>
         <div data-mentors="compact"></div>
       </section>
-      <section class="container">
+      <section class="container" aria-label="Tempo practice">
         <div class="tempo" data-tempo>
           <div class="tempo-meter" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
           <div>
@@ -260,14 +291,17 @@
           </div>
         </div>
       </section>
-      <section class="container section">
+      <section class="container section studio-end">
         <div class="closing closing-mosaic dark-section">
           <div>
-            <h2>Make room for music.</h2>
-            <p>Find a class that fits your experience and your week.</p>
+            <h2>Make time for music.</h2>
+            <p>Find a weekly class that works for your age, instrument, and experience.</p>
           </div>
           <div class="actions">
-            <a class="button accent" href="./pages/home2.html#path-finder"
+            <a class="button accent" href="./pages/courses.html"
+              >Explore Courses <span class="arrow" aria-hidden="true">↗</span></a
+            >
+            <a class="button inverse" href="./pages/home2.html#path-finder"
               >Find your learning path <span class="arrow" aria-hidden="true">↗</span></a
             >
           </div>

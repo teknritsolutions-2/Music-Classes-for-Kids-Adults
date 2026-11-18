@@ -1,13 +1,13 @@
 [data-page='login'],
 [data-page='signup'] {
-  background-color: #1c162c;
+  background-color: #241737;
   background-image:
-    linear-gradient(145deg, #17151f32, #211d3568 50%, #20192a24), url('../images/pixel-rhythm.svg');
+    radial-gradient(ellipse at center, #8b65d93b, #17151f6e 70%), url('../images/pixel-rhythm.svg');
   background-position: center;
   background-size: cover;
 }
 :root[data-theme='dark'] :is([data-page='login'], [data-page='signup']) {
-  background-image: linear-gradient(145deg, #13121a8c, #13121a99), url('../images/pixel-rhythm.svg');
+  background-image: linear-gradient(145deg, #13121a64, #13121abb), url('../images/pixel-rhythm.svg');
 }
 [data-page='login'] main,
 [data-page='signup'] main {
@@ -17,7 +17,7 @@
   padding: clamp(1rem, 4vw, 3rem);
 }
 .auth-card {
-  inline-size: min(100%, 31rem);
+  inline-size: min(100%, 31.5rem);
   display: grid;
   gap: 1rem;
   padding: clamp(1.1rem, 4vw, 2.4rem);
@@ -27,15 +27,26 @@
   border-block-start: 0.25rem solid var(--primary);
   box-shadow: 0 1.25rem 4rem #13121a52;
 }
-.auth-card > :is(div:first-child, h1, p) {
+.auth-heading {
+  display: grid;
+  gap: 0.5rem;
   text-align: center;
+  padding-block-end: 1rem;
+  border-block-end: 1px solid var(--line);
 }
-.auth-card h1 {
-  font-size: clamp(2rem, 5vw, 3.35rem);
-  line-height: 1.05;
+.auth-heading h1,
+.auth-heading p,
+.auth-card > p {
+  text-align: center;
+  margin-inline: auto;
 }
-.auth-card form {
-  margin-block-start: 0.35rem;
+.auth-heading h1 {
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  line-height: 1.13;
+}
+.auth-heading p {
+  color: var(--muted);
+  font-size: var(--size-meta);
 }
 .password {
   display: grid;

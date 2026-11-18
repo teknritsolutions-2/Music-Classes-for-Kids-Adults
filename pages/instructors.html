@@ -31,58 +31,76 @@
       >
     </header>
     <main id="main" tabindex="-1">
-      <section class="faculty-mast dark-section">
-        <div class="container faculty-mast-grid">
-          <header class="faculty-title">
-            <span class="kicker">Meet the instructors</span>
-            <h1>The people behind the music.</h1>
-          </header>
-          <div class="faculty-deck">
-            <span class="mark" aria-hidden="true"></span>
-            <p>
-              See how a guitarist, a keyboard player, a vocal coach, and a drummer can help you take the
-              next step.
-            </p>
-            <a class="text-link" href="#teaching-profiles"
+      <header class="container page-hero faculty-hero">
+        <div class="page-hero-copy">
+          <span class="kicker">Meet the instructors</span>
+          <h1>Learn with people who play.</h1>
+          <p>See what guidance can look like in guitar, keyboard, vocal, and drum lessons.</p>
+          <div class="actions">
+            <a class="button accent" href="#teaching-profiles"
               >See teaching approaches <span class="arrow" aria-hidden="true">↗</span></a
             >
           </div>
-          <figure class="faculty-mast-photo">
-            <img
-              src="../assets/images/studio-room.jpg"
-              alt="A practice room set up with drums, guitar and microphones"
-              width="1400"
-              height="935"
-              fetchpriority="high"
-              decoding="async"
-              data-photo
-            />
-          </figure>
         </div>
-      </section>
+        <figure class="page-hero-image">
+          <img
+            src="../assets/images/voice-lesson.jpg"
+            alt="A vocal coach rehearses a song with a learner"
+            width="1200"
+            height="801"
+            fetchpriority="high"
+            decoding="async"
+            data-photo
+          />
+        </figure>
+      </header>
       <section
         class="container section faculty-directory"
         id="teaching-profiles"
         aria-label="Instructor profiles"
       >
-        <p class="faculty-caption">
-          Lessons for kids, teens, and adults. Profiles and photos are illustrative.
-        </p>
+        <header class="section-head">
+          <span class="kicker">Teaching specialties</span>
+          <h2>Different skills, shared care.</h2>
+          <p>The profiles and photographs illustrate approaches for kids, teens, and adults.</p>
+        </header>
         <div data-mentors="full"></div>
       </section>
-      <section class="container section faculty-next">
-        <header class="section-head">
-          <span class="kicker">Find a class</span>
-          <h2>Put the approach into practice.</h2>
-          <p>Choose an instrument and compare sessions by experience level and available day.</p>
-        </header>
-        <div class="actions">
-          <a class="button" href="../pages/courses.html"
-            >Explore courses <span class="arrow" aria-hidden="true">↗</span></a
-          >
-          <a class="button accent" href="../pages/fees-batches.html"
-            >View batches <span class="arrow" aria-hidden="true">↗</span></a
-          >
+      <section class="studio-band">
+        <div class="container section about-approach">
+          <header class="section-head">
+            <span class="kicker">Instructor guidance</span>
+            <h2>A clear next step after each lesson.</h2>
+            <p>Work through a passage, get feedback you can act on, and decide what to practice next.</p>
+          </header>
+          <dl>
+            <div>
+              <dt>Individual guidance</dt>
+              <dd>
+                Ask questions, slow down a tricky part, and work on the technique that will help most.
+              </dd>
+            </div>
+            <div>
+              <dt>Small-group playing</dt>
+              <dd>Listen for the pulse, take turns, and see how your part fits with other musicians.</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+      <section class="container section studio-end">
+        <div class="closing">
+          <div>
+            <h2>Put the approach into practice.</h2>
+            <p>Explore a course or compare weekly sessions by instrument, level, and day.</p>
+          </div>
+          <div class="actions">
+            <a class="button accent" href="../pages/courses.html"
+              >Explore Courses <span class="arrow" aria-hidden="true">↗</span></a
+            >
+            <a class="button" href="../pages/fees-batches.html"
+              >View batches <span class="arrow" aria-hidden="true">↗</span></a
+            >
+          </div>
         </div>
       </section>
     </main>

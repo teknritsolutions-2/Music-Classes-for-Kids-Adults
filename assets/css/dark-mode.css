@@ -1,11 +1,12 @@
 :root[data-theme='dark'] {
   color-scheme: dark;
-  --canvas: #13121a;
-  --surface: #211f2b;
-  --soft: #302a40;
+  --canvas: #15131e;
+  --surface: #231f30;
+  --soft: #332a48;
   --ink: #f7f6fb;
   --muted: #c3bed0;
-  --line: #484255;
+  --line: #4e465e;
+  --control-line: #827892;
   --accent-text: #c6aeff;
   --surface-hover: #332a45;
 }

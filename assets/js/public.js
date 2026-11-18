@@ -61,9 +61,17 @@ document.querySelectorAll('[data-mentors]').forEach((host) => {
         ? instrument.mentor
         : `<a href="${page('instructors')}#${mentorID}">${instrument.mentor}</a>`;
       return `<article class="${full ? 'faculty-profile' : 'teaching-credit'}"${full ? ` id="${mentorID}"` : ''}>
-      ${photo(instrument.mentorImage, `Example of ${instrument.name.toLowerCase()} instruction`)}
+      ${photo(instrument.mentorImage, `Music practice or instruction for ${instrument.name.toLowerCase()}`)}
       <div class="teacher-copy"><span class="mentor-specialty">${instrument.name}</span>
       <h3>${name}</h3><p>${instrument.approach}</p>
+      ${
+        full
+          ? `<ul class="teaching-topics">${instrument.topics
+              .slice(0, 2)
+              .map((topic) => `<li>${topic}</li>`)
+              .join('')}</ul>`
+          : ''
+      }
       <div class="actions">${textLink('Related courses', courses)}
         ${full ? textLink('View batches', page('fees-batches', { instrument: instrument.id })) : ''}
       </div></div></article>`;

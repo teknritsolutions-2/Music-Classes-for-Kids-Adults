@@ -69,7 +69,7 @@ export function feesPanel(records) {
   const payments = approvedPayments();
   return `<div class="notice"><strong>${invoiceCount ? money(balance) + ' outstanding' : 'No confirmed charges'}</strong>
     <p>Amounts for local requests are indicative. Charges require academy confirmation.</p></div>
-    <div class="dash-list">${
+    <div class="dash-list fee-ledger">${
       records.length
         ? records
             .map((record) =>

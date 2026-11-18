@@ -31,29 +31,84 @@
       >
     </header>
     <main id="main" tabindex="-1">
-      <header class="container intro contact-intro">
-        <span class="kicker">Enquiries</span>
-        <h1>Let’s talk music.</h1>
-        <p>
-          Have a question about a course, a batch, or a studio visit? Prepare an enquiry with the details
-          you’d like to share.
-        </p>
+      <header class="container page-hero contact-hero">
+        <div class="page-hero-copy">
+          <span class="kicker">Contact UPBEAT</span>
+          <h1>Let’s make some music.</h1>
+          <p>
+            Ask about instruments, lessons, enrollment, or planning a first visit. Start by choosing what
+            you’d like help with.
+          </p>
+        </div>
+        <figure class="page-hero-image">
+          <img
+            src="../assets/images/score-lesson.jpg"
+            alt="A teacher and a young learner look through sheet music"
+            width="1160"
+            height="773"
+            fetchpriority="high"
+            decoding="async"
+            data-photo
+          />
+        </figure>
       </header>
-      <section class="container section condensed editorial contact-layout">
-        <form method="dialog" class="card form-stack" data-contact>
-          <h2>Prepare an enquiry</h2>
-          <label class="field"
-            >Name<input name="name" autocomplete="name" maxlength="80" required
-          /></label>
-          <label class="field"
-            >Email<input name="email" type="email" autocomplete="email" maxlength="120" required
-          /></label>
+      <section class="studio-band">
+        <div class="container section">
+          <header class="section-head">
+            <span class="kicker">Enquiry topics</span>
+            <h2>How can we help?</h2>
+          </header>
+          <nav class="enquiry-topics" aria-label="Enquiry topics">
+            <a href="?topic=Course%20enquiry#enquiry" data-topic="Course enquiry"
+              ><strong>Choose an instrument <span class="arrow" aria-hidden="true">↗</span></strong>
+              <p>Get help comparing guitar, keyboard, vocals, and drums.</p></a
+            ><a href="?topic=Batch%20enquiry#enquiry" data-topic="Batch enquiry"
+              ><strong>Find a suitable batch <span class="arrow" aria-hidden="true">↗</span></strong>
+              <p>Tell us when you’re free and who the class is for.</p></a
+            ><a href="?topic=Fees%20and%20enrollment#enquiry" data-topic="Fees and enrollment"
+              ><strong
+                >Ask about fees and enrollment <span class="arrow" aria-hidden="true">↗</span></strong
+              >
+              <p>Check what a listed fee covers and how to request a place.</p></a
+            ><a href="?topic=Studio%20visit#enquiry" data-topic="Studio visit"
+              ><strong
+                >Plan a visit or ask a question <span class="arrow" aria-hidden="true">↗</span></strong
+              >
+              <p>Ask how to arrange a first visit or add any other questions.</p></a
+            >
+          </nav>
+        </div>
+      </section>
+      <section class="container section enquiry-section" id="enquiry">
+        <header>
+          <header class="section-head">
+            <span class="kicker">Enquiry form</span>
+            <h2>Prepare an enquiry.</h2>
+            <p>
+              Include the learner’s age group, experience, and days that work for them. You can review
+              and download the draft on this device.
+            </p>
+          </header>
+          <p class="notice">
+            Online delivery is unavailable. Preparing a draft does not send a message.
+          </p>
+        </header>
+        <form method="dialog" class="card form-stack enquiry-form" data-contact>
+          <div class="field-pair">
+            <label class="field"
+              >Name<input name="name" autocomplete="name" maxlength="80" required
+            /></label>
+            <label class="field"
+              >Email<input name="email" type="email" autocomplete="email" maxlength="120" required
+            /></label>
+          </div>
           <label class="field"
             >Topic<span class="select-wrap"
               ><select name="topic" required>
                 <option value="">Select a topic</option>
                 <option>Course enquiry</option>
                 <option>Batch enquiry</option>
+                <option>Fees and enrollment</option>
                 <option>Studio visit</option>
                 <option>General enquiry</option></select
               ><svg
@@ -70,38 +125,97 @@
           <label class="field"
             >Message<textarea name="message" rows="4" maxlength="1500" required></textarea>
           </label>
-          <button class="button accent" type="submit">Review enquiry</button>
-          <p class="muted">
-            You can review and download the draft on this device. Online delivery is unavailable.
-          </p>
+          <div><button class="button accent" type="submit">Review enquiry</button></div>
         </form>
-        <div class="editorial-copy">
-          <h2>Planning a visit?</h2>
-          <p>
-            Studio location and visiting hours are pending confirmation. Choose “Studio visit” to prepare
-            your questions.
-          </p>
+      </section>
+      <section class="container section visit-spread">
+        <figure class="visit-photo">
+          <img
+            src="../assets/images/studio-room.jpg"
+            alt="A music practice space with drums, microphones, and guitars"
+            width="1400"
+            height="935"
+            loading="lazy"
+            decoding="async"
+            data-photo
+          />
+        </figure>
+        <div>
+          <header class="section-head">
+            <span class="kicker">Your first visit</span>
+            <h2>Come with a question.</h2>
+            <p>Confirm the studio location and visiting hours before making plans.</p>
+          </header>
+          <ul class="visit-checklist">
+            <li>Ask which beginner classes suit your learner group.</li>
+            <li>Make a shortlist of weekly sessions that fit your schedule.</li>
+            <li>Share any instrument you already play and what you’d like to learn.</li>
+          </ul>
+          <a href="?topic=Studio%20visit#enquiry" class="text-link" data-topic="Studio visit"
+            >Prepare a studio visit enquiry <span class="arrow" aria-hidden="true">↗</span></a
+          >
+        </div>
+      </section>
+      <section class="studio-band">
+        <div class="container section contact-faq">
+          <header class="section-head">
+            <span class="kicker">Common questions</span>
+            <h2>Useful things to know.</h2>
+          </header>
           <div class="faq">
-            <h3>Frequently asked questions</h3>
             <details>
               <summary><span dir="auto">Can I start as a beginner?</span></summary>
-              <p>Yes. Use the Beginner filter to find starting points for kids, teens, and adults.</p>
+              <p>Yes. The Beginner filter shows starting points for kids, teens, and adults.</p>
+            </details>
+            <details>
+              <summary><span dir="auto">Are there classes for kids and adults?</span></summary>
+              <p>Yes. Choose Kids, Teens, or Adults in Courses to see options for that age group.</p>
+            </details>
+            <details>
+              <summary><span dir="auto">What if I haven’t picked an instrument?</span></summary>
+              <p>
+                Explore guitar, keyboard, vocals, and drums in the learning path finder. Include music
+                you like or an instrument you have access to in your enquiry.
+              </p>
             </details>
             <details>
               <summary><span dir="auto">How do I choose a class time?</span></summary>
               <p>
-                Use the day and time filters in <a href="fees-batches.html">Fees &amp; Batches</a> to
-                compare weekly schedules.
+                Compare weekly sessions using day and time filters in Fees &amp; Batches. Times are shown
+                in IST.
               </p>
             </details>
             <details>
               <summary><span dir="auto">Does an enrollment request reserve my place?</span></summary>
               <p>
-                The request is saved on this device. Academy confirmation is required to reserve a place.
+                Your request is saved on this device. The academy needs to confirm a place before you are
+                enrolled.
+              </p>
+            </details>
+            <details>
+              <summary><span dir="auto">Where can I see fees?</span></summary>
+              <p>
+                Each batch shows an indicative fee and the period it covers. Review these details before
+                you request enrollment.
               </p>
             </details>
           </div>
         </div>
+      </section>
+      <section class="container section contact-explore">
+        <header class="section-head">
+          <span class="kicker">Explore before you enquire</span>
+          <h2>Take a look around.</h2>
+        </header>
+        <nav class="contact-explore-links" aria-label="Explore before you enquire">
+          <a class="text-link" href="../pages/courses.html"
+            >Courses <span class="arrow" aria-hidden="true">↗</span></a
+          ><a class="text-link" href="../pages/instructors.html"
+            >Instructors <span class="arrow" aria-hidden="true">↗</span></a
+          ><a class="text-link" href="../pages/fees-batches.html"
+            >Fees &amp; Batches <span class="arrow" aria-hidden="true">↗</span></a
+          >
+        </nav>
       </section>
     </main>
     <footer id="site-footer"></footer>

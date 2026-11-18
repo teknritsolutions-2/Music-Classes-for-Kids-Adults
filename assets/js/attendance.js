@@ -18,7 +18,7 @@ export function attendanceSummary() {
 
 export function attendancePanel() {
   const { records, attended, missed, percent } = attendanceSummary();
-  return `<div class="dash-metrics">
+  return `<div class="dash-metrics attendance-metrics">
     <div class="card"><strong>${records.length}</strong><p>Recorded sessions</p></div>
     <div class="card"><strong>${attended}</strong><p>Attended</p></div>
     <div class="card"><strong>${missed}</strong><p>Missed</p></div>
@@ -26,7 +26,8 @@ export function attendancePanel() {
   </div>
   ${
     records.length
-      ? `<div class="dash-list">${records.map((record) => `<article class="card"><h3>${getBatch(record.batchId).title}</h3><p>${escapeHTML(record.date)} · ${record.status}</p></article>`).join('')}</div>`
+      ? `<div class="card attendance-progress"><strong>Attendance rate</strong><progress max="100" value="${percent}" aria-label="Attendance rate">${percent}%</progress></div>
+        <div class="dash-list">${records.map((record) => `<article class="card"><h3>${getBatch(record.batchId).title}</h3><p>${escapeHTML(record.date)} · ${record.status}</p></article>`).join('')}</div>`
       : empty(
           'No recorded attendance',
           'Attendance appears here after the academy records sessions for a confirmed batch.',

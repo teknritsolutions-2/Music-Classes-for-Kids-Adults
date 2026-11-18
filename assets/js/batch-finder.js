@@ -54,8 +54,8 @@ export function feeLabel(batch) {
 export function batchCard(batch, path = false) {
   const course = getCourse(batch.courseId);
   return `<article class="card batch-card"><h3>${batch.title}</h3>${batchDetails(batch)}
-    <p>${feeLabel(batch)}</p>
-    <div class="actions">
+    <p class="batch-price">${feeLabel(batch)}</p>
+    <div class="actions batch-actions">
       <button type="button" class="button accent" data-enroll="${batch.id}">Review enrollment</button>
       ${path ? buttonLink('Course details', page('courses', { instrument: course.instrument, group: course.group, level: course.level })) : ''}
     </div></article>`;
@@ -84,10 +84,16 @@ export function mountFinder(host, type, params = new URLSearchParams(location.se
   const fields = isCourse
     ? courseFilters
     : path
-      ? [batchFilters[1], batchFilters[0], ...batchFilters.slice(2, 4)]
+      ? [batchFilters[0], ...batchFilters.slice(2, 4)]
       : batchFilters;
-  host.innerHTML = `<form class="selects ${isCourse ? '' : 'many'}" aria-label="${isCourse ? 'Course filters' : 'Batch filters'}">
-    ${fields.map(([name, label, options]) => selectField(name, label, options, params.get(name))).join('')}
+  const group = groups.includes(params.get('group')) ? params.get('group') : '';
+  const groupChoices = path
+    ? `<fieldset class="path-audience"><legend>Learner group</legend><div class="path-options">
+    ${['', ...groups].map((value) => `<label><input type="radio" name="group" value="${value}"${value === group ? ' checked' : ''}><span>${value || 'Any'}</span></label>`).join('')}
+  </div></fieldset>`
+    : '';
+  host.innerHTML = `<form class="selects ${isCourse ? '' : path ? 'form-filter-path' : 'many'}" aria-label="${isCourse ? 'Course filters' : 'Batch filters'}">
+    ${groupChoices}${fields.map(([name, label, options]) => selectField(name, label, options, params.get(name))).join('')}
   </form>
   <div class="result-toolbar actions"><span aria-live="polite" data-count></span><button type="button" class="button" data-clear>Clear filters</button></div>
   ${isCourse ? '' : '<p class="muted">Times are in IST. Fees, schedules, and instructor assignments are indicative.</p>'}
@@ -140,8 +146,9 @@ export function mountFinder(host, type, params = new URLSearchParams(location.se
     }
   });
   host.querySelector('[data-clear]').addEventListener('click', () => {
-    [...form.elements].forEach((field) => {
-      field.value = '';
+    form.querySelectorAll('select, input[type="radio"]').forEach((field) => {
+      if (field.type === 'radio') field.checked = field.value === '';
+      else field.value = '';
     });
     pageSize = batchPageSize;
     update();

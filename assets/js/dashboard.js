@@ -51,7 +51,7 @@ host.innerHTML = `
   <div class="dash-main">
     <header class="dash-top"><div class="compact-brand">${brand()}</div><strong class="dash-top-label">Student Dashboard</strong>
       <button type="button" class="icon-button dash-toggle" data-open="student-navigation" aria-label="Open dashboard navigation" aria-haspopup="dialog">${icon('menu')}</button>
-      <a class="dash-top-link" href="${page('courses')}">Explore courses</a>
+      <a class="button dash-top-link" href="${page('courses')}">Explore courses</a>
     </header>
     <section class="dash-content" id="workspace" aria-labelledby="workspace-title" tabindex="-1">
       <header class="dash-title"><h1 id="workspace-title" tabindex="-1"></h1><p class="muted"></p></header>
@@ -83,12 +83,8 @@ function overview(workspace, records) {
   const next = upcomingSessions(records).slice(0, 3);
   return `
     ${workspace.profile.displayName ? `<p class="dash-greeting">Hello, ${escapeHTML(workspace.profile.displayName)}.</p>` : ''}
-    <div class="dash-metrics">
-      <a class="card" href="#my-courses"><strong>${confirmed}</strong><p>Confirmed courses · ${records.length - confirmed} requested</p></a>
-      <a class="card" href="#attendance"><strong>${percent === null ? '—' : percent + '%'}</strong><p>Recorded attendance</p></a>
-      <a class="card" href="#fees"><strong>${invoiceCount ? money(balance) : '—'}</strong><p>${invoiceCount ? 'Outstanding fees' : 'No confirmed charges'}</p></a>
-    </div>
-    <div class="grid dash-overview">
+    <div class="overview-layout">
+      <div class="overview-main">
       <article class="card"><h2>Upcoming classes</h2>
         ${
           next.length
@@ -104,6 +100,14 @@ function overview(workspace, records) {
       </article>
       <article class="card"><h2>Latest progress note</h2><p>${recent ? escapeHTML(recent.focus) : 'Practice notes appear here when your instructor adds them.'}</p>
         <div class="actions"><a class="button" href="#progress">View progress notes</a></div></article>
+      </div>
+      <aside class="overview-summary"><h2>At a glance</h2>
+<div class="dash-metrics overview-metrics">
+      <a class="card" href="#my-courses"><strong>${confirmed}</strong><p>Confirmed courses · ${records.length - confirmed} requested</p></a>
+      <a class="card" href="#attendance"><strong>${percent === null ? '—' : percent + '%'}</strong><p>Recorded attendance</p></a>
+      <a class="card" href="#fees"><strong>${invoiceCount ? money(balance) : '—'}</strong><p>${invoiceCount ? 'Outstanding fees' : 'No confirmed charges'}</p></a>
+    </div>
+      </aside>
     </div>`;
 }
 
@@ -137,7 +141,7 @@ function showSchedule(records) {
       '',
       'All courses',
     )}
-  </form><div class="dash-list" aria-live="polite"></div>`;
+  </form><div class="dash-list session-ledger" aria-live="polite"></div>`;
   const form = panel.querySelector('form');
   const list = panel.querySelector('.dash-list');
   function update() {
@@ -149,8 +153,8 @@ function showSchedule(records) {
       ? matches
           .map(
             ({ batch, status, date }) =>
-              `<article class="card"><span class="pill">${status === 'Confirmed' ? 'Confirmed' : 'Tentative'}</span><h3>${batch.title}</h3>
-      <p>Next session · ${formatSession(date)}</p><p>Every ${scheduleLine(batch)} · ${batch.duration} minutes</p>
+              `<article class="card"><div class="session-identity"><span class="pill">${status === 'Confirmed' ? 'Confirmed' : 'Tentative'}</span><h3>${batch.title}</h3></div>
+      <div class="session-timing"><p>Next session · ${formatSession(date)}</p><p>Every ${scheduleLine(batch)} · ${batch.duration} minutes</p></div>
       <div class="actions"><button type="button" class="button" data-session="${batch.id}">Class details</button></div></article>`,
           )
           .join('')
@@ -202,6 +206,7 @@ function render(focus = false) {
   const records = studentBatches(data);
   title.textContent = label;
   titleCopy.textContent = description;
+  panel.dataset.view = active;
   host.querySelectorAll('[data-section]').forEach((link) => {
     if (link.dataset.section === active) link.setAttribute('aria-current', 'page');
     else link.removeAttribute('aria-current');
