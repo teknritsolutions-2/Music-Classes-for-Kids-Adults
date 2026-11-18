@@ -32,12 +32,28 @@
     </header>
     <main id="main" tabindex="-1">
       <div class="container public-content">
-        <header class="page-intro">
-          <h1>Music instructors</h1>
-          <p>
-            See how guitar, keyboard, vocals, and drums are taught. Each profile lists what you can work
-            on and links to the related courses.
-          </p>
+        <header class="finder-intro teaching-intro">
+          <div>
+            <h1>Music instructors</h1>
+            <p>
+              See how guitar, keyboard, vocals, and drums are taught, and what you can work on with each
+              instructor.
+            </p>
+            <a class="button accent" href="#teaching-profiles"
+              >See teaching profiles <span class="arrow" aria-hidden="true">↗</span></a
+            >
+          </div>
+          <figure>
+            <img
+              src="../assets/images/voice-lesson.jpg"
+              width="1200"
+              height="801"
+              alt="A vocal coach works with a learner near a microphone and a piano"
+              loading="lazy"
+              decoding="async"
+              data-photo
+            />
+          </figure>
         </header>
         <section id="teaching-profiles" aria-label="Instructor profiles">
           <div data-mentors="full"></div>
@@ -56,13 +72,21 @@
             </div>
           </dl>
         </section>
-        <nav class="related-links" aria-label="Explore classes">
-          <a class="text-link" href="courses.html"
-            >Explore courses <span class="arrow" aria-hidden="true">↗</span></a
-          ><a class="text-link" href="fees-batches.html"
-            >View batches <span class="arrow" aria-hidden="true">↗</span></a
-          >
-        </nav>
+        <section class="public-block next-step" aria-label="Take the next step">
+          <div>
+            <h2>Take the next step</h2>
+            <p>
+              Browse the courses for your instrument or compare classes by age group, level, and day.
+            </p>
+          </div>
+          <div class="actions">
+            <a class="button accent" href="courses.html"
+              >Explore courses <span class="arrow" aria-hidden="true">↗</span></a
+            ><a class="button" href="fees-batches.html"
+              >View batches <span class="arrow" aria-hidden="true">↗</span></a
+            >
+          </div>
+        </section>
       </div>
     </main>
     <footer id="site-footer"></footer>

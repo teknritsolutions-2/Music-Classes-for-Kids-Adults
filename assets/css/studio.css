@@ -28,6 +28,7 @@
 }
 .public-content .page-intro h1 {
   text-wrap: initial;
+  font-size: clamp(2.15rem, 4.15vw, 3.25rem);
 }
 .page-intro p,
 .front-actions > p {
@@ -59,12 +60,30 @@
   padding-block-start: 1rem;
   border-block-start: 1px solid var(--line);
 }
-.pixel-field {
-  --pixel-position: right center;
-  background: var(--night) url('../images/pixel-rhythm.svg') var(--pixel-position) / cover no-repeat;
+.next-step,
+.guidance-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.9rem 1.45rem;
+  padding: var(--panel-padding);
 }
-.pixel-field:dir(rtl) {
-  --pixel-position: left center;
+.next-step {
+  background: var(--soft);
+  border-radius: var(--editorial-radius);
+  border-inline-start: 0.28rem solid var(--accent-text);
+}
+.next-step p {
+  margin-block-start: 0.4rem;
+  color: var(--muted);
+}
+.guidance-line {
+  border-block: 1px solid var(--line);
+  padding-inline: 0;
+}
+.guidance-line .block-title {
+  margin: 0;
 }
 
 /* Home programme and instrument explorer */
@@ -80,7 +99,7 @@
 }
 .front-lead h1 {
   max-inline-size: 20ch;
-  font-size: clamp(2.4rem, 5.25vw, 4.65rem);
+  font-size: clamp(2.4rem, 5.25vw, 4.5rem);
   line-height: 1.03;
   text-wrap: initial;
 }
@@ -97,51 +116,49 @@
 .front-media {
   overflow: clip;
   border-radius: var(--editorial-radius);
-  background: var(--night);
+  border-inline-end: clamp(0.65rem, 4vw, 3.75rem) solid transparent;
+  background: var(--night) url('../images/pixel-rhythm.svg') right center / auto 100% no-repeat
+    border-box;
+}
+.front-media:dir(rtl) {
+  background-position: left center;
 }
 .front-photo img {
   inline-size: 100%;
   block-size: auto;
   aspect-ratio: 1.65;
-  object-position: center 35%;
+  object-position: center 12%;
 }
 .front-programmes {
   display: grid;
-  align-content: end;
-  gap: 0.75rem;
-  min-inline-size: 0;
-  padding: clamp(0.85rem, 2.3vw, 2rem);
+  gap: 0.5rem 1rem;
+  align-items: center;
+  padding-block: 0.75rem;
+  border-block-end: 1px solid var(--line);
 }
 .front-programmes h2 {
-  font-size: clamp(1.25rem, 2.15vw, 1.85rem);
-  justify-self: start;
-  max-inline-size: 17ch;
-  padding: 0.55rem 0.75rem;
-  background: #211632;
+  font-size: 1rem;
 }
 .front-programmes > div {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  background: #211632;
-  border-block-start: 1px solid #786490;
+  gap: 0.25rem 0.55rem;
 }
 .front-programmes a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.45rem;
-  min-block-size: 2.6rem;
-  padding: 0.4rem 0.75rem;
-  border-block-end: 1px solid #786490;
-  font-weight: 700;
+  gap: 0.4rem;
+  min-block-size: 2.55rem;
+  padding: 0.32rem 0.55rem;
+  border-radius: var(--radius-control);
+  background: var(--soft);
+  font-weight: 680;
   text-decoration: none;
-}
-.front-programmes a:focus-visible {
-  outline-offset: -3px;
 }
 .front-programmes a:hover {
   color: var(--accent-text);
-  background: #33224d;
+  background: var(--surface-hover);
 }
 .instrument-rail {
   display: grid;
@@ -245,6 +262,125 @@
   aspect-ratio: 1.58;
   object-position: center 45%;
 }
+/* Photo essays and the lesson sequence */
+.studio-gallery,
+.performance-gallery,
+.instrument-previews,
+.music-steps dl {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.7rem;
+}
+.studio-gallery img,
+.performance-gallery img,
+.finder-intro img,
+.instrument-previews img,
+.contact-sidebar img {
+  inline-size: 100%;
+  block-size: auto;
+  border-radius: var(--editorial-radius);
+}
+.studio-gallery img {
+  aspect-ratio: 1.55;
+}
+.studio-gallery figure:first-child img {
+  object-position: center 24%;
+}
+.studio-gallery figcaption,
+.performance-gallery figcaption {
+  padding-block: 0.38rem 0;
+  color: var(--muted);
+  font-size: var(--size-meta);
+}
+.performance-field {
+  padding: var(--panel-padding);
+  border-radius: var(--editorial-radius);
+}
+.performance-gallery img {
+  aspect-ratio: 1.62;
+}
+.performance-gallery figure:first-child img {
+  aspect-ratio: 1.5;
+  object-position: center 55%;
+}
+.music-steps dl {
+  margin: 0;
+  gap: 0.75rem 1rem;
+}
+.music-steps dl > div {
+  border-block-start: 2px solid var(--accent-text);
+  padding-block-start: 0.55rem;
+}
+.music-steps dt {
+  font: 700 1.22rem/1.2 var(--display);
+}
+.music-steps dd {
+  margin: 0.3rem 0 0;
+  color: var(--muted);
+}
+.finder-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--inner-gap);
+  align-items: center;
+  margin-block-end: var(--inner-gap);
+  padding: var(--panel-padding);
+  background: var(--soft);
+  border-radius: var(--editorial-radius);
+}
+.finder-intro > div {
+  display: grid;
+  justify-items: start;
+  gap: 0.75rem;
+}
+.finder-intro h1 {
+  font-size: clamp(2.15rem, 4.15vw, 3.25rem);
+  text-wrap: initial;
+}
+.finder-intro p,
+.instrument-previews p {
+  color: var(--muted);
+}
+.finder-intro img {
+  aspect-ratio: 1.57;
+  object-position: center 20%;
+}
+.teaching-intro img {
+  object-position: center 43%;
+}
+.instrument-previews article {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: var(--editorial-radius);
+  background: var(--surface);
+}
+.instrument-previews article > div {
+  display: grid;
+  gap: 0.3rem;
+}
+.instrument-previews article:has(a[aria-current='true']) {
+  border-color: var(--accent-text);
+}
+.instrument-previews img {
+  aspect-ratio: 1.12;
+}
+.instrument-previews article:first-child img {
+  object-position: center 60%;
+}
+.instrument-previews p {
+  font-size: 0.94rem;
+}
+.preview-filter {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+  gap: 0.65rem;
+  max-inline-size: 34rem;
+}
+
 .practice-strip {
   display: flex;
   align-items: center;
@@ -312,14 +448,15 @@
   background: var(--surface);
 }
 .lab-tracks {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.35rem 0.5rem;
   margin-block-end: 0.85rem;
 }
 .lab-tracks a {
   display: inline-flex;
   align-items: center;
+  justify-content: space-between;
   gap: 0.4rem;
   min-block-size: 2.5rem;
   padding: 0.32rem 0.7rem;
@@ -437,28 +574,6 @@
 .planner .practice-feature img {
   object-position: center 26%;
 }
-.weekly-preview {
-  margin-block-start: 1rem;
-  border-block: 1px solid var(--line);
-}
-.weekly-preview > summary {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem 0;
-  font-weight: 700;
-}
-.weekly-preview > summary::after {
-  content: '+';
-  color: var(--accent-text);
-}
-.weekly-preview[open] > summary::after {
-  content: '−';
-}
-.weekly-preview[open] .schedule-section {
-  padding-block-end: 0.75rem;
-}
 .inline-help {
   display: flex;
   flex-wrap: wrap;
@@ -518,7 +633,8 @@
   overflow: clip;
   background: var(--surface);
 }
-.faculty-profile img {
+.faculty-profile img,
+.teaching-credit img {
   inline-size: 100%;
   block-size: auto;
   aspect-ratio: 1.78;
@@ -589,7 +705,10 @@
 .catalogue-tracks img {
   inline-size: 100%;
   block-size: auto;
-  aspect-ratio: 2.1;
+  aspect-ratio: 1.85;
+}
+.catalogue-tracks a:first-child img {
+  object-position: center 27%;
 }
 .catalogue-tracks a > span {
   display: flex;
@@ -634,13 +753,21 @@
 }
 .course-module .course-option {
   margin-block: 0.25rem 0;
-  padding-inline: 0.75rem;
+  padding: 0.55rem 0.75rem;
   border: 1px solid var(--line);
   border-radius: var(--radius-control);
   background: var(--surface);
 }
 .course-module .course-option summary {
   min-block-size: 2.55rem;
+  color: var(--accent-text);
+  font-weight: 710;
+}
+.course-module .course-option[open] {
+  padding-block-end: 0.8rem;
+}
+.course-module .course-option > .course-option {
+  margin-inline-start: 0.5rem;
 }
 
 /* Contact workspace */
@@ -655,6 +782,10 @@
   padding: var(--panel-padding);
   border: 1px solid var(--line);
   border-radius: var(--editorial-radius);
+}
+.contact-sidebar img {
+  aspect-ratio: 1.92;
+  object-position: center 12%;
 }
 .contact-sidebar {
   display: grid;
@@ -707,6 +838,22 @@
 }
 
 @media (min-width: 540px) {
+  .lab-tracks {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .front-programmes > div {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .studio-gallery,
+  .performance-gallery,
+  .instrument-previews {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .studio-gallery figure:first-child,
+  .performance-gallery figure:first-child {
+    grid-column: 1/-1;
+  }
   .instrument-rail {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -744,7 +891,38 @@
     align-items: center;
   }
   .front-photo img {
-    aspect-ratio: 1.92;
+    aspect-ratio: 2.32;
+  }
+  .front-programmes {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+  .studio-gallery {
+    grid-template-columns: minmax(0, 1.2fr) repeat(2, minmax(0, 1fr));
+  }
+  .studio-gallery figure:first-child {
+    grid-column: auto;
+  }
+  .studio-gallery img {
+    aspect-ratio: 1.43;
+  }
+  .performance-gallery {
+    grid-template-columns: minmax(0, 1.95fr) minmax(0, 1fr);
+  }
+  .performance-gallery figure:first-child {
+    grid-column: 1;
+    grid-row: span 2;
+  }
+  .performance-gallery img {
+    aspect-ratio: 1.85;
+  }
+  .music-steps dl {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .finder-intro {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  }
+  .finder-intro img {
+    aspect-ratio: 1.95;
   }
   .instrument-display,
   .practice-feature {
@@ -774,22 +952,6 @@
   }
   .contact-faq .faq {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 760px) {
-  .front-media {
-    grid-template-columns: minmax(0, 2.35fr) minmax(0, 1fr);
-  }
-  .front-photo img {
-    aspect-ratio: 2.05;
-    block-size: 100%;
-  }
-  .front-programmes > div {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .front-programmes a {
-    padding-block: 0.55rem;
   }
 }
 

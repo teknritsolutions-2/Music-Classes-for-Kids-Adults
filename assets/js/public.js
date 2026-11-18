@@ -1,5 +1,5 @@
 import './enrollment.js';
-import { batches, days } from './batch-data.js';
+import { batches, days, fitsBatch } from './batch-data.js';
 import { batchCard, empty, mountFinder, selectField } from './batch-finder.js';
 import { mountExplorer } from './course-explorer.js';
 import { instruments } from './course-data.js';
@@ -8,13 +8,13 @@ import { page, photo, textLink } from './site-config.js';
 document.querySelectorAll('[data-finder]').forEach((host) => mountFinder(host, host.dataset.finder));
 document.querySelectorAll('[data-explorer]').forEach(mountExplorer);
 
-const trackLinks = [...document.querySelectorAll('.catalogue-tracks a, .lab-tracks a')];
+const trackLinks = [...document.querySelectorAll('[data-catalogue-choice], [data-lab-choice]')];
 if (trackLinks.length) {
   const finder = document.querySelector('[data-finder]');
   const instrumentSelect = finder.querySelector('select[name="instrument"]');
   const reflectInstrument = () => {
     trackLinks.forEach((track) => {
-      const trackId = new URL(track.href).searchParams.get('instrument');
+      const trackId = track.dataset.catalogueChoice ?? track.dataset.labChoice;
       if (trackId === instrumentSelect.value) track.setAttribute('aria-current', 'true');
       else track.removeAttribute('aria-current');
     });
@@ -35,19 +35,25 @@ if (trackLinks.length) {
 }
 
 document.querySelectorAll('[data-batch-preview]').forEach((host) => {
-  host.innerHTML = `<form class="preview-filter">${selectField('day', 'Filter by day', days, '', 'Featured sessions')}</form><div class="grid three results" aria-live="polite"></div>`;
-  const select = host.querySelector('select');
+  const instrumentOptions = instruments.map(({ id, name }) => [id, name]);
+  host.innerHTML = `<form class="preview-filter" aria-label="Weekly preview filters">
+    ${selectField('day', 'Filter by day', days, '', 'Any day')}
+    ${selectField('instrument', 'Filter by instrument', instrumentOptions, '', 'Any instrument')}
+    </form><div class="grid three results" aria-live="polite"></div>`;
+  const form = host.querySelector('form');
   const grid = host.querySelector('.grid');
   const featured = host.dataset.batchPreview ? [9, 21, 33] : [0, 13, 24];
   function update() {
-    const options = select.value
-      ? batches.filter((batch) => batch.day === select.value).slice(0, 3)
+    const filters = Object.fromEntries(new FormData(form));
+    const options = Object.values(filters).some(Boolean)
+      ? batches.filter((batch) => fitsBatch(batch, filters)).slice(0, 3)
       : featured.map((index) => batches[index]);
     grid.innerHTML = options.length
       ? options.map((batch) => batchCard(batch)).join('')
-      : empty('No classes that day', 'Choose a different day.');
+      : empty('No matching classes', 'Try another instrument or day.');
   }
-  select.addEventListener('change', update);
+  form.addEventListener('change', update);
+  form.addEventListener('submit', (event) => event.preventDefault());
   update();
 });
 
@@ -61,13 +67,12 @@ document.querySelectorAll('[data-mentors]').forEach((host) => {
         ? instrument.mentor
         : `<a href="${page('instructors')}#${mentorID}">${instrument.mentor}</a>`;
       return `<article class="${full ? 'faculty-profile' : 'teaching-credit'}"${full ? ` id="${mentorID}"` : ''}>
-      ${full ? photo(instrument.mentorImage, `Music practice or instruction for ${instrument.name.toLowerCase()}`) : ''}
+      ${photo(instrument.mentorImage, `Music practice or instruction for ${instrument.name.toLowerCase()}`)}
       <div class="teacher-copy"><span class="mentor-specialty">${instrument.name}</span>
       <h3>${name}</h3>
       ${
         full
           ? `<p>${instrument.approach}</p><ul class="teaching-topics">${instrument.topics
-              .slice(0, 2)
               .map((topic) => `<li>${topic}</li>`)
               .join('')}</ul>`
           : ''

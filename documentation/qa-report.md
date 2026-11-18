@@ -1,5 +1,7 @@
 # UPBEAT design and regression QA
 
+The current release is documented in the [recovery inventory and browser verification](recovery-inventory.md), including rendered comparisons with both earlier commits.
+
 ## Public page rebuild
 
 The rebuild consolidates the marketing pages and replaces their previous layouts. Main task pages put the controls and information first. Shared gutters follow the header, and compact spacing replaces the alternating full-width sections. The original UPBEAT mosaic appears in the homepage instrument menu and the account backgrounds.

@@ -391,21 +391,6 @@ nav a[aria-current],
 .card p {
   color: var(--muted);
 }
-.closing {
-  display: grid;
-  align-items: center;
-  gap: 1.25rem;
-  background: var(--soft);
-  border-radius: var(--radius);
-  padding: clamp(1.35rem, 4vw, 3.25rem);
-}
-.closing h2 {
-  max-inline-size: 19ch;
-}
-.closing p {
-  margin-block-start: 0.65rem;
-  color: var(--muted);
-}
 .selects {
   display: grid;
   align-items: end;
@@ -581,9 +566,6 @@ input.field-control {
   }
 }
 @media (min-width: 720px) {
-  .closing {
-    grid-template-columns: 1fr auto;
-  }
   .selects {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -700,20 +682,6 @@ input.field-control {
     animation-duration: 0s !important;
   }
 }
-.preview-filter {
-  max-inline-size: 21rem;
-}
-.course-option {
-  border-block-start: 1px solid var(--line);
-  padding-block: 0.55rem;
-}
-.course-option summary {
-  font-weight: 710;
-  color: var(--accent-text);
-}
-.course-option[open] {
-  padding-block-end: 0.8rem;
-}
 button:disabled {
   cursor: default;
   opacity: 0.7;
@@ -725,9 +693,6 @@ button:disabled {
 .modal dd {
   overflow-wrap: anywhere;
   max-inline-size: 100%;
-}
-.course-option > .course-option {
-  margin-inline-start: 0.8rem;
 }
 .drawer-home summary {
   display: flex;
