@@ -1,6 +1,24 @@
 # UPBEAT design and regression QA
 
-## Section design revision
+## Public page rebuild
+
+The rebuild consolidates the marketing pages and replaces their previous layouts. Main task pages put the controls and information first. Shared gutters follow the header, and compact spacing replaces the alternating full-width sections. The original UPBEAT mosaic appears in the homepage instrument menu and the account backgrounds.
+
+| Page | New layout |
+| --- | --- |
+| Home | A direct introduction above a single guitar lesson photo and pixel-backed course links. An instrument explorer, age-group rows, performance photo, timetable, instructor links, and tempo tool follow in a shorter sequence. |
+| Find a music class | Age, instrument, level, and day filters sit above results. Lesson guidance appears after the finder, and the shorter weekly preview can be opened when needed. |
+| About | A rehearsal photo leads into a practical account of how lessons work and course and batch links by age. |
+| Courses | Four photo links lead into filters. Comparison rows separate what learners practice from the available course lengths and levels. |
+| Instructors | Four matched teaching profiles link to courses and batches, with guidance for individual and group practice below. |
+| Fees & Batches | Comparisons start with the filters and put weekly times, fees, and enrollment actions in consistent rows. |
+| Contact | Topic shortcuts and first-visit guidance sit beside the enquiry form on wider screens. The form, FAQs, and planning links stack in reading order on phones. |
+
+Brave Chromium tested all ten routes at 28 widths in both directions and themes, with additional checks for seven dashboard panels. The end-to-end suite exercised instrument selection, course and schedule filters, enrollment, contact draft validation and download, account form feedback, and dashboard state. Local browser fixtures also covered populated progress, attendance, and billing records.
+
+[Desktop overview](screenshots/upbeat-editorial-desktop.jpg) · [Tablet in dark RTL](screenshots/upbeat-editorial-tablet-rtl.jpg) · [Phone homepage](screenshots/upbeat-editorial-phone.jpg)
+
+## Earlier section design revision
 
 The original project brief flagged repeated image-and-text splits, empty columns, desktop compositions squeezed onto tablets, oversized headings, and cropped subjects. The section review also found that the previous release reduced the mosaic to a mostly hidden hero accent. This revision brings back the original artwork on the main homepage hero, the performance spread, the secondary homepage introduction, and selected supporting sections.
 

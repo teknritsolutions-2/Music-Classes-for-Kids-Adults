@@ -61,12 +61,12 @@ document.querySelectorAll('[data-mentors]').forEach((host) => {
         ? instrument.mentor
         : `<a href="${page('instructors')}#${mentorID}">${instrument.mentor}</a>`;
       return `<article class="${full ? 'faculty-profile' : 'teaching-credit'}"${full ? ` id="${mentorID}"` : ''}>
-      ${photo(instrument.mentorImage, `Music practice or instruction for ${instrument.name.toLowerCase()}`)}
+      ${full ? photo(instrument.mentorImage, `Music practice or instruction for ${instrument.name.toLowerCase()}`) : ''}
       <div class="teacher-copy"><span class="mentor-specialty">${instrument.name}</span>
-      <h3>${name}</h3><p>${instrument.approach}</p>
+      <h3>${name}</h3>
       ${
         full
-          ? `<ul class="teaching-topics">${instrument.topics
+          ? `<p>${instrument.approach}</p><ul class="teaching-topics">${instrument.topics
               .slice(0, 2)
               .map((topic) => `<li>${topic}</li>`)
               .join('')}</ul>`

@@ -5,8 +5,9 @@ export const instruments = [
   {
     id: 'guitar',
     name: 'Guitar',
-    headline: 'Find your first chord.',
-    description: 'From clean chord changes to playing with a band, build a style that feels like yours.',
+    headline: 'What you’ll practice on guitar',
+    description:
+      'Learn to change chords smoothly, keep time while strumming, and play songs with others.',
     topics: ['Chord shapes & finger placement', 'Rhythm & strumming', 'Melody & ensemble playing'],
     image: 'guitar',
     alt: 'An adult guides a young acoustic guitar player',
@@ -18,8 +19,8 @@ export const instruments = [
   {
     id: 'keyboard',
     name: 'Keyboard / Piano',
-    headline: 'Make the keys yours.',
-    description: 'Bring melody and harmony together as you grow comfortable playing with both hands.',
+    headline: 'What you’ll practice on keyboard',
+    description: 'Start with notes and simple melodies, then add chords and play with both hands.',
     topics: ['Notes & scales', 'Hand coordination', 'Harmony & simple arrangements'],
     image: 'keyboard',
     alt: 'An instructor guides a learner’s hands on a keyboard',
@@ -31,8 +32,8 @@ export const instruments = [
   {
     id: 'vocals',
     name: 'Vocals',
-    headline: 'Let your voice come through.',
-    description: 'Develop a reliable technique and get comfortable expressing yourself through song.',
+    headline: 'What you’ll practice in vocal lessons',
+    description: 'Warm up your voice, practice staying in tune, and work on songs that suit your range.',
     topics: [
       'Breathing & vocal technique',
       'Pitch awareness & ear training',
@@ -47,9 +48,9 @@ export const instruments = [
   {
     id: 'drums',
     name: 'Drums',
-    headline: 'Get into the groove.',
+    headline: 'What you’ll practice on drums',
     description:
-      'Learn to keep time, coordinate your limbs, and listen for how your part fits into a group.',
+      'Start with a steady beat, add fills, and learn to keep time while playing with others.',
     topics: ['Timing & rudiments', 'Groove & coordination', 'Fills & group rhythm'],
     image: 'drums',
     alt: 'A drummer plays a full kit under warm lighting',

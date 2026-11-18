@@ -1,6 +1,6 @@
 import { batches, batchTime, days, fitsBatch, money, timePreferences } from './batch-data.js';
 import { courses, getCourse, getInstrument, groups, instruments, levels } from './course-data.js';
-import { buttonLink, escapeHTML, icon, page, photo } from './site-config.js';
+import { buttonLink, escapeHTML, icon, page } from './site-config.js';
 
 export function selectField(name, label, options, value = '', placeholder = 'Any') {
   return `<label class="field">${label}<span class="select-wrap"><select name="${name}">
@@ -72,9 +72,8 @@ function courseModule(instrument, matches) {
     )
     .join('');
   return `<article class="course-module">
-    ${photo(instrument.image, instrument.alt)}
-    <div><h3>${instrument.name}</h3><p>${instrument.description}</p><ul>${instrument.topics.map((topic) => `<li>${topic}</li>`).join('')}</ul>
-    ${matches.length > 3 ? `<details class="course-option"><summary>Choose a learner group and level</summary>${options}</details>` : options}</div>
+    <div><h3>${instrument.name}</h3><p>${instrument.description}</p><ul>${instrument.topics.map((topic) => `<li>${topic}</li>`).join('')}</ul></div>
+    <div class="course-options">${matches.length > 3 ? `<details class="course-option"><summary>Show ${matches.length} course options</summary>${options}</details>` : options}</div>
   </article>`;
 }
 
@@ -96,7 +95,7 @@ export function mountFinder(host, type, params = new URLSearchParams(location.se
     ${groupChoices}${fields.map(([name, label, options]) => selectField(name, label, options, params.get(name))).join('')}
   </form>
   <div class="result-toolbar actions"><span aria-live="polite" data-count></span><button type="button" class="button" data-clear>Clear filters</button></div>
-  ${isCourse ? '' : '<p class="muted">Times are in IST. Fees, schedules, and instructor assignments are indicative.</p>'}
+  ${isCourse ? '' : '<p class="muted">Times are in IST. Schedules, fees, and instructor assignments may change.</p>'}
   <div class="results ${isCourse ? 'course-list' : 'grid three'}" data-results></div>
   ${isCourse ? '' : '<div class="actions results"><button type="button" class="button" data-load-batches hidden>Show more batches</button></div>'}`;
   const form = host.querySelector('form');

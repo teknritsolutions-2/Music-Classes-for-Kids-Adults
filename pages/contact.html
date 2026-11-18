@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Explore music classes for kids, teens and adults at UPBEAT Music Academy."
+      content="Prepare an enquiry about UPBEAT lessons, fees, enrollment, or visiting the studio."
     />
     <title>Contact / Visit | UPBEAT Music Academy</title>
     <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
@@ -31,134 +31,80 @@
       >
     </header>
     <main id="main" tabindex="-1">
-      <header class="container page-hero contact-hero">
-        <div class="page-hero-copy">
-          <span class="kicker">Contact UPBEAT</span>
-          <h1>Let’s make some music.</h1>
+      <div class="container public-content">
+        <header class="page-intro">
+          <h1>Contact UPBEAT</h1>
           <p>
-            Ask about instruments, lessons, enrollment, or planning a first visit. Start by choosing what
-            you’d like help with.
+            Have a question about lessons, fees, or a first visit? Choose a topic and prepare an enquiry.
           </p>
-        </div>
-        <figure class="page-hero-image">
-          <img
-            src="../assets/images/score-lesson.jpg"
-            alt="A teacher and a young learner look through sheet music"
-            width="1160"
-            height="773"
-            fetchpriority="high"
-            decoding="async"
-            data-photo
-          />
-        </figure>
-      </header>
-      <section class="dark-section pixel-field">
-        <div class="container section topic-layout">
-          <header class="section-head">
-            <h2>How can we help?</h2>
-          </header>
-          <nav class="enquiry-topics" aria-label="Enquiry topics">
-            <a href="?topic=Course%20enquiry#enquiry" data-topic="Course enquiry"
-              ><strong>Choose an instrument <span class="arrow" aria-hidden="true">↗</span></strong>
-              <p>Get help comparing guitar, keyboard, vocals, and drums.</p></a
-            ><a href="?topic=Batch%20enquiry#enquiry" data-topic="Batch enquiry"
-              ><strong>Find a suitable batch <span class="arrow" aria-hidden="true">↗</span></strong>
-              <p>Tell us when you’re free and who the class is for.</p></a
-            ><a href="?topic=Fees%20and%20enrollment#enquiry" data-topic="Fees and enrollment"
-              ><strong
-                >Ask about fees and enrollment <span class="arrow" aria-hidden="true">↗</span></strong
-              >
-              <p>Check what a listed fee covers and how to request a place.</p></a
-            ><a href="?topic=Studio%20visit#enquiry" data-topic="Studio visit"
-              ><strong
-                >Plan a visit or ask a question <span class="arrow" aria-hidden="true">↗</span></strong
-              >
-              <p>Ask how to arrange a first visit or add any other questions.</p></a
-            >
-          </nav>
-        </div>
-      </section>
-      <section class="container section enquiry-section" id="enquiry">
-        <div>
-          <header class="section-head">
-            <h2>Prepare an enquiry.</h2>
-            <p>
-              Include the learner’s age group, experience, and days that work for them. You can review
-              and download the draft on this device.
+        </header>
+        <div class="contact-workspace">
+          <aside class="contact-sidebar">
+            <section aria-labelledby="topics-heading">
+              <h2 id="topics-heading">Enquiry topics</h2>
+              <nav class="enquiry-topics" aria-label="Enquiry topics">
+                <a href="?topic=Course%20enquiry#enquiry" data-topic="Course enquiry"
+                  >Choose an instrument <span class="arrow" aria-hidden="true">↗</span></a
+                ><a href="?topic=Batch%20enquiry#enquiry" data-topic="Batch enquiry"
+                  >Find a suitable batch <span class="arrow" aria-hidden="true">↗</span></a
+                ><a href="?topic=Fees%20and%20enrollment#enquiry" data-topic="Fees and enrollment"
+                  >Ask about fees and enrollment <span class="arrow" aria-hidden="true">↗</span></a
+                ><a href="?topic=Studio%20visit#enquiry" data-topic="Studio visit"
+                  >Plan a visit or ask a question <span class="arrow" aria-hidden="true">↗</span></a
+                >
+              </nav>
+            </section>
+            <section class="visit-note">
+              <h2>Planning a first visit?</h2>
+              <p>
+                Ask the academy to confirm its address and visiting hours before travelling. Include the
+                learner’s age group, instrument, and preferred day in your question.
+              </p>
+            </section>
+          </aside>
+          <section class="contact-editor" id="enquiry" aria-labelledby="enquiry-heading">
+            <h2 id="enquiry-heading">Prepare an enquiry</h2>
+            <p class="notice">
+              You can review and download your draft here. Online delivery is unavailable.
             </p>
-          </header>
-          <p class="notice">
-            Online delivery is unavailable. Preparing a draft does not send a message.
-          </p>
+            <form method="dialog" class="form-stack enquiry-form" data-contact>
+              <div class="field-pair">
+                <label class="field"
+                  >Name<input name="name" autocomplete="name" maxlength="80" required
+                /></label>
+                <label class="field"
+                  >Email<input name="email" type="email" autocomplete="email" maxlength="120" required
+                /></label>
+              </div>
+              <label class="field"
+                >Topic<span class="select-wrap"
+                  ><select name="topic" required>
+                    <option value="">Select a topic</option>
+                    <option>Course enquiry</option>
+                    <option>Batch enquiry</option>
+                    <option>Fees and enrollment</option>
+                    <option>Studio visit</option>
+                    <option>General enquiry</option></select
+                  ><svg
+                    viewBox="0 0 24 24"
+                    width="20"
+                    height="20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    aria-hidden="true"
+                  >
+                    <path d="m6 9 6 6 6-6" /></svg></span
+              ></label>
+              <label class="field"
+                >Message<textarea name="message" rows="4" maxlength="1500" required></textarea>
+              </label>
+              <div><button class="button accent" type="submit">Review enquiry</button></div>
+            </form>
+          </section>
         </div>
-        <form method="dialog" class="card form-stack enquiry-form" data-contact>
-          <div class="field-pair">
-            <label class="field"
-              >Name<input name="name" autocomplete="name" maxlength="80" required
-            /></label>
-            <label class="field"
-              >Email<input name="email" type="email" autocomplete="email" maxlength="120" required
-            /></label>
-          </div>
-          <label class="field"
-            >Topic<span class="select-wrap"
-              ><select name="topic" required>
-                <option value="">Select a topic</option>
-                <option>Course enquiry</option>
-                <option>Batch enquiry</option>
-                <option>Fees and enrollment</option>
-                <option>Studio visit</option>
-                <option>General enquiry</option></select
-              ><svg
-                viewBox="0 0 24 24"
-                width="20"
-                height="20"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.7"
-                aria-hidden="true"
-              >
-                <path d="m6 9 6 6 6-6" /></svg></span
-          ></label>
-          <label class="field"
-            >Message<textarea name="message" rows="4" maxlength="1500" required></textarea>
-          </label>
-          <div><button class="button accent" type="submit">Review enquiry</button></div>
-        </form>
-      </section>
-      <section class="container section visit-spread">
-        <figure class="visit-photo">
-          <img
-            src="../assets/images/studio-room.jpg"
-            alt="A music practice space with drums, microphones, and guitars"
-            width="1400"
-            height="935"
-            loading="lazy"
-            decoding="async"
-            data-photo
-          />
-        </figure>
-        <div>
-          <header class="section-head">
-            <span class="kicker">Your first visit</span>
-            <h2>Come with a question.</h2>
-            <p>Confirm the studio location and visiting hours before making plans.</p>
-          </header>
-          <ul class="visit-checklist">
-            <li>Ask which beginner classes suit your learner group.</li>
-            <li>Make a shortlist of weekly sessions that fit your schedule.</li>
-            <li>Share any instrument you already play and what you’d like to learn.</li>
-          </ul>
-          <a href="?topic=Studio%20visit#enquiry" class="text-link" data-topic="Studio visit"
-            >Prepare a studio visit enquiry <span class="arrow" aria-hidden="true">↗</span></a
-          >
-        </div>
-      </section>
-      <section class="studio-band">
-        <div class="container section contact-faq">
-          <header class="section-head">
-            <h2>Useful things to know.</h2>
-          </header>
+        <section class="public-block contact-faq">
+          <header class="block-title"><h2>Frequently asked questions</h2></header>
           <div class="faq">
             <details>
               <summary><span dir="auto">Can I start as a beginner?</span></summary>
@@ -199,22 +145,20 @@
               </p>
             </details>
           </div>
-        </div>
-      </section>
-      <section class="container section contact-explore">
-        <header class="section-head">
-          <h2>Take a look around.</h2>
-        </header>
-        <nav class="contact-explore-links" aria-label="Explore before you enquire">
-          <a class="text-link" href="../pages/courses.html"
-            >Courses <span class="arrow" aria-hidden="true">↗</span></a
-          ><a class="text-link" href="../pages/instructors.html"
-            >Instructors <span class="arrow" aria-hidden="true">↗</span></a
-          ><a class="text-link" href="../pages/fees-batches.html"
-            >Fees &amp; Batches <span class="arrow" aria-hidden="true">↗</span></a
-          >
-        </nav>
-      </section>
+        </section>
+        <section class="public-block contact-quicklinks">
+          <header class="block-title"><h2>Plan your lessons</h2></header>
+          <nav class="related-links" aria-label="Related pages">
+            <a class="text-link" href="courses.html"
+              >Courses <span class="arrow" aria-hidden="true">↗</span></a
+            ><a class="text-link" href="instructors.html"
+              >Instructors <span class="arrow" aria-hidden="true">↗</span></a
+            ><a class="text-link" href="fees-batches.html"
+              >Fees &amp; Batches <span class="arrow" aria-hidden="true">↗</span></a
+            >
+          </nav>
+        </section>
+      </div>
     </main>
     <footer id="site-footer"></footer>
   </body>

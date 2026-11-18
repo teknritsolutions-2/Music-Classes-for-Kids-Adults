@@ -16,11 +16,6 @@ export function mountExplorer(host) {
     <article class="instrument-display" id="instrument-panel" role="tabpanel" tabindex="0"></article>`;
   const rail = host.querySelector('[role="tablist"]');
   const tabs = [...rail.querySelectorAll('[role="tab"]')];
-  const wide = matchMedia('(min-width: 720px)');
-  const setOrientation = () =>
-    rail.setAttribute('aria-orientation', wide.matches ? 'vertical' : 'horizontal');
-  wide.addEventListener('change', setOrientation);
-  setOrientation();
   const panel = host.querySelector('[role="tabpanel"]');
   const select = (index, focus) => {
     const active = tabs[index];
@@ -31,7 +26,7 @@ export function mountExplorer(host) {
     });
     panel.setAttribute('aria-labelledby', active.id);
     panel.innerHTML = `${photo(instrument.image, instrument.alt)}
-      <div class="instrument-notes"><span class="kicker">${instrument.name}</span><h3>${instrument.headline}</h3>
+      <div class="instrument-notes"><h3>${instrument.headline}</h3>
       <p>${instrument.description}</p><ul>${instrument.topics.map((topic) => `<li>${topic}</li>`).join('')}</ul>
       <div class="instrument-facts"><span class="pill">${groups.join(' · ')}</span><span class="pill">${levels.join(' · ')}</span></div><div>${buttonLink('Explore ' + instrumentLabel(instrument), page('courses', { instrument: instrument.id }), 'accent')}</div></div>`;
     if (focus) active.focus();
