@@ -200,6 +200,14 @@
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
+@media (width < 1100px) {
+  .dash-top {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 30;
+  }
+}
+
 @media (min-width: 1100px) {
   .dashboard {
     display: grid;
