@@ -84,6 +84,98 @@
   margin: 0;
 }
 
+/* Reusable artwork treatments use the original mosaic without tiling. */
+.pixel-surface {
+  position: relative;
+  isolation: isolate;
+}
+.pixel-surface::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  inset: 0;
+  border-radius: inherit;
+  background: url('../images/pixel-rhythm.svg') right center / auto 100% no-repeat;
+}
+.pixel-surface:dir(rtl)::before {
+  background-position: left center;
+}
+.pixel-prominent {
+  background-color: var(--night);
+}
+.pixel-prominent::before {
+  background-size: cover;
+  opacity: 0.8;
+}
+.pixel-prominent .landing-copy {
+  padding: clamp(0.7rem, 1.7vw, 1.25rem);
+  border-radius: var(--radius-control);
+  background: #17151fe8;
+}
+.pixel-atmospheric::before {
+  opacity: 1;
+}
+.pixel-atmospheric > div {
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-control);
+  background: #17151fe8;
+}
+.pixel-atmospheric .button.accent {
+  color: #211b32;
+  background: #cfbaff;
+  border-color: #cfbaff;
+}
+.pixel-atmospheric .button:not(.accent) {
+  color: #f7f6fb;
+  background: #211b32;
+  border-color: #bba2ff;
+}
+.pixel-medium::before {
+  inset-inline-start: 45%;
+  opacity: 0.3;
+  background-size: cover;
+  mask-image: linear-gradient(90deg, transparent, #000 85%);
+}
+.pixel-medium:dir(rtl)::before {
+  mask-image: linear-gradient(270deg, transparent, #000 85%);
+}
+.planner-workspace > .pixel-medium::before {
+  inset-inline-start: 55%;
+  background-size: auto 9rem;
+}
+.pixel-subtle::before {
+  inset-inline-start: 0.5rem;
+  inset-inline-end: auto;
+  inset-block: auto 0.5rem;
+  inline-size: clamp(4rem, 10vw, 8rem);
+  block-size: clamp(2rem, 5vw, 4rem);
+  opacity: 0.38;
+}
+.pixel-subtle:dir(rtl)::before {
+  inset-inline-start: 0.5rem;
+  inset-inline-end: auto;
+}
+:root[data-theme='dark'] .pixel-medium::before {
+  opacity: 0.33;
+}
+:root[data-theme='dark'] .pixel-subtle::before {
+  opacity: 0.4;
+}
+@media (width < 760px) {
+  .pixel-medium::before {
+    background-size: auto 100%;
+    opacity: 0.22;
+  }
+  .pixel-prominent::before {
+    background-size: auto 100%;
+    opacity: 0.62;
+  }
+  .pixel-atmospheric::before {
+    opacity: 0.82;
+  }
+}
+
 /* Shared instrument selector */
 .studio-eyebrow {
   color: var(--accent-text);
