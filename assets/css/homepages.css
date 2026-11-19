@@ -117,10 +117,26 @@
   padding: var(--panel-padding);
   border: 1px solid var(--line);
   border-radius: var(--editorial-radius);
+  background: var(--surface);
+}
+.explorer-block [data-explorer] {
+  gap: 0.8rem;
+}
+.explorer-block .instrument-display {
+  border: 0;
   background: var(--soft);
 }
 .explorer-block .instrument-display img {
-  object-position: center 44%;
+  aspect-ratio: 1.6;
+  block-size: auto;
+  align-self: center;
+  object-position: center;
+}
+.explorer-block .instrument-notes {
+  padding: clamp(0.85rem, 2vw, 1.5rem);
+}
+.explorer-block .instrument-notes h3 {
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
 }
 .explorer-block .instrument-tab[aria-selected='true'] {
   color: white;
@@ -410,16 +426,6 @@
     inset-inline: 2.35rem 0;
     inset-block-start: 1.4rem;
     border-block-start: 1px solid var(--line);
-  }
-}
-
-@media (min-width: 950px) {
-  .explorer-block [data-explorer] {
-    grid-template-columns: minmax(8.7rem, 0.25fr) minmax(0, 1fr);
-    align-items: start;
-  }
-  .explorer-block .instrument-rail {
-    grid-template-columns: minmax(0, 1fr);
   }
 }
 

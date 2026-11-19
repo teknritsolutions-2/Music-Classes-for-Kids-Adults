@@ -767,7 +767,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 0.8rem var(--inner-gap);
-  align-items: center;
+  align-items: start;
   padding: var(--panel-padding);
   border: 1px solid var(--line);
   border-radius: var(--editorial-radius);
@@ -796,15 +796,44 @@
 }
 .course-module .course-option {
   margin-block: 0.25rem 0;
-  padding: 0.55rem 0.75rem;
+  padding: 0.25rem;
   border: 1px solid var(--line);
   border-radius: var(--radius-control);
   background: var(--surface);
 }
 .course-module .course-option summary {
-  min-block-size: 2.55rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+  min-block-size: 2.9rem;
+  padding: 0.5rem 0.65rem;
+  border-radius: var(--radius-control);
   color: var(--accent-text);
   font-weight: 710;
+  list-style: none;
+}
+.course-module .course-option summary::after {
+  content: '+';
+  flex: none;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+.course-module .course-option[open] > summary::after {
+  content: '−';
+}
+.course-module .course-option summary:hover {
+  background: var(--surface-hover);
+}
+.course-module .course-option summary:focus-visible {
+  outline-offset: -2px;
+}
+.course-module .course-option > :is(p, a) {
+  margin-block: 0.55rem;
+  margin-inline: 0.65rem;
+}
+.course-options > .course-option {
+  margin: 0;
 }
 .course-module .course-option[open] {
   padding-block-end: 0.8rem;
@@ -818,7 +847,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 0.25rem 0.55rem;
-  inline-size: calc(100% - 1rem);
+  inline-size: 100%;
 }
 .course-summary span:last-child {
   color: var(--muted);
@@ -982,9 +1011,6 @@
   }
   .catalogue-tracks a:is(:first-child, :last-child) {
     grid-column: span 7;
-  }
-  .course-module {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
   }
   .contact-workspace {
     grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.2fr);
