@@ -84,7 +84,7 @@
   margin: 0;
 }
 
-/* Reusable artwork treatments use the original mosaic without tiling. */
+/* Contained brand artwork. Fine rhythm marks complement the prominent mosaic. */
 .pixel-surface {
   position: relative;
   isolation: isolate;
@@ -131,41 +131,43 @@
   background: #211b32;
   border-color: #bba2ff;
 }
-.pixel-medium::before {
-  inset-inline-start: 45%;
-  opacity: 0.3;
-  background-size: cover;
-  mask-image: linear-gradient(90deg, transparent, #000 85%);
+.pixel-medium::before,
+.pixel-subtle::before {
+  background-image: url('../images/pixel-rhythm-fine.svg');
+  background-size: auto 15rem;
+  inset-inline-start: 38%;
+  opacity: 0.72;
+  mask-image: linear-gradient(90deg, transparent, #000 75%);
 }
-.pixel-medium:dir(rtl)::before {
-  mask-image: linear-gradient(270deg, transparent, #000 85%);
+.pixel-medium:dir(rtl)::before,
+.pixel-subtle:dir(rtl)::before {
+  mask-image: linear-gradient(270deg, transparent, #000 75%);
 }
 .planner-workspace > .pixel-medium::before {
-  inset-inline-start: 55%;
+  inset-inline-start: 48%;
   background-size: auto 9rem;
 }
 .pixel-subtle::before {
-  inset-inline-start: 0.5rem;
-  inset-inline-end: auto;
-  inset-block: auto 0.5rem;
-  inline-size: clamp(4rem, 10vw, 8rem);
-  block-size: clamp(2rem, 5vw, 4rem);
-  opacity: 0.38;
+  inset-inline-start: 4%;
+  inset-inline-end: 52%;
+  opacity: 0.4;
+  background-position: left bottom;
+  mask-image: linear-gradient(0deg, #000, transparent 60%);
 }
 .pixel-subtle:dir(rtl)::before {
-  inset-inline-start: 0.5rem;
-  inset-inline-end: auto;
+  background-position: right bottom;
 }
 :root[data-theme='dark'] .pixel-medium::before {
-  opacity: 0.33;
+  opacity: 0.88;
 }
 :root[data-theme='dark'] .pixel-subtle::before {
-  opacity: 0.4;
+  opacity: 0.65;
 }
 @media (width < 760px) {
   .pixel-medium::before {
-    background-size: auto 100%;
-    opacity: 0.22;
+    background-size: auto 11rem;
+    inset-inline-start: 20%;
+    opacity: 0.52;
   }
   .pixel-prominent::before {
     background-size: auto 100%;
