@@ -129,7 +129,8 @@
 .explorer-block .instrument-display img {
   aspect-ratio: 1.6;
   block-size: auto;
-  align-self: center;
+  align-self: stretch;
+  object-fit: cover;
   object-position: center;
 }
 .explorer-block .instrument-notes {
@@ -396,9 +397,6 @@
 }
 
 @media (min-width: 760px) {
-  .academy-hero {
-    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.12fr);
-  }
   .landing-feature {
     grid-template-columns: minmax(0, 1fr) minmax(0, 0.94fr);
   }
@@ -426,6 +424,106 @@
     inset-inline: 2.35rem 0;
     inset-block-start: 1.4rem;
     border-block-start: 1px solid var(--line);
+  }
+}
+
+@media (width < 1240px) {
+  .academy-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: clip;
+    gap: 0;
+    border-radius: var(--editorial-radius);
+    background: var(--night);
+    color: var(--white);
+  }
+  .academy-hero-photo {
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+  }
+  .academy-hero-photo img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    object-position: center 43%;
+    border-radius: 0;
+  }
+  .academy-hero::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: linear-gradient(90deg, #17151ff0, #17151fd4 44%, #17151f45);
+  }
+  .academy-hero:dir(rtl)::after {
+    background: linear-gradient(270deg, #17151ff0, #17151fd4 44%, #17151f45);
+  }
+  .academy-hero .landing-copy {
+    padding: clamp(1.25rem, 5vw, 4rem);
+    min-block-size: 24rem;
+  }
+  .academy-hero .studio-eyebrow {
+    color: #d5c2ff;
+  }
+  .academy-hero .landing-copy > p:not(.studio-eyebrow) {
+    color: #f1ebfa;
+    max-inline-size: 35ch;
+  }
+  .academy-hero .button.accent {
+    background: #c7adff;
+    color: #211b32;
+    border-color: #c7adff;
+  }
+  .academy-hero .button:not(.accent) {
+    background: #211b32;
+    color: white;
+    border-color: #b9a9d1;
+  }
+}
+@media (width < 540px) {
+  .academy-hero-photo img {
+    object-position: 47% center;
+  }
+  .academy-hero::after,
+  .academy-hero:dir(rtl)::after {
+    background: linear-gradient(180deg, #17151f80, #17151fcf 38%, #17151ff2);
+  }
+  .academy-hero .landing-copy {
+    min-block-size: 26rem;
+  }
+}
+@media (width < 760px) {
+  .explorer-block .instrument-display {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (min-width: 760px) {
+  .explorer-block .instrument-display img {
+    aspect-ratio: auto;
+    block-size: 100%;
+    min-block-size: 0;
+  }
+  .explorer-block .instrument-shot-guitar {
+    object-position: 46% center;
+  }
+  .explorer-block .instrument-shot-keyboard {
+    object-position: 52% center;
+  }
+  .explorer-block .instrument-shot-vocals {
+    object-position: 53% center;
+  }
+  .explorer-block .instrument-shot-drums {
+    object-position: center;
+  }
+}
+@media (min-width: 1240px) {
+  .academy-hero {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.12fr);
   }
 }
 

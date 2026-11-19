@@ -266,7 +266,7 @@ summary::-webkit-details-marker {
 }
 .drawer {
   position: fixed;
-  inset: 0 0 0 auto;
+  inset: 0 auto 0 0;
   margin: 0;
   inline-size: min(90%, 24rem);
   max-inline-size: none;
@@ -277,9 +277,6 @@ summary::-webkit-details-marker {
   background: var(--canvas);
   color: var(--ink);
   overflow: auto;
-}
-.drawer:dir(rtl) {
-  inset: 0 auto 0 0;
 }
 dialog::backdrop {
   background: #141122a8;
